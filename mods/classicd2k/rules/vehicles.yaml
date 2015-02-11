@@ -1,0 +1,358 @@
+^MCV:
+	Inherits: ^Vehicle
+	Buildable:
+		Prerequisites: ~heavy, ~repair, ~heavyup1
+		Queue: Armor
+		BuildPaletteOrder: 110
+		BuildAtProductionType: Tanks
+	CustomBuildTimeValue:
+		Value: 300	#15
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Mobile Construction Vehicle
+		Description: Deploys into a Construction Yard
+	Selectable:
+		Priority: 3
+		Bounds: 42,42
+	Passenger:
+		CargoType: Vehicle
+		Weight: 10
+	Health:
+		HP: 4500
+	SelfHealing:
+		Step: 50
+		Ticks: 100
+		HealIfBelow: 0.5
+		RequiresUpgrade: no
+	Armor:
+		Type: Light
+	Mobile:
+		InitialFacing: 0
+		Speed: 25
+		ROT: 3
+		Crushes: crate, infantry
+	RevealsShroud:
+		Range: 2c512
+	MustBeDestroyed:
+	BaseBuilding:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	Transforms:
+		TransformSounds: BUILD1.WAV
+	-AutoTarget:
+
+HARVESTER:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Armor
+		Prerequisites: ~heavy, refinery
+		BuildPaletteOrder: 10
+		InitialActivity: FindResources
+		BuildAtProductionType: Tanks
+	CustomBuildTimeValue:
+		Value: 216	#18
+	Valued:
+		Cost: 1200
+	Tooltip:
+		Name: Harvester
+		Description: Harvests the Spice Melange
+	Selectable:
+		Priority: 7
+		Bounds: 42,42
+	Passenger:
+		CargoType: Vehicle
+		Weight: 10
+	Harvester:
+		PipCount: 7
+		Capacity: 35
+		HarvestFacings: 8
+		Resources: Spice
+		UnloadTicksPerBale: 10
+		SearchFromProcRadius: 24
+		SearchFromOrderRadius: 12
+	Health:
+		HP: 4500
+	SelfHealing:
+		Step: 50
+		Ticks: 100
+		HealIfBelow: 0.5
+		RequiresUpgrade: no
+	Armor:
+		Type: Harvester
+	Mobile:
+		Speed: 33
+		ROT: 3
+		Crushes: crate, infantry
+	RenderUnit:
+		Image: HARVESTER
+	RevealsShroud:
+		Range: 2c512
+	Explodes:
+		Weapon: SpiceExplosion
+		EmptyWeapon: UnitExplode
+	WithHarvestAnimation:
+	Carryable:
+	-AutoTarget:
+
+HARVESTER.starport:
+	Inherits: HARVESTER
+	Buildable:
+		Prerequisites: ~starport
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 1620
+
+TRIKE:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 10
+		Prerequisites: ~trikes
+	CustomBuildTimeValue:
+		Value: 150	#50
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Trike
+		Description: Fast scout\n Strong vs Infantry\n Weak vs Tanks
+	Selectable:
+		Bounds: 24,24
+	Passenger:
+		CargoType: Vehicle
+		Weight: 3
+	Health:
+		HP: 900
+	Armor:
+		Type: Wood
+	Mobile:
+		ROT: 10
+		Speed: 98
+	RevealsShroud:
+		Range: 4c512
+	RenderUnit:
+	WithMuzzleFlash:
+	Armament:
+		Weapon: HMG
+		LocalOffset: -512,0,0
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+
+TRIKE.starport:
+	Inherits: TRIKE
+	Buildable:
+		Queue: Starport
+		Prerequisites: ~starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 405
+	RenderUnit:
+		Image: TRIKE
+
+QUAD:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		Prerequisites: ~light, ~lightup1
+		BuildPaletteOrder: 20
+	CustomBuildTimeValue:
+		Value: 140	#35
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Missile Quad
+		Description: Missile scout\n Strong vs Vehicles\n Weak vs Infantry
+	Passenger:
+		CargoType: Vehicle
+		Weight: 4
+	Health:
+		HP: 1100
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 10
+		Speed: 74
+	RevealsShroud:
+		Range: 4c512
+	Armament:
+		Weapon: QuadRocket
+		LocalOffset: 142,0,64
+	AttackFrontal:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	Selectable:
+		Bounds: 24,24
+
+QUAD.starport:
+	Inherits: QUAD
+	Buildable:
+		Prerequisites: ~starport
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 540
+	RenderUnit:
+		Image: QUAD
+
+^COMBAT:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Armor
+		BuildPaletteOrder: 40
+		BuildAtProductionType: Tanks
+	CustomBuildTimeValue:
+		Value: 182	#26
+	Passenger:
+		CargoType: Vehicle
+		Weight: 4
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Combat Tank
+		Description: Main Battle Tank\n  Strong vs Tanks\n  Weak vs Infantry
+	Health:
+		HP: 2100
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 66
+		ROT: 4
+		Crushes: crate, infantry
+	RevealsShroud:
+		Range: 5c512
+	Turreted:
+		ROT: 5
+		RealignDelay: 0
+	Armament:
+		Weapon: 80mma
+		Recoil: 128
+		RecoilRecovery: 32
+		LocalOffset: 256,0,0
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	WithMuzzleFlash:
+	RenderUnit:
+	WithTurret:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	Selectable:
+		Bounds: 30,30
+
+SIEGETANK:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Armor
+		Prerequisites: ~heavy, ~heavyup1
+		BuildPaletteOrder: 50
+		BuildAtProductionType: Tanks
+	CustomBuildTimeValue:
+		Value: 210	#30
+	Passenger:
+		CargoType: Vehicle
+		Weight: 5
+	Valued:
+		Cost: 700
+	Tooltip:
+		Name: Siege Tank
+		Description: Siege artillery\n  Strong vs Infantry, Buildings\n  Weak vs Tanks
+	Health:
+		HP: 1200
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 33
+		ROT: 4
+		Crushes: crate, infantry
+	RevealsShroud:
+		Range: 6c512
+	Turreted:
+		ROT: 3
+		Offset: 0,0,-32
+	Armament:
+		Weapon: 155mm
+		Recoil: 150
+		RecoilRecovery: 19
+		LocalOffset: 512,0,320
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	WithMuzzleFlash:
+	RenderUnit:
+		Image: SIEGETANK
+	WithTurret:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	AutoTarget:
+		InitialStance: Defend
+	Selectable:
+		Bounds: 30,30
+
+SIEGETANK.starport:
+	Inherits: SIEGETANK
+	Buildable:
+		Prerequisites: ~starport
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 945
+
+MISSILETANK:
+	Inherits: ^Tank
+	Tooltip:
+		Name: Rocket Tank
+		Description: Rocket artillery\n  Strong vs Vehicles, Buildings, Aircraft\n  Weak vs Infantry
+	Buildable:
+		Queue: Armor
+		Prerequisites: ~heavy, ~research, ~missiletanks, ~heavyup1
+		BuildPaletteOrder: 60
+		BuildAtProductionType: Tanks
+	CustomBuildTimeValue:
+		Value: 198	#22
+	Passenger:
+		CargoType: Vehicle
+		Weight: 5
+	Valued:
+		Cost: 900
+	Mobile:
+		Speed: 49
+		ROT: 4
+	Health:
+		HP: 1300
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 6c512
+	RenderUnit:
+		Image: MISSILETANK
+	Armament:
+		Weapon: 227mm
+		LocalOffset: -213,128,171, -213,-256,171
+		FireDelay: 15
+	AttackFrontal:
+	AutoTarget:
+		InitialStance: Defend
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	Selectable:
+		Bounds: 30,30
+
+MISSILETANK.starport:
+	Inherits: MISSILETANK
+	Buildable:
+		Prerequisites: ~starport
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 1215
+

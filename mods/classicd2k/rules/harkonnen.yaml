@@ -1,0 +1,272 @@
+CONYARDH:
+	Inherits: ^CONYARD
+
+PWRH:
+	Inherits: ^POWER
+	Buildable:
+		Prerequisites: ~conyardh
+
+BARRH:
+	Inherits: ^BARRACKS
+	Buildable:
+		Prerequisites: ~conyardh, ~power
+
+REFH:
+	Inherits: ^REFINERY
+	Buildable:
+		Prerequisites: ~conyardh, ~power
+
+SILOH:
+	Inherits: ^SILO
+	Buildable:
+		Prerequisites: ~conyardh, ~refinery
+
+LIGHTH:
+	Inherits: ^LIGHT
+	Buildable:
+		Prerequisites: ~conyardh, ~barracks
+	ProvidesCustomPrerequisite@TRIKES:
+		Prerequisite: trikes
+	ProvidesCustomPrerequisite@LIGHT:
+		Prerequisite: light
+
+HEAVYH:
+	Inherits: ^HEAVY
+	Buildable:
+		Prerequisites: ~conyardh, ~refinery
+	ProvidesCustomPrerequisite@MISSILETANKS:
+		Prerequisite: missiletanks
+	ProvidesCustomPrerequisite@HEAVY:
+		Prerequisite: heavy
+
+RADARH:
+	Inherits: ^RADAR
+	Buildable:
+		Prerequisites: ~conyardh, ~barracks, ~techlevel.medium
+
+STARPORTH:
+	Inherits: ^STARPORT
+	Buildable:
+		Prerequisites: ~conyardh, ~heavy, ~radar, ~techlevel.high
+	ProvidesCustomPrerequisite@MCVASP:
+		Prerequisite: mcvasp
+		Race: atreides
+	ProvidesCustomPrerequisite@MCVHSP:
+		Prerequisite: mcvhsp
+		Race: harkonnen
+	ProvidesCustomPrerequisite@MCVOSP:
+		Prerequisite: mcvosp
+		Race: ordos
+	ProvidesCustomPrerequisite@STARPORT:
+		Prerequisite: starport
+
+WALLH:
+	Inherits: ^WALL
+	Buildable:
+		Prerequisites: ~conyardh, ~barracks
+
+GUNTOWERH:
+	Inherits: ^GUNTOWER
+	Buildable:
+		Prerequisites: ~conyardh, ~barracks
+
+ROCKETTOWERH:
+	Inherits: ^ROCKETTOWER
+	Buildable:
+		Prerequisites: ~conyardh, ~radar, ~conyardup1
+
+REPAIRH:
+	Inherits: ^REPAIR
+	Buildable:
+		Prerequisites: ~conyardh, ~heavy, ~heavyup1
+	ProvidesCustomPrerequisite@MCVHP:
+		Prerequisite: mcvhp
+		Race: harkonnen
+
+HIGHTECHH:
+	Inherits: ^HIGHTECH
+	Buildable:
+		Prerequisites: ~conyardh, ~radar
+
+RESEARCHH:
+	Inherits: ^RESEARCH
+	Buildable:
+		Prerequisites: ~conyardh, ~heavy, ~heavyup1, ~techlevel.medium
+
+PALACEH:
+	Inherits: ^PALACE
+	Buildable:
+		Prerequisites: ~conyardh, ~research
+	Tooltip:
+		Name: Harkonnen Palace
+		Description: Special Ability: Death Hand Missile
+	NukePower:
+		Icon: deathhand
+		ChargeTime: 300
+		Description: Death Hand
+		Prerequisites: ~techlevel.superweapons
+		LongDesc: Launches a nuclear missile at a target location
+		BeginChargeSound: HI_PREP.AUD
+		EndChargeSound: HI_DHRDY.AUD
+		SelectTargetSound:
+		LaunchSound:
+		IncomingSound:
+		MissileWeapon: atomic
+		SpawnOffset: -512,1c171,0
+		DisplayBeacon: false
+		DisplayRadarPing: false
+		CameraActor: camera
+	CanPowerDown:
+	DisabledOverlay:
+	RequiresPower:
+	SupportPowerChargeBar:
+	
+UPGRADE.CONYARDH:
+	Inherits: ^UPGRADE.CONYARD
+	Buildable:
+		Prerequisites: ~conyardh, !conyarda, !conyardo, !upgrade.conyarda, !upgrade.conyardo, ~techlevel.medium
+	RenderSprites:
+		Image: conyardh
+	
+UPGRADE.BARRACKSH:
+	Inherits: ^UPGRADE.BARRACKS
+	Buildable:
+		Prerequisites: ~barrh, !barra, !barro, !upgrade.barracksa, !upgrade.barrackso
+	RenderSprites:
+		Image: barrh
+		
+UPGRADE.LIGHTH:
+	Inherits: ^UPGRADE.LIGHT
+	Buildable:
+		Prerequisites: ~lighth, !lighta, !lighto, !upgrade.lighta, !upgrade.lighto
+	RenderSprites:
+		Image: lighth
+		
+UPGRADE.HEAVYH:
+	Inherits: ^UPGRADE.HEAVY
+	Buildable:
+		Prerequisites: ~heavyh, !heavya, !heavyo, !upgrade.heavya, !upgrade.heavyo, ~techlevel.medium
+	RenderSprites:
+		Image: heavyh
+
+MCVH:
+	Inherits: ^MCV
+	Buildable:
+		Prerequisites: ~heavyh, ~heavyup1, ~mcvhp
+	Transforms:
+		Facing: 16
+		IntoActor: conyardh
+		Offset: -1,-1
+		NoTransformSounds: HI_DPLOY.AUD
+	RenderUnit:
+		Image: DMCV
+
+MCVH.starport:
+	Inherits: MCVH
+	Buildable:
+		Prerequisites: ~mcvhsp
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 2700
+
+COMBATH:
+	Inherits: ^COMBAT
+	Buildable:
+		Prerequisites: ~heavyh
+	Mobile:
+		Speed: 49
+	Health:
+		HP: 2700
+	Armament:
+		Weapon: 80mmh
+		Recoil: 128
+		RecoilRecovery: 32
+		LocalOffset: 256,0,0
+		MuzzleSequence: muzzle
+	RenderUnit:
+		Image: COMBATH
+	WithTurret:
+
+COMBATH.starport:
+	Inherits: COMBATH
+	Buildable:
+		Prerequisites: ~mcvhsp
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 945
+
+DEVAST:
+	Inherits: ^Tank
+	Buildable:
+		Queue: Armor
+		BuildPaletteOrder: 100
+		Prerequisites: ~heavyh, ~research
+		BuildAtProductionType: Tanks
+	CustomBuildTimeValue:
+		Value: 189	#18
+	Valued:
+		Cost: 1050
+	Tooltip:
+		Name: Devastator
+		Description: Super Heavy Tank\n  Strong vs Tanks\n  Weak vs Artillery, Aircraft
+	Health:
+		HP: 5000
+	SelfHealing:
+		Step: 50
+		Ticks: 100
+		HealIfBelow: 0.5
+		RequiresUpgrade: no
+	Armor:
+		Type: Heavy
+	Mobile:
+		ROT: 3
+		Speed: 25
+		Crushes: crate, infantry
+	RevealsShroud:
+		Range: 3c512
+	RenderUnit:
+	Armament:
+		Weapon: DevBullet
+		LocalOffset: 360,0,32
+		MuzzleSequence: muzzle
+	AttackFrontal:
+	WithMuzzleFlash:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+	Selectable:
+		Bounds: 44,38,0,0
+
+SARDAUKAR:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 80
+		Prerequisites: ~barrh, ~barracksup1, ~hightechh
+	CustomBuildTimeValue:
+		Value: 140	#70
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Sardaukar
+		Description: Elite assault infantry\n  Strong vs Infantry, Vehicles
+	Selectable:
+		Voice: GenericVoice
+	Health:
+		HP: 1000
+	Armor:
+		Type: None
+	Mobile:
+		ROT: 5
+		Speed: 25
+	RevealsShroud:
+		Range: 3c512
+	TakeCover:
+	Armament@PRIMARY:
+		Weapon: M_LMG
+	Armament@SECONDARY:
+		Weapon: M_HMG
+	AttackFrontal:

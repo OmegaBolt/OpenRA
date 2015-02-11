@@ -1,0 +1,476 @@
+Player:
+	HackyAI@Omnius:
+		Name: Easy
+		UnitQueues: Infantry, Upgrade, Vehicle, Armor, Starport
+		BuildingCommonNames:
+			ConstructionYard: conyarda,conyardh,conyardo
+			Refinery: refa,refh,refo
+			Power: pwra,pwrh,pwro
+			Barracks: barra,barrh,barro
+			VehiclesFactory: lighta,lighth,lighto,heavya,heavyh,heavyo
+			Production: lighta,lighth,lighto,heavya,heavyh,heavyo,barra,barrh,barro,hightecha,hightechh,hightecho
+			Silo: siloa, siloh, siloo
+		UnitsCommonNames:
+			Mcv: mcva,mcvh,mcvo
+		BuildingLimits:
+			refa: 4
+			refh: 4
+			refo: 4
+			barra: 2
+			barrh: 2
+			barro: 2
+			lighta: 1
+			lighth: 1
+			lighto: 1
+			heavya: 1
+			heavyh: 1
+			heavyo: 1
+			researcha: 1
+			researchh: 1
+			researcho: 1
+			repaira: 1
+			repairh: 1
+			repairo: 1
+			radara: 1
+			radaro: 1
+			radarh: 1
+			hightecha: 1
+			hightechh: 1
+			hightecho: 1
+			palacea: 1
+			palaceh: 1
+			palaceo: 1
+			upgrade.conyarda: 1
+			upgrade.conyardh: 1
+			upgrade.conyardo: 1
+			upgrade.barracksa: 1
+			upgrade.barracksh: 1
+			upgrade.barrackso: 1
+			upgrade.lighta: 1
+			upgrade.lighth: 1
+			upgrade.lighto: 1
+			upgrade.heavya: 1
+			upgrade.heavyh: 1
+			upgrade.heavyo: 1
+			upgrade.higha: 1
+		BuildingFractions:
+			refa: 20.1%
+			refh: 20.1%
+			refo: 20.1%
+			barra: 0.5%
+			barrh: 0.5%
+			barro: 0.5%
+			lighta: 0.3%
+			lighth: 0.3%
+			lighto: 0.3%
+			heavya: 0.2%
+			heavyh: 0.2%
+			heavyo: 0.2%
+			radara: 0.1%
+			radaro: 0.1%
+			radarh: 0.1%
+			hightecha: 0.1%
+			hightechh: 0.1%
+			hightecho: 0.1%
+			starporta: 0.1%
+			starporth: 0.1%
+			starporto: 0.1%
+			researcha: 0.1%
+			researchh: 0.1%
+			researcho: 0.1%
+			repaira: 0.1%
+			repairh: 0.1%
+			repairo: 0.1%
+			guntowera: 8%
+			guntowerh: 8%
+			guntowero: 8%
+			rockettowera: 6%
+			rockettowerh: 6%
+			rockettowero: 6%
+			pwra: 10%
+			pwrh: 10%
+			pwro: 10%
+			upgrade.lighta: 0.1%
+			upgrade.lighth: 0.1%
+			upgrade.lighto: 0.1%
+			upgrade.heavya: 0.1%
+			upgrade.heavyh: 0.1%
+			upgrade.heavyo: 0.1%
+			upgrade.higha: 0.1%
+		UnitsToBuild:
+			rifle: 6%
+			bazooka: 5%
+			sardaukar: 1.5%
+			harvester: 0.1%
+			grenadier: 1%
+			trike.starport: 5%
+			quad.starport: 7.5%
+			siegetank.starport: 5%
+			missiletank.starport: 7.5%
+			combata.starport: 15%
+			combath.starport: 15%
+			combato.starport: 15%
+			sonictank: 25%
+			devast: 35%
+			deviatortank: 15%
+			trike: 45%
+			raider: 45%
+			quad: 45%
+			siegetank: 30%
+			missiletank: 35%
+			stealthraider: 25%
+			combata: 85%
+			combath: 85%
+			combato: 85%
+			carryall: 0.1%
+		SquadSize: 8
+		MaxBaseRadius: 40
+		SupportPowerDecision@Airstrike:
+			OrderName: AirstrikePowerInfoOrder
+			MinimumAttractiveness: 2000
+			Consideration@1:
+				Against: Enemy
+				Types: Vehicle, Tank, Infantry
+				Attractiveness: 2
+				TargetMetric: Value
+				CheckRadius: 3c0
+			Consideration@2:
+				Against: Enemy
+				Types: Structure
+				Attractiveness: 1
+				TargetMetric: Value
+				CheckRadius: 2c0
+			Consideration@3:
+				Against: Ally
+				Types: Ground, Water
+				Attractiveness: -10
+				TargetMetric: Value
+				CheckRadius: 4c0
+		SupportPowerDecision@NukePower:
+			OrderName: NukePowerInfoOrder
+			MinimumAttractiveness: 3000
+			Consideration@1:
+				Against: Enemy
+				Types: Structure
+				Attractiveness: 1
+				TargetMetric: Value
+				CheckRadius: 5c0
+			Consideration@2:
+				Against: Ally
+				Types: Air, Ground, Water
+				Attractiveness: -10
+				TargetMetric: Value
+				CheckRadius: 7c0
+	HackyAI@Vidius:
+		Name: Medium
+		UnitQueues: Infantry, Upgrade, Vehicle, Armor, Starport
+		BuildingCommonNames:
+			ConstructionYard: conyarda,conyardh,conyardo
+			Refinery: refa,refh,refo
+			Power: pwra,pwrh,pwro
+			Barracks: barra,barrh,barro
+			VehiclesFactory: lighta,lighth,lighto,heavya,heavyh,heavyo
+			Production: lighta,lighth,lighto,heavya,heavyh,heavyo,barra,barrh,barro,hightecha,hightechh,hightecho
+			Silo: siloa, siloh, siloo
+		UnitsCommonNames:
+			Mcv: mcva,mcvh,mcvo
+		BuildingLimits:
+			refa: 4
+			refh: 4
+			refo: 4
+			barra: 2
+			barrh: 2
+			barro: 2
+			lighta: 2
+			lighth: 2
+			lighto: 2
+			heavya: 1
+			heavyh: 1
+			heavyo: 1
+			researcha: 1
+			researchh: 1
+			researcho: 1
+			repaira: 1
+			repairh: 1
+			repairo: 1
+			radara: 1
+			radaro: 1
+			radarh: 1
+			hightecha: 1
+			hightechh: 1
+			hightecho: 1
+			palacea: 1
+			palaceh: 1
+			palaceo: 1
+			upgrade.lighta: 1
+			upgrade.lighth: 1
+			upgrade.lighto: 1
+			upgrade.heavya: 1
+			upgrade.heavyh: 1
+			upgrade.heavyo: 1
+			upgrade.higha: 1
+		BuildingFractions:
+			refa: 20.1%
+			refh: 20.1%
+			refo: 20.1%
+			barra: 0.5%
+			barrh: 0.5%
+			barro: 0.5%
+			lighta: 0.3%
+			lighth: 0.3%
+			lighto: 0.3%
+			heavya: 0.2%
+			heavyh: 0.2%
+			heavyo: 0.2%
+			radara: 0.1%
+			radaro: 0.1%
+			radarh: 0.1%
+			hightecha: 0.1%
+			hightechh: 0.1%
+			hightecho: 0.1%
+			starporta: 0.1%
+			starporth: 0.1%
+			starporto: 0.1%
+			researcha: 0.1%
+			researchh: 0.1%
+			researcho: 0.1%
+			repaira: 0.1%
+			repairh: 0.1%
+			repairo: 0.1%
+			guntowera: 12%
+			guntowerh: 12%
+			guntowero: 12%
+			rockettowera: 6%
+			rockettowerh: 6%
+			rockettowero: 6%
+			pwra: 15%
+			pwrh: 15%
+			pwro: 15%
+			upgrade.lighta: 0.1%
+			upgrade.lighth: 0.1%
+			upgrade.lighto: 0.1%
+			upgrade.heavya: 0.1%
+			upgrade.heavyh: 0.1%
+			upgrade.heavyo: 0.1%
+			upgrade.higha: 0.1%
+		UnitsToBuild:
+			rifle: 6%
+			bazooka: 5%
+			sardaukar: 1.5%
+			harvester: 0.1%
+			grenadier: 1%
+			trike.starport: 5%
+			quad.starport: 7.5%
+			siegetank.starport: 5%
+			missiletank.starport: 7.5%
+			combata.starport: 15%
+			combath.starport: 15%
+			combato.starport: 15%
+			sonictank: 25%
+			devast: 35%
+			deviatortank: 15%
+			trike: 45%
+			raider: 45%
+			quad: 45%
+			siegetank: 30%
+			missiletank: 35%
+			stealthraider: 25%
+			combata: 85%
+			combath: 85%
+			combato: 85%
+			carryall: 0.1%
+		SquadSize: 6
+		MaxBaseRadius: 40
+		SupportPowerDecision@Airstrike:
+			OrderName: AirstrikePowerInfoOrder
+			MinimumAttractiveness: 2000
+			Consideration@1:
+				Against: Enemy
+				Types: Vehicle, Tank, Infantry
+				Attractiveness: 2
+				TargetMetric: Value
+				CheckRadius: 3c0
+			Consideration@2:
+				Against: Enemy
+				Types: Structure
+				Attractiveness: 1
+				TargetMetric: Value
+				CheckRadius: 2c0
+			Consideration@3:
+				Against: Ally
+				Types: Ground, Water
+				Attractiveness: -10
+				TargetMetric: Value
+				CheckRadius: 4c0
+		SupportPowerDecision@NukePower:
+			OrderName: NukePowerInfoOrder
+			MinimumAttractiveness: 3000
+			Consideration@1:
+				Against: Enemy
+				Types: Structure
+				Attractiveness: 1
+				TargetMetric: Value
+				CheckRadius: 5c0
+			Consideration@2:
+				Against: Ally
+				Types: Air, Ground, Water
+				Attractiveness: -10
+				TargetMetric: Value
+				CheckRadius: 7c0
+	HackyAI@Gladius:
+		Name: Hard
+		UnitQueues: Infantry, Upgrade, Vehicle, Armor, Starport
+		BuildingCommonNames:
+			ConstructionYard: conyarda,conyardh,conyardo
+			Refinery: refa,refh,refo
+			Power: pwra,pwrh,pwro
+			Barracks: barra,barrh,barro
+			VehiclesFactory: lighta,lighth,lighto,heavya,heavyh,heavyo
+			Production: lighta,lighth,lighto,heavya,heavyh,heavyo,barra,barrh,barro,hightecha,hightechh,hightecho
+			Silo: siloa, siloh, siloo
+		UnitsCommonNames:
+			Mcv: mcva,mcvh,mcvo
+		BuildingLimits:
+			refa: 4
+			refh: 4
+			refo: 4
+			barra: 2
+			barrh: 2
+			barro: 2
+			lighta: 2
+			lighth: 2
+			lighto: 2
+			heavya: 2
+			heavyh: 2
+			heavyo: 2
+			researcha: 1
+			researchh: 1
+			researcho: 1
+			repaira: 1
+			repairh: 1
+			repairo: 1
+			radara: 1
+			radaro: 1
+			radarh: 1
+			hightecha: 1
+			hightechh: 1
+			hightecho: 1
+			palacea: 1
+			palaceh: 1
+			palaceo: 1
+			upgrade.lighta: 1
+			upgrade.lighth: 1
+			upgrade.lighto: 1
+			upgrade.heavya: 1
+			upgrade.heavyh: 1
+			upgrade.heavyo: 1
+			upgrade.higha: 1
+		BuildingFractions:
+			refa: 25%
+			refh: 25%
+			refo: 25%
+			barra: 1%
+			barrh: 1%
+			barro: 1%
+			lighta: 0.3%
+			lighth: 0.3%
+			lighto: 0.3%
+			heavya: 0.2%
+			heavyh: 0.2%
+			heavyo: 0.2%
+			radara: 0.1%
+			radaro: 0.1%
+			radarh: 0.1%
+			hightecha: 0.1%
+			hightechh: 0.1%
+			hightecho: 0.1%
+			starporta: 0.1%
+			starporth: 0.1%
+			starporto: 0.1%
+			researcha: 0.1%
+			researchh: 0.1%
+			researcho: 0.1%
+			repaira: 0.1%
+			repairh: 0.1%
+			repairo: 0.1%
+			guntowera: 20%
+			guntowerh: 20%
+			guntowero: 20%
+			rockettowera: 15%
+			rockettowerh: 15%
+			rockettowero: 15%
+			pwra: 35%
+			pwrh: 35%
+			pwro: 35%
+			upgrade.lighta: 0.1%
+			upgrade.lighth: 0.1%
+			upgrade.lighto: 0.1%
+			upgrade.heavya: 0.1%
+			upgrade.heavyh: 0.1%
+			upgrade.heavyo: 0.1%
+			upgrade.higha: 0.1%
+		UnitsToBuild:
+			rifle: 6%
+			bazooka: 5%
+			sardaukar: 1.5%
+			harvester: 0.1%
+			grenadier: 1%
+			trike.starport: 5%
+			quad.starport: 7.5%
+			siegetank.starport: 5%
+			missiletank.starport: 7.5%
+			combata.starport: 15%
+			combath.starport: 15%
+			combato.starport: 15%
+			sonictank: 25%
+			devast: 35%
+			deviatortank: 15%
+			trike: 45%
+			raider: 45%
+			quad: 45%
+			siegetank: 30%
+			missiletank: 35%
+			stealthraider: 25%
+			combata: 85%
+			combath: 85%
+			combato: 85%
+			carryall: 0.1%
+		SquadSize: 10
+		MaxBaseRadius: 40
+		SupportPowerDecision@Airstrike:
+			OrderName: AirstrikePowerInfoOrder
+			MinimumAttractiveness: 2000
+			Consideration@1:
+				Against: Enemy
+				Types: Vehicle, Tank, Infantry
+				Attractiveness: 2
+				TargetMetric: Value
+				CheckRadius: 3c0
+			Consideration@2:
+				Against: Enemy
+				Types: Structure
+				Attractiveness: 1
+				TargetMetric: Value
+				CheckRadius: 2c0
+			Consideration@3:
+				Against: Ally
+				Types: Ground, Water
+				Attractiveness: -10
+				TargetMetric: Value
+				CheckRadius: 4c0
+		SupportPowerDecision@NukePower:
+			OrderName: NukePowerInfoOrder
+			MinimumAttractiveness: 3000
+			Consideration@1:
+				Against: Enemy
+				Types: Structure
+				Attractiveness: 1
+				TargetMetric: Value
+				CheckRadius: 5c0
+			Consideration@2:
+				Against: Ally
+				Types: Air, Ground, Water
+				Attractiveness: -10
+				TargetMetric: Value
+				CheckRadius: 7c0
+

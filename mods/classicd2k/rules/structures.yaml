@@ -1,0 +1,797 @@
+^CONCRETE:
+	Building:
+		TerrainTypes: Rock
+		BuildSounds: CHUNG.WAV
+		AllowInvalidPlacement: true
+	LaysTerrain:
+		Template: 88
+		TerrainTypes: Rock
+	Tooltip:
+		Name: Concrete
+		Description: Provides a strong foundation that prevents\ndamage from the terrain.
+	RenderSprites:
+	KillsSelf:
+		RemoveInstead: true
+
+CONCRETEA:
+	Inherits: ^CONCRETE
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+#	CustomBuildTimeValue:
+#		Value: 180
+	GivesBuildableArea:
+	RevealsShroud:
+		Range: 1c512
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: ~conyard
+	Valued:
+		Cost: 20
+
+CONCRETEB:
+	Inherits: ^CONCRETE
+	Building:
+		Footprint: xxx xxx xxx
+		Dimensions: 3,3
+	CustomBuildTimeValue:
+		Value: 120
+	GivesBuildableArea:
+	RevealsShroud:
+		Range: 1c512
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 10
+		Prerequisites: ~conyard, ~conyardup1
+	Valued:
+		Cost: 50
+
+^CONYARD:
+	Inherits: ^Building
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+		Adjacent: 2
+	LaysTerrain:
+		TerrainTypes: Rock
+		Template: 88
+	Bib:
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1000
+		Prerequisites: ~disabled
+	Selectable:
+		Bounds: 96,64
+	Health:
+		HP: 3000
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c512
+	Production:
+		Produces: Building, Upgrade
+		MoveIntoWorld: false
+	Exit:
+	Valued:
+		Cost: 2000
+	Tooltip:
+		Name: Construction Yard
+	CustomSellValue:
+		Value: 2000
+	BaseBuilding:
+	ProductionBar:
+	ProvidesCustomPrerequisite:
+		Prerequisite: conyard
+	WithBuildingPlacedOverlay:
+		Palette: d2k
+	Power:
+		Amount: 20
+
+^POWER:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard
+		Queue: Building
+		BuildPaletteOrder: 10
+#	CustomBuildTimeValue:
+#		Value: 54
+	Selectable:
+		Bounds: 64,64
+	Valued:
+		Cost: 225
+	Tooltip:
+		Name: Wind Trap
+		Description: Provides power for other structures
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Bib:
+	Health:
+		HP: 3000
+	Armor:
+		Type: Building
+	RevealsShroud:
+		Range: 4c512
+	ProvidesCustomPrerequisite:
+		Prerequisite: power
+	WithIdleOverlay@ZAPS:
+		Sequence: idle-zaps
+	Power:
+		Amount: 200
+	ScalePowerWithHealth:
+
+^BARRACKS:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard, ~power
+		Queue: Building
+		BuildPaletteOrder: 40
+#	CustomBuildTimeValue:
+#		Value: 42
+	Selectable:
+		Bounds: 64,64
+	Valued:
+		Cost: 225
+	Tooltip:
+		Name: Barracks
+		Description: Trains infantry
+	Building:
+		Footprint: =x xx
+		Dimensions: 2,2
+	Bib:
+	Health:
+		HP: 3200
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 4c512
+	RallyPoint:
+		RallyPoint: 1,3
+	Exit@1:
+		SpawnOffset: 352,576,0
+		ExitCell: 0,2
+	Production:
+		Produces: Infantry, Soldiers
+	PrimaryBuilding:
+	ProductionBar:
+	ProvidesCustomPrerequisite:
+		Prerequisite: barracks
+	Power:
+		Amount: -30
+
+^REFINERY:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard, ~power
+		Queue: Building
+		BuildPaletteOrder: 20
+	CustomBuildTimeValue:
+		Value: 270	#18
+	Selectable:
+		Bounds: 96,64
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Refinery
+		Description: Harvesters unload Spice here for processing
+	Building:
+		Footprint: =xx xx=
+		Dimensions: 3,2
+	Bib:
+	Health:
+		HP: 3000
+	Armor:
+		Type: Building
+	RevealsShroud:
+		Range: 5c512
+	OreRefinery:
+		DockOffset: 2,1
+		DockAngle: 160
+		TickRate: 20
+	StoresResources:
+		PipColor: green
+		PipCount: 15
+		Capacity: 2000
+	CustomSellValue:
+		Value: 500
+	FreeActor:
+		Actor: HARVESTER
+		InitialActivity: FindResources
+		SpawnOffset: 2,1
+		Facing: 160
+	ProvidesCustomPrerequisite:
+		Prerequisite: refinery
+	WithDockingOverlay@SMOKE:
+		Sequence: smoke
+	Power:
+		Amount: -75
+	WithIdleOverlay@TOP:
+		Sequence: idle-top
+
+^SILO:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard, ~refinery
+		Queue: Building
+		BuildPaletteOrder: 30
+	CustomBuildTimeValue:
+		Value: 86	#72
+	Selectable:
+		Bounds: 32,32
+	Valued:
+		Cost: 120
+	Tooltip:
+		Name: Silo
+		Description: Stores excess Spice
+	Health:
+		HP: 1500
+	Armor:
+		Type: Wall
+	RevealsShroud:
+		Range: 3c512
+	-RenderBuilding:
+	RenderBuildingSilo:
+	StoresResources:
+		PipColor: green
+		PipCount: 5
+		Capacity: 2000
+	-EmitInfantryOnSell:
+	Power:
+		Amount: -15
+
+^LIGHT:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard, ~refinery
+		Queue: Building
+		BuildPaletteOrder: 70
+	CustomBuildTimeValue:
+		Value: 175	#35
+	Selectable:
+		Bounds: 96,64
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Light Factory
+		Description: Produces light vehicles
+	Building:
+		Footprint: xxx xx=
+		Dimensions: 3,2
+	Bib:
+	Health:
+		HP: 3300
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c512
+	RallyPoint:
+		RallyPoint: 2,2
+	Exit@1:
+		SpawnOffset: 544,-224,0
+		ExitCell: 2,1
+	Production:
+		Produces: Vehicle
+	PrimaryBuilding:
+	ProductionBar:
+	ProvidesCustomPrerequisite:
+		Prerequisite: light
+	WithProductionOverlay@WELDING:
+		Sequence: production-welding
+	WithIdleOverlay@TOP:
+		Sequence: idle-top
+	Power:
+		Amount: -125
+
+^HEAVY:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard, ~refinery
+		Queue: Building
+		BuildPaletteOrder: 100
+	CustomBuildTimeValue:
+		Value: 150	#15
+	Selectable:
+		Bounds: 96,96
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Heavy Factory
+		Description: Produces heavy vehicles
+	Building:
+		Footprint: _x_ xxx =xx
+		Dimensions: 3,3
+	Bib:
+	Health:
+		HP: 3500
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c512
+	RallyPoint:
+		RallyPoint: 0,3
+	Exit@1:
+		SpawnOffset: 256,192,0
+		ExitCell: 0,2
+	Production:
+		Produces: Armor, Tanks
+	PrimaryBuilding:
+	ProductionBar:
+	ProvidesCustomPrerequisite:
+		Prerequisite: heavy
+	WithProductionOverlay@WELDING:
+		Sequence: production-welding
+	WithIdleOverlay@TOP:
+		Sequence: idle-top
+	Power:
+		Amount: -150
+
+^RADAR:
+	Inherits: ^Building
+	RequiresPower:
+	CanPowerDown:
+	DisabledOverlay:
+	Buildable:
+		Prerequisites: ~conyard, ~barracks, ~techlevel.medium
+		Queue: Building
+		BuildPaletteOrder: 50
+	CustomBuildTimeValue:
+		Value: 270	#36
+	Selectable:
+		Bounds: 96,64
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Outpost
+		Description: Provides RADAR
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3,2
+	Bib:
+	Health:
+		HP: 3500
+	Armor:
+		Type: Light
+	RevealsShroud:
+		Range: 5c512
+	ProvidesRadar:
+	ProvidesCustomPrerequisite:
+		Prerequisite: radar
+	WithIdleOverlay@DISH:
+		Sequence: idle-dish
+		PauseOnLowPower: yes
+	Power:
+		Amount: -40
+
+^STARPORT:
+	Inherits: ^Building
+	Tooltip:
+		Name: Starport
+		Description: Dropzone for reinforcements
+	Buildable:
+		Prerequisites: ~conyard, ~heavy, ~radar, ~techlevel.high
+		Queue: Building
+		BuildPaletteOrder: 80
+	CustomBuildTimeValue:
+		Value: 270	#18
+	Building:
+		Footprint: xxx x=x =x=
+		Dimensions: 3,3
+	Selectable:
+		Bounds: 96,64
+	Valued:
+		Cost: 1500
+	Health:
+		HP: 3500
+	Armor:
+		Type: Building
+	RevealsShroud:
+		Range: 5c512
+	RallyPoint:
+		RallyPoint: 1,3
+	Exit@1:
+		SpawnOffset: 0,-480,0
+		ExitCell: 2,2
+	Exit@2:
+		SpawnOffset: 0,-480,0
+		ExitCell: 0,2
+	ProductionAirdrop:
+		Produces: Starport
+		ActorType: frigate
+	WithDeliveryOverlay:
+		Palette: starportlights
+	ProductionBar:
+	PrimaryBuilding:
+	RequiresPower:
+	CanPowerDown:
+	DisabledOverlay:
+	ProvidesCustomPrerequisite:
+		Prerequisite: starport
+	Power:
+		Amount: -150
+
+^WALL:
+	Buildable:
+		Queue: Building
+		Prerequisites: ~conyard, ~barracks
+		BuildPaletteOrder: 60
+	CustomBuildTimeValue:
+		Value: 36	#180
+	SoundOnDamageTransition:
+		DamagedSound:
+		DestroyedSound: EXPLSML4.WAV
+	Valued:
+		Cost: 20
+	CustomSellValue:
+		Value: 0
+	Tooltip:
+		Name: Concrete Wall
+		Description: Stop units and blocks enemy fire.
+	AppearsOnRadar:
+	Building:
+		BuildSounds: CHUNG.WAV
+		Adjacent: 6
+		TerrainTypes: Rock, Concrete
+	Health:
+		HP: 2000
+	Armor:
+		Type: None
+	RevealsShroud:
+		Range: 3c512
+	Crushable:
+		CrushClasses: Concretewall
+	BlocksBullets:
+	LineBuild:
+		Range: 4
+		NodeTypes: wall, turret
+	LineBuildNode:
+		Types: wall
+	TargetableBuilding:
+		TargetTypes: Ground
+	RenderBuildingWall:
+		Image: walla
+	EditorAppearance:
+		RelativeToTopLeft: yes
+	AutoTargetIgnore:
+	ProximityCaptor:
+		Types: Wall
+	Sellable:
+		SellSounds: CHUNG.WAV
+	Guardable:
+	BodyOrientation:
+
+WALL:
+	Inherits: ^WALL
+	Buildable:
+		Prerequisites: ~disabled
+
+^GUNTOWER:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		Prerequisites: ~conyard, ~barracks
+		BuildPaletteOrder: 90
+	CustomBuildTimeValue:
+		Value: 231	#42
+	Valued:
+		Cost: 550
+	Tooltip:
+		Name: Gun Tower
+		Description: Defensive structure\n  Strong vs Tanks\n  Weak vs Infantry, Aircraft
+	Building:
+		BuildSounds: CHUNG.WAV
+	Sellable:
+		SellSounds: CHUNG.WAV
+	Selectable:
+		Bounds: 32,40,0,-8
+		Priority: 3
+	Health:
+		HP: 2700
+	Armor:
+		Type: Heavy
+	RevealsShroud:
+		Range: 3c512
+	RenderRangeCircle:
+	-RenderBuilding:
+	RenderBuildingWall:
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithTurret:
+	WithMuzzleFlash:
+		IgnoreOffset: true
+	Turreted:
+		ROT: 6
+		InitialFacing: 128
+	Armament:
+		Weapon: 110mm
+		LocalOffset: 672,0,480
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	AutoTarget:
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 5
+	WithCrumbleOverlay:
+	-WithMakeAnimation:
+	LineBuildNode:
+		Types: turret
+	Power:
+		Amount: -50
+
+^ROCKETTOWER:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		Prerequisites: ~conyard, ~radar, ~conyardup1
+		BuildPaletteOrder: 120
+	CustomBuildTimeValue:
+		Value: 270	#36
+	Valued:
+		Cost: 750
+	Tooltip:
+		Name: Rocket Tower
+		Description: Defensive structure\n  Strong vs Infantry, Aircraft\n  Weak vs Tanks\n\n  Requires power to operate
+	Building:
+		BuildSounds: CHUNG.WAV
+	Sellable:
+		SellSounds: CHUNG.WAV
+	Selectable:
+		Bounds: 32,40,0,-8
+		Priority: 3
+	Health:
+		HP: 3000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 3c512
+	RenderRangeCircle:
+	-RenderBuilding:
+	RenderBuildingWall:
+	BodyOrientation:
+		QuantizedFacings: 32
+	WithTurret:
+	Armament:
+		Weapon: TowerMissile
+		LocalOffset: 256,384,768, 256,-384,768
+	AttackTurreted:
+	Turreted:
+		ROT: 8
+		InitialFacing: 128
+	AutoTarget:
+	RequiresPower:
+	CanPowerDown:
+	DisabledOverlay:
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 6
+	WithCrumbleOverlay:
+	-WithMakeAnimation:
+	LineBuildNode:
+		Types: turret
+	Power:
+		Amount: -60
+
+^REPAIR:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		Prerequisites: ~conyard, ~heavy, ~heavyup1
+		BuildPaletteOrder: 130
+	CustomBuildTimeValue:
+		Value: 240	#30
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Repair Pad
+		Description: Repairs vehicles\n Allows construction of MCVs
+	Building:
+		Footprint: =x= =x= ===
+		Dimensions: 3,3
+	Health:
+		HP: 3000
+	Armor:
+		Type: Building
+	RevealsShroud:
+		Range: 5c512
+	Reservable:
+	RepairsUnits:
+		HpPerStep: 50
+		Interval: 15
+		ValuePercentage: 50
+	RallyPoint:
+		RallyPoint: 1,3
+	ProvidesCustomPrerequisite:
+		Prerequisite: repair
+	WithRepairOverlay:
+		Palette: repairlights
+	Power:
+		Amount: -50
+
+^HIGHTECH:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard, ~radar
+		Queue: Building
+		BuildPaletteOrder: 110
+	CustomBuildTimeValue:
+		Value: 276	#24
+	Selectable:
+		Bounds: 96,96
+	Valued:
+		Cost: 1150
+	Tooltip:
+		Name: High Tech Factory
+		Description: Produces Carryalls and /nunlocks advanced technology
+	Building:
+		Footprint: _x_ xxx xxx
+		Dimensions: 3,3
+	Bib:
+	Health:
+		HP: 3500
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c512
+#	RallyPoint:
+	Exit@1:
+		SpawnOffset: 0,0,0
+		ExitCell: 0,2
+	Production:
+		Produces: Armor, Carryall
+	PrimaryBuilding:
+	ProductionBar:
+	ProvidesCustomPrerequisite:
+		Prerequisite: hightech
+	WithProductionOverlay@WELDING:
+		Sequence: production-welding
+	Power:
+		Amount: -75
+
+^RESEARCH:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		Prerequisites: ~conyard, ~radar, ~heavy, ~heavyup1, ~techlevel.high
+		BuildPaletteOrder: 140
+	CustomBuildTimeValue:
+		Value: 360	#36
+	Selectable:
+		Bounds: 96,96
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Ix Research Center
+		Description: Unlocks experimental tanks
+	Building:
+		Footprint: _x_ xxx xxx
+		Dimensions: 3,3
+	Bib:
+	Health:
+		HP: 2500
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c512
+	ProvidesCustomPrerequisite:
+		Prerequisite: research
+	WithIdleOverlay@LIGHTS:
+		Sequence: idle-lights
+	Power:
+		Amount: -175
+
+^PALACE:
+	Inherits: ^Building
+	Buildable:
+		Prerequisites: ~conyard, ~research
+		Queue: Building
+		BuildPaletteOrder: 150
+	CustomBuildTimeValue:
+		Value: 192	#12
+	Selectable:
+		Bounds: 96,96
+	Valued:
+		Cost: 1600
+	Tooltip:
+		Name: Palace
+		Description: Unlocks elite units
+	Building:
+		Footprint: xx= xxx =xx
+		Dimensions: 3,3
+	Bib:
+		HasMinibib: True
+	Health:
+		HP: 4000
+	Armor:
+		Type: Wood
+	RevealsShroud:
+		Range: 5c512
+	ProvidesCustomPrerequisite:
+		Prerequisite: palace
+	Power:
+		Amount: -200
+
+SIETCH:
+	Inherits: ^Building
+	Tooltip:
+		Name: Fremen Sietch
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		TerrainTypes: Cliff
+	Health:
+		HP: 400
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 4c512
+	-GivesBuildableArea:
+	-Sellable:
+	-ExternalCapturable:
+	-ExternalCapturableBar:
+	Power:
+		Amount: 0
+
+STARPORTC:
+	Inherits: ^STARPORT
+	-Buildable:
+
+PALACEC:
+	Inherits: ^PALACE
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1000
+		Prerequisites: ~disabled
+	Tooltip:
+		Name: Imperial Palace
+	Building:
+		Footprint: =x= xxx xxx
+		Dimensions: 3,3
+	RenderBuilding:
+
+HEAVYC:
+	Inherits: ^HEAVY
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 1100
+		Prerequisites: ~disabled
+
+CONYARD:
+	Tooltip:
+		Name: Construction Yard
+
+BARRACKS:
+	Tooltip:
+		Name: Barracks
+
+LIGHT:
+	Tooltip:
+		Name: Light Factory
+
+HEAVY:
+	Tooltip:
+		Name: Heavy Factory
+
+HIGHTECH:
+	Tooltip:
+		Name: High-Tech Factory
+
+REPAIR:
+	Tooltip:
+		Name: Repair Pad
+
+RESEARCH:
+	Tooltip:
+		Name: Ix Research Center
+
+RADAR:
+	Tooltip:
+		Name: Outpost
+
+POWER:
+	Tooltip:
+		Name: Wind Trap
+
+REFINERY:
+	Tooltip:
+		Name: Refinery
+

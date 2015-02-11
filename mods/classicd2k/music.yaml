@@ -1,0 +1,102 @@
+# requires Dune 2000/DATA/Music copied to OpenRA/Content/d2k
+AMBUSH: The Ambush
+	Extension: AUD
+ARAKATAK: Attack on Arrakis
+	Extension: AUD
+ATREGAIN: The Atreides Gain
+	Extension: AUD
+ENTORDOS: Enter the Ordos
+	Extension: AUD
+FIGHTPWR: Fight for Power
+	Extension: AUD
+FREMEN: The Fremen
+	Extension: AUD
+HARK_BAT: Harkonnen Battle
+	Extension: AUD
+LANDSAND: Land of Sand
+	Extension: AUD
+#OPTIONS: Options
+#	Extension: AUD
+PLOTTING: Plotting
+	Extension: AUD
+RISEHARK: Rise of the Harkonnen
+	Extension: AUD
+ROBOTIX: Robotix
+	Extension: AUD
+SCORE: Score
+	Extension: AUD
+SOLDAPPR: The Soldiers Approach
+	Extension: AUD
+SPICESCT: Spice Scouting
+	Extension: AUD
+UNDERCON: Under Construction
+	Extension: AUD
+WAITGAME: The Waiting Game
+	Extension: AUD
+
+# Atreides EBFD
+AT02Sand_Excursion: Sand Excursion
+	Extension: AUD
+AT03Assembling_the_Troops: Assembling the Troops
+	Extension: AUD
+AT04The_Spice_Must_Flow: The Spice Must Flow
+	Extension: AUD
+AT05The_Overseer: The Overseer
+	Extension: AUD
+AT06Battle_of_the_Atreides: Battle of the Atreides
+	Extension: AUD
+AT08Infiltrating_HK: Infiltrating the Harkonnen
+	Extension: AUD
+AT09Unsuspected_Attack: Unsuspected Attack
+	Extension: AUD
+AT10Fremen_Alliance: Fremen Alliance
+	Extension: AUD
+AT11Assassination_Attempt: Assassination Attempt
+	Extension: AUD
+AT12Fight_in_the_Dunes: Fight in the Dunes
+	Extension: AUD
+	
+# Harkonnen EBFD
+HK02Surrounded: Surrounded
+	Extension: AUD
+HK03Tribute_to_Evil: Tribute to Evil
+	Extension: AUD
+HK04Harkonnen_Force: Harkonnen Force
+	Extension: AUD
+HK06Unstoppable: Unstoppable
+	Extension: AUD
+HK07Dark_Alliance: Dark Alliance
+	Extension: AUD
+HK08War_for_the_Spice: War for the Spice
+	Extension: AUD
+HK09Defenders_of_Arrakis: Defenders of Arrakis
+	Extension: AUD
+HK10House_Harkonnen: House Harkonnen
+	Extension: AUD
+HK11Invincible: Invincible
+	Extension: AUD
+HK12Victory_is_Inevitable: Victory is Inevitable
+	Extension: AUD
+
+# Ordos EBFD
+OR02The_Strategist: The Strategist
+	Extension: AUD
+OR03House_Ordos: House Ordos
+	Extension: AUD
+OR04Ghola: Ghola
+	Extension: AUD
+OR05Executronic: Executronic
+	Extension: AUD
+OR06Deception: Deception
+	Extension: AUD
+OR07Sabotage: Sabotage
+	Extension: AUD
+OR08Dream_of_the_Executrix: Dream of the Executrix
+	Extension: AUD
+OR10Ordos_Control: Ordos Control
+	Extension: AUD
+OR11The_Specimen: The Specimen
+	Extension: AUD
+OR12Infiltrators: Infiltrators
+	Extension: AUD
+

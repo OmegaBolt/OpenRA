@@ -1,0 +1,310 @@
+CONYARDA:
+	Inherits: ^CONYARD
+
+PWRA:
+	Inherits: ^POWER
+	Buildable:
+		Prerequisites: ~conyarda
+
+REFA:
+	Inherits: ^REFINERY
+	Buildable:
+		Prerequisites: ~conyarda, ~power
+
+SILOA:
+	Inherits: ^SILO
+	Buildable:
+		Prerequisites: ~conyarda, ~refinery
+
+BARRA:
+	Inherits: ^BARRACKS
+	Buildable:
+		Prerequisites: ~conyarda, ~power
+	ProvidesCustomPrerequisite@MEDICS:
+		Prerequisite: medics
+	ProvidesCustomPrerequisite@BARRACKS:
+		Prerequisite: barracks
+
+LIGHTA:
+	Inherits: ^LIGHT
+	Buildable:
+		Prerequisites: ~conyarda, ~refinery
+	ProvidesCustomPrerequisite@TRIKES:
+		Prerequisite: trikes
+	ProvidesCustomPrerequisite@LIGHT:
+		Prerequisite: light
+
+HEAVYA:
+	Inherits: ^HEAVY
+	Buildable:
+		Prerequisites: ~conyarda, ~refinery
+	ProvidesCustomPrerequisite@MISSILETANKS:
+		Prerequisite: missiletanks
+	ProvidesCustomPrerequisite@HEAVY:
+		Prerequisite: heavy
+
+RADARA:
+	Inherits: ^RADAR
+	Buildable:
+		Prerequisites: ~conyarda, ~barracks, ~techlevel.medium
+
+STARPORTA:
+	Inherits: ^STARPORT
+	Buildable:
+		Prerequisites: ~conyarda, ~heavy, ~radar, ~techlevel.high
+	ProvidesCustomPrerequisite@MCVASP:
+		Prerequisite: mcvasp
+		Race: atreides
+	ProvidesCustomPrerequisite@MCVHSP:
+		Prerequisite: mcvhsp
+		Race: harkonnen
+	ProvidesCustomPrerequisite@MCVOSP:
+		Prerequisite: mcvosp
+		Race: ordos
+	ProvidesCustomPrerequisite@STARPORT:
+		Prerequisite: starport
+
+WALLA:
+	Inherits: ^WALL
+	Buildable:
+		Prerequisites: ~conyarda, ~barracks
+
+GUNTOWERA:
+	Inherits: ^GUNTOWER
+	Buildable:
+		Prerequisites: ~conyarda, ~barracks
+
+ROCKETTOWERA:
+	Inherits: ^ROCKETTOWER
+	Buildable:
+		Prerequisites: ~conyarda, ~radar, ~conyardup1
+
+REPAIRA:
+	Inherits: ^REPAIR
+	Buildable:
+		Prerequisites: ~conyarda, ~heavy, ~heavyup1
+	ProvidesCustomPrerequisite@MCVAP:
+		Prerequisite: mcvap
+		Race: Atreides
+
+HIGHTECHA:
+	Inherits: ^HIGHTECH
+	Buildable:
+		Prerequisites: ~conyarda, ~radar
+
+RESEARCHA:
+	Inherits: ^RESEARCH
+	Buildable:
+		Prerequisites: ~conyarda, ~radar, ~heavy, ~heavyup1, ~techlevel.high
+
+PALACEA:
+	Inherits: ^PALACE
+	Buildable:
+		Prerequisites: ~conyarda, ~research
+	Tooltip:
+		Name: Atreides Palace
+		Description: Special Ability: Fremen
+	CanPowerDown:
+	DisabledOverlay:
+	RequiresPower:
+#	SupportPowerChargeBar:
+	
+UPGRADE.CONYARDA:
+	Inherits: ^UPGRADE.CONYARD
+	Buildable:
+		Prerequisites: ~conyarda, !conyardh, !conyardo, !upgrade.conyardh, !upgrade.conyardo, ~techlevel.medium
+	RenderSprites:
+		Image: conyarda
+	
+UPGRADE.BARRACKSA:
+	Inherits: ^UPGRADE.BARRACKS
+	Buildable:
+		Prerequisites: ~barra, !barrh, !barro, !upgrade.barracksh, !upgrade.barrackso
+	RenderSprites:
+		Image: barra
+		
+UPGRADE.LIGHTA:
+	Inherits: ^UPGRADE.LIGHT
+	Buildable:
+		Prerequisites: ~lighta, !lighth, !lighto, !upgrade.lighth, !upgrade.lighto
+	RenderSprites:
+		Image: lighta
+		
+UPGRADE.HEAVYA:
+	Inherits: ^UPGRADE.HEAVY
+	Buildable:
+		Prerequisites: ~heavya, !heavyh, !heavyo, !upgrade.heavyh, !upgrade.heavyo, ~techlevel.medium
+	RenderSprites:
+		Image: heavyh
+		
+UPGRADE.HIGHA:
+	Inherits: ^UPGRADE.HIGH
+	Buildable:
+		Prerequisites: ~hightecha, ~techlevel.high
+	RenderSprites:
+		Image: hightecha
+	AirstrikePower:
+		Icon: ornistrike
+		Prerequisites: ~techlevel.superweapons
+		Description: Airstrike
+		SquadSize: 3
+		ChargeTime: 180
+		LongDesc: Ornithopter assault
+		UnitType: orni
+		SelectTargetSound:
+		DisplayBeacon: false
+		CameraActor: camera
+
+MCVA:
+	Inherits: ^MCV
+	Buildable:
+		Prerequisites: ~heavya, ~heavyup1, ~mcvap
+	Transforms:
+		Facing: 16
+		IntoActor: conyarda
+		Offset: -1,-1
+		NoTransformSounds: AI_DPLOY.AUD
+	RenderUnit:
+		Image: DMCV
+
+MCVA.starport:
+	Inherits: MCVA
+	Buildable:
+		Prerequisites: ~mcvasp
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 2700
+
+COMBATA:
+	Inherits: ^COMBAT
+	Buildable:
+		Prerequisites: ~heavya
+	Health:
+		HP: 2100
+	Armament:
+		Weapon: 80mma
+		Recoil: 128
+		RecoilRecovery: 32
+		LocalOffset: 256,0,0
+		MuzzleSequence: muzzle
+	AttackTurreted:
+	RenderUnit:
+		Image: COMBATA
+	WithTurret:
+
+COMBATA.starport:
+	Inherits: COMBATA
+	Buildable:
+		Prerequisites: ~mcvasp
+		Queue: Starport
+		BuildAtProductionType: Starport
+	Valued:
+		Cost: 875
+
+SONICTANK:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Armor
+		BuildPaletteOrder: 100
+		Prerequisites: ~heavya, ~research
+		BuildAtProductionType: Tanks
+	CustomBuildTimeValue:
+		Value: 200	#20
+	Valued:
+		Cost: 1000
+	Tooltip:
+		Name: Sonic Tank
+		Description: Fires sonic waves\n  Strong vs Infantry, Vehicles
+	Selectable:
+		Bounds: 30,30
+	Health:
+		HP: 3000
+	Armor:
+		Type: Light
+	Mobile:
+		ROT: 3
+		Speed: 25
+	RevealsShroud:
+		Range: 5c512
+	RenderUnit:
+		Image: SONICTANK
+	Armament:
+		Weapon: Sound
+		LocalOffset: 640,0,427
+	AttackFrontal:
+	AutoTarget:
+	Explodes:
+		Weapon: UnitExplode
+		EmptyWeapon: UnitExplode
+
+GRENADIER:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 10
+		Prerequisites: ~barra, ~barracksup1, ~hightecha
+	CustomBuildTimeValue:
+		Value: 96	#120
+	Valued:
+		Cost: 80
+	Tooltip:
+		Name: Grenadier
+		Description: Infantry armed with grenades. \n  Strong vs Buildings, Infantry\n  Weak vs Vehicles
+	Health:
+		HP: 600
+	Armor:
+		Type: None
+	Mobile:
+		ROT: 5
+		Speed: 33
+	RevealsShroud:
+		Range: 3c512
+	Armament:
+		Weapon: Grenade
+		LocalOffset: 0,0,555
+		FireDelay: 15
+	AttackFrontal:
+	TakeCover:
+	RenderInfantry:
+		IdleAnimations: idle
+	Explodes:
+		Weapon: Grenade
+		Chance: 100
+
+FREMEN:
+	Inherits: ^Infantry
+	Valued:
+		Cost: 200
+	Tooltip:
+		Name: Fremen
+		Description: Elite sniper infantry unit\n  Strong vs Infantry\n  Weak vs Vehicles\n  Special Ability: Invisibility
+	Buildable:
+		Queue: Infantry
+		BuildPaletteOrder: 85
+		Prerequisites: ~barra, ~palacea
+	Selectable:
+		Voice: FremenVoice
+	Mobile:
+		ROT: 5
+		Speed: 33
+	Health:
+		HP: 700
+	Armor:
+		Type: None
+	Passenger:
+	RevealsShroud:
+		Range: 4c512
+	AutoTarget:
+		ScanRadius: 7
+	Armament@PRIMARY:
+		Weapon: Fremen_S
+	Armament@SECONDARY:
+		Weapon: Fremen_L
+	AttackFrontal:
+	TakeCover:
+	Cloak:
+		InitialDelay: 60
+		CloakDelay: 60
+		CloakSound: STEALTH1.WAV
+		UncloakSound: STEALTH2.WAV

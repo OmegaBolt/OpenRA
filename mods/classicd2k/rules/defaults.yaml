@@ -1,0 +1,282 @@
+^Vehicle:
+	AppearsOnRadar:
+	Mobile:
+		Crushes: crate
+		TerrainSpeeds:
+			Sand: 90
+			Rock: 100
+			Transition: 95
+			Concrete: 100
+			Spice: 80
+			SpiceBlobs: 80
+			Dune: 60
+		ROT: 5
+	SelectionDecorations:
+	Selectable:
+		Voice: VehicleVoice
+	TargetableUnit:
+		TargetTypes: Ground
+	Passenger:
+		CargoType: Vehicle
+		Weight: 10
+	AttackMove:
+	HiddenUnderFog:
+	DrawLineToTarget:
+	ActorLostNotification:
+	ProximityCaptor:
+		Types: Vehicle
+	Repairable:
+		RepairBuildings: repaira,repairo,repairh
+	CombatDebugOverlay:
+	Guard:
+	Guardable:
+	AutoTarget:
+		InitialStance: Defend
+	RenderUnit:
+	BodyOrientation:
+	UpdatesPlayerStatistics:
+	Huntable:
+	Demolishable:
+	ScriptTriggers:
+	GainsStatUpgrades:
+	UpgradeManager:
+	TemporaryOwnerManager:
+
+^Tank:
+	AppearsOnRadar:
+	Mobile:
+		Crushes: crate
+		TerrainSpeeds:
+			Sand: 85
+			Rock: 100
+			Transition: 95
+			Concrete: 100
+			Spice: 80
+			SpiceBlobs: 80
+			Dune: 70
+		ROT: 5
+	SelectionDecorations:
+	Selectable:
+		Voice: VehicleVoice
+	TargetableUnit:
+		TargetTypes: Ground
+	Passenger:
+		CargoType: Vehicle
+		Weight: 10
+	AttackMove:
+	HiddenUnderFog:
+	DrawLineToTarget:
+	ActorLostNotification:
+	ProximityCaptor:
+		Types: Tank
+	Repairable:
+		RepairBuildings: repaira,repairo,repairh
+	CombatDebugOverlay:
+	Guard:
+	Guardable:
+	AutoTarget:
+		InitialStance: Defend
+	RenderUnit:
+	BodyOrientation:
+	UpdatesPlayerStatistics:
+	Huntable:
+	Demolishable:
+	ScriptTriggers:
+	GainsStatUpgrades:
+	UpgradeManager:
+	TemporaryOwnerManager:
+
+^Husk:
+	Health:
+		HP: 75
+	Armor:
+		Type: Light
+	Husk:
+		AllowedTerrain: Sand, Rock, Transition, Concrete, Spice, SpiceBlobs, Dune
+	HiddenUnderFog:
+	Burns:
+		Interval: 4
+	ProximityCaptor:
+		Types: Husk
+	Tooltip:
+		Name: Wreck
+	BodyOrientation:
+	TargetableUnit:
+		TargetTypes: Ground
+		RequiresForceFire: yes
+	AutoTargetIgnore:
+	Capturable:
+		Type: husk
+		AllowAllies: yes
+		CaptureThreshold: 1.0
+	TransformOnCapture:
+		ForceHealthPercentage: 25
+	DisabledOverlay:
+	ScriptTriggers:
+
+^TowerHusk:
+	Health:
+		HP: 125
+	Armor:
+		Type: Concrete
+	Husk:
+	AppearsOnRadar:
+	HiddenUnderFog:
+	Burns:
+		Interval: 2
+	EditorAppearance:
+		RelativeToTopLeft: yes
+	Tooltip:
+		Name: Destroyed Tower
+	ProximityCaptor:
+		Types: Husk
+	BodyOrientation:
+	ScriptTriggers:
+
+^AircraftHusk:
+	Inherits: ^Husk
+	-Husk:
+	-Burns:
+	-Capturable:
+	-TransformOnCapture:
+	-TargetableUnit:
+	FallsToEarth:
+		Spins: False
+		Moves: True
+		Explosion: UnitExplode
+
+^Infantry:
+	AppearsOnRadar:
+	Health:
+		Radius: 96
+	Armor:
+		Type: None
+	RevealsShroud:
+		Range: 3c512
+	Mobile:
+		Crushes: crate
+		SharesCell: true
+		TerrainSpeeds:
+			Sand: 80
+			Rock: 100
+			Transition: 90
+			Concrete: 100
+			Spice: 80
+			SpiceBlobs: 80
+			Dune: 60
+			Rough: 100
+	SelectionDecorations:
+	Selectable:
+		Bounds: 12,17,0,-5
+		Voice: InfantryVoice
+	TargetableUnit:
+		TargetTypes: Ground
+	RenderInfantry:
+	TakeCover:
+	WithDeathAnimation:
+	AttackMove:
+	Passenger:
+		CargoType: Infantry
+		PipType: Green
+		Weight: 1
+	HiddenUnderFog:
+	DrawLineToTarget:
+	ActorLostNotification:
+	ProximityCaptor:
+		Types: Infantry
+	Crushable:
+		CrushSound: CRUSH1.WAV
+	CombatDebugOverlay:
+	Guard:
+	Guardable:
+	AutoTarget:
+		InitialStance: Defend
+	BodyOrientation:
+	UpdatesPlayerStatistics:
+	Huntable:
+	ScriptTriggers:
+	DeathSounds:
+	Parachutable:
+		FallRate: 130
+	GainsStatUpgrades:
+	UpgradeManager:
+
+^Plane:
+	AppearsOnRadar:
+		UseLocation: yes
+	SelectionDecorations:
+	Selectable:
+		Voice: GenericVoice
+	TargetableAircraft:
+		TargetTypes: Air
+		GroundedTargetTypes: Ground
+	HiddenUnderFog:
+	DrawLineToTarget:
+	ActorLostNotification:
+	ProximityCaptor:
+		Types: Plane
+	CombatDebugOverlay:
+	BodyOrientation:
+	UpdatesPlayerStatistics:
+	Huntable:
+	AttackMove:
+	ScriptTriggers:
+	GainsStatUpgrades:
+	UpgradeManager:
+
+^Helicopter:
+	Inherits: ^Plane
+
+^Building:
+	AppearsOnRadar:
+	SelectionDecorations:
+	Selectable:
+		Priority: 2
+	TargetableBuilding:
+		TargetTypes: Ground, C4, Structure
+	Building:
+		Dimensions: 1,1
+		Footprint: x
+		TerrainTypes: Rock, Concrete
+		BuildSounds: BUILD1.WAV
+		Adjacent: 3
+	GivesBuildableArea:
+	ExternalCapturable:
+	ExternalCapturableBar:
+	SoundOnDamageTransition:
+		DamagedSound: EXPLSML1.WAV
+		DestroyedSound: EXPLHG1.WAV
+	RenderBuilding:
+	WithBuildingExplosion:
+	RepairableBuilding:
+		RepairInterval: 25
+		RepairStep: 50
+	EmitInfantryOnSell:
+		ActorTypes: rifle,rifle,rifle,rifle,rifle,bazooka,bazooka,bazooka,engineer
+	MustBeDestroyed:
+	FrozenUnderFog:
+	CaptureNotification:
+	ActorLostNotification:
+		Notification: BuildingLost
+	EditorAppearance:
+		RelativeToTopLeft: yes
+	ShakeOnDeath:
+	ProximityCaptor:
+		Types: Building
+	Sellable:
+		SellSounds: BUILD1.WAV
+	CombatDebugOverlay:
+	Guardable:
+		Range: 3
+	BodyOrientation:
+	UpdatesPlayerStatistics:
+	WithCrumbleOverlay:
+	Huntable:
+	Demolishable:
+	DamagedWithoutFoundation:
+	ThrowsShrapnel:
+		Weapons: shrapnel
+		Pieces: 4, 12
+		Range: 0c512, 3c512
+	ScriptTriggers:
+	WithMakeAnimation:

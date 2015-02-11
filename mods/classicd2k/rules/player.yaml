@@ -1,0 +1,98 @@
+Player:
+	TechTree:
+	GlobalUpgradeManager:
+	ClassicProductionQueue@Building:
+		Type: Building
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		ReadyAudio: BuildingReady
+		BlockedAudio: NoRoom
+		RequireOwner: false
+		SpeedUp: true
+		BuildSpeed: 1.0
+	ClassicProductionQueue@Upgrade:
+		Type: Upgrade
+		LowPowerSlowdown: 0
+		QueuedAudio: Upgrading
+		ReadyAudio: BuildingReady
+		BlockedAudio: NoRoom
+		RequireOwner: false
+		SpeedUp: false
+		BuildSpeed: 1.0
+	ClassicProductionQueue@Infantry:
+		Type: Infantry
+		LowPowerSlowdown: 1
+		BlockedAudio: NoRoom
+		RequireOwner: false
+		SpeedUp: true
+		BuildSpeed: 1.0
+	ClassicProductionQueue@Vehicle:
+		Type: Vehicle
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		RequireOwner: false
+		SpeedUp: true
+		BuildSpeed: 1.0
+	ClassicProductionQueue@Armor:
+		Type: Armor
+		LowPowerSlowdown: 2
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		RequireOwner: false
+		SpeedUp: true
+		BuildSpeed: 2.0
+	ClassicProductionQueue@Starport:
+		Type: Starport
+		LowPowerSlowdown: 0
+		BlockedAudio: NoRoom
+		QueuedAudio: OrderPlaced
+		ReadyAudio:
+		RequireOwner: false
+		SpeedUp: false
+		BuildSpeed: .5
+	ClassicProductionQueue@Aircraft:
+		Type: Aircraft
+		LowPowerSlowdown: 3
+		QueuedAudio: Building
+		BlockedAudio: NoRoom
+		RequireOwner: false
+		SpeedUp: true
+		BuildSpeed: 1.0
+	PlaceBuilding:
+	SupportPowerManager:
+	ScriptTriggers:
+	MissionObjectives:
+	ConquestVictoryConditions:
+	PowerManager:
+		AdviceInterval: 650
+	AllyRepair:
+	PlayerResources:
+		SelectableCash: 2500, 5000, 7000
+		DefaultCash: 5000
+		AdviceInterval: 650
+	ActorGroupProxy:
+	DeveloperMode:
+	PlayerColorPalette:
+		BasePalette: d2k
+		RemapIndex: 255, 254, 253, 252, 251, 250, 249, 248, 247, 246, 245, 244, 243, 242, 241, 240
+	PlayerHighlightPalette:
+	BaseAttackNotifier:
+	Shroud:
+	FrozenActorLayer:
+	HarvesterAttackNotifier:
+	PlayerStatistics:
+	PlaceBeacon:
+	ProvidesTechPrerequisite@low:
+		Name: Low
+		Prerequisites: techlevel.low
+	ProvidesTechPrerequisite@medium:
+		Name: Medium
+		Prerequisites: techlevel.low, techlevel.medium
+	ProvidesTechPrerequisite@nosuper:
+		Name: No Powers
+		Prerequisites: techlevel.low, techlevel.medium, techlevel.high
+	ProvidesTechPrerequisite@all:
+		Name: Unrestricted
+		Prerequisites: techlevel.low, techlevel.medium, techlevel.high, techlevel.superweapons
+

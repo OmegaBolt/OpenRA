@@ -1,0 +1,265 @@
+CRATE:
+	Tooltip:
+		Name: Crate
+	Crate:
+		Lifetime: 120
+		TerrainTypes: Sand, Dune, Rock
+	GiveCashCrateAction:
+		Amount: 2000
+		SelectionShares: 50
+		UseCashTick: yes
+	GiveUnitCrateAction@Trike:
+		SelectionShares: 20
+		Units: trike
+		Prerequisites: techlevel.low
+	GiveUnitCrateAction@Raider:
+		SelectionShares: 15
+		Units: raider
+		ValidRaces: ordos
+		Prerequisites: techlevel.low
+	GiveUnitCrateAction@Quad:
+		SelectionShares: 40
+		Units: quad
+		Prerequisites: techlevel.medium
+	GiveUnitCrateAction@CombatA:
+		SelectionShares: 10
+		Units: combata
+		ValidRaces: atreides
+		Prerequisites: techlevel.low
+	GiveUnitCrateAction@CombatH:
+		SelectionShares: 10
+		Units: combath
+		ValidRaces: harkonnen
+		Prerequisites: techlevel.low
+	GiveUnitCrateAction@CombatO:
+		SelectionShares: 10
+		Units: combato
+		ValidRaces: ordos
+		Prerequisites: techlevel.low
+	GiveUnitCrateAction@SiegeTank:
+		SelectionShares: 10
+		Units: siegetank
+		Prerequisites: techlevel.medium
+	GiveUnitCrateAction@MissileTank:
+		SelectionShares: 10
+		Units: missiletank
+		ValidRaces: atreides, harkonnen
+		Prerequisites: techlevel.high
+	GiveUnitCrateAction@StealthRaider:
+		SelectionShares: 7
+		Units: stealthraider
+		ValidRaces: ordos
+		Prerequisites: techlevel.medium
+	GiveUnitCrateAction@Sardaukar:
+		SelectionShares: 5
+		Units: sardaukar,sardaukar
+		ValidRaces: harkonnen
+		Prerequisites: techlevel.high
+	GiveUnitCrateAction@Saboteur:
+		SelectionShares: 5
+		Units: saboteur
+		ValidRaces: ordos
+		Prerequisites: techlevel.high
+	GiveUnitCrateAction@SonicTank:
+		SelectionShares: 5
+		Units: sonictank
+		ValidRaces: atreides
+		Prerequisites: techlevel.high
+	GiveUnitCrateAction@Devast:
+		SelectionShares: 5
+		Units: devast
+		ValidRaces: harkonnen
+		Prerequisites: techlevel.high
+	GiveUnitCrateAction@DeviatorTank:
+		SelectionShares: 5
+		Units: deviatortank
+		ValidRaces: ordos
+		Prerequisites: techlevel.high
+	GiveMcvCrateAction@Atreides:
+		SelectionShares: 0
+		NoBaseSelectionShares: 9001
+		Units: mcva
+		ValidRaces: atreides
+	GiveMcvCrateAction@Harkonnen:
+		SelectionShares: 0
+		NoBaseSelectionShares: 9001
+		Units: mcvh
+		ValidRaces: harkonnen
+	GiveMcvCrateAction@Ordos:
+		SelectionShares: 0
+		NoBaseSelectionShares: 9001
+		Units: mcvo
+		ValidRaces: ordos
+	RenderSprites:
+		Palette: effect
+	WithCrateBody:
+	Selectable:
+		Selectable: false
+		Bounds: 15,15,-1,-1
+	ProximityCaptor:
+		Types: Crate
+	Passenger:
+	BodyOrientation:
+
+mpspawn:
+	Immobile:
+		OccupiesSpace: false
+	RenderEditorOnly:
+	BodyOrientation:
+
+waypoint:
+	Immobile:
+		OccupiesSpace: false
+	RenderEditorOnly:
+	BodyOrientation:
+
+SPICEBLOOM:
+	RenderBuilding:
+	Building:
+		Footprint: x
+		Dimensions: 1,1
+	AppearsOnRadar:
+	EditorAppearance:
+		RelativeToTopLeft: yes
+	ProximityCaptor:
+		Types: Tree
+	Tooltip:
+		Name: Spice Bloom
+	SeedsResource:
+		ResourceType: Spice
+		Interval: 125
+	WithActiveAnimation:
+	RadarColorFromTerrain:
+		Terrain: Spice
+	BodyOrientation:
+	WithMakeAnimation:
+	
+SANDWORM:
+	Tooltip:
+		Name: Sand Worm
+		Description: Attracted by vibrations in the sand.\nWill eat units whole and has a large appetite.
+	Health:
+		HP: 9990
+		Radius: 3
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 20
+		TerrainSpeeds:
+			Sand: 100
+			Dune: 100
+			Spice: 100
+	TargetableUnit:
+		TargetTypes: Underground
+	RevealsShroud:
+		Range: 32c0
+	RenderUnit:
+		Palette: sandworm_alpha
+	BodyOrientation:
+	HiddenUnderFog:
+	AppearsOnRadar:
+		UseLocation: yes
+	AttackSwallow:
+		AttackRequiresEnteringCell: true
+	AttackMove:
+	AttackWander:
+	AutoTarget:
+		ScanRadius: 32
+	Armament:
+		Weapon: WormJaw
+
+CAMERA:
+	Immobile:
+		OccupiesSpace: false
+	Health:
+		HP: 1000
+	RevealsShroud:
+		Range: 6c0
+	BodyOrientation:
+
+wormspawner:
+	Immobile:
+		OccupiesSpace: false
+	RenderEditorOnly:
+	BodyOrientation:
+	WormSpawner:
+
+^UPGRADE.CONYARD:
+	Tooltip:
+		Name: Construction Yard Upgrade
+		Description: Upgrade for the Construction Yard
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~disabled
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 1000
+	RenderSprites:
+		Image: conyarda
+	ProvidesCustomPrerequisite:
+		Prerequisite: conyardup1
+
+^UPGRADE.BARRACKS:
+	Tooltip:
+		Name: Barracks Upgrade
+		Description: Upgrade for the Barracks
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~disabled
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 500
+	RenderSprites:
+		Image: barra
+	ProvidesCustomPrerequisite:
+		Prerequisite: barracksup1
+
+^UPGRADE.LIGHT:
+	Tooltip:
+		Name: Light Factory Upgrade
+		Description: Upgrade for the Light Factory
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~disabled
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 400
+	RenderSprites:
+		Image: lighta
+	ProvidesCustomPrerequisite:
+		Prerequisite: lightup1
+
+^UPGRADE.HEAVY:
+	Tooltip:
+		Name: Heavy Factory Upgrade
+		Description: Upgrade for the Heavy Factory
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~disabled
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 800
+	RenderSprites:
+		Image: heavya
+	ProvidesCustomPrerequisite:
+		Prerequisite: heavyup1
+
+^UPGRADE.HIGH:
+	Tooltip:
+		Name: High Tech Factory Upgrade
+		Description: Upgrade for the High Tech Factory
+	Buildable:
+		BuildPaletteOrder: 50
+		Prerequisites: ~disabled
+		Queue: Upgrade
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	RenderSprites:
+		Image: hightecha
+	ProvidesCustomPrerequisite:
+		Prerequisite: hightechup1

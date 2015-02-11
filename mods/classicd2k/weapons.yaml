@@ -1,0 +1,805 @@
+## Light Infantry primary
+LMG:
+	ReloadDelay: 30
+	Range: 2c512
+	Report: MGUN2.WAV
+	Projectile: Bullet
+		Speed: 500c0
+		ContrailLength: 3
+		TrailInterval: 1
+		ContrailDelay: 0
+		ContrailUsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 125
+		DeathType: 4
+		Versus:
+			None: 100
+			Harvester: 25
+			Wall: 10
+			Wood: 75
+			Light: 40
+			Heavy: 20
+			Concrete: 100
+			Building: 25
+	Warhead@2Eff: CreateEffect
+		Explosion: piffs
+
+## Trooper primary
+Bazooka:
+	ReloadDelay: 40
+	Range: 3c0
+	Report: ROCKET1.WAV
+	Projectile: Missile
+		Speed: 256
+		Arm: 0
+		Inaccuracy: 64
+		Image: RPG
+		ROT: 0
+		RangeLimit: 40
+		Trail: smoke_s
+		TrailDelay: 1
+	Warhead@1Dam: SpreadDamage
+		Spread: 256
+		Damage: 300
+		DeathType: 3
+		Versus:
+			None: 8
+			Harvester: 50
+			Wall: 75
+			Wood: 45
+			Light: 70
+			Heavy: 100
+			Concrete: 100
+			Building: 40
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: small_explosion
+		ImpactSound: EXPLSML1.WAV
+
+## Grenadier primary
+Grenade:
+	ReloadDelay: 50
+	Range: 4c0
+	Report:
+	Projectile: Bullet
+		Speed: 204
+		High: true
+		Angle: 62
+		Inaccuracy: 416
+		Image: BOMBS
+	Warhead@1Dam: SpreadDamage
+		Spread: 512
+		Damage: 150
+		DeathType: 1
+		Versus:
+			None: 125
+			Harvester: 25
+			Wall: 100
+			Wood: 70
+			Light: 30
+			Heavy: 20
+			Concrete: 100
+			Building: 100
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: med_explosion
+		ImpactSound: EXPLLG5.WAV
+
+## Sardaukar primary
+M_LMG:
+	ReloadDelay: 50
+	Range: 2c512
+	Report: VULCAN.AUD
+	Projectile: Bullet
+		Speed: 500c0
+		ContrailLength: 3
+		TrailInterval: 1
+		ContrailDelay: 0
+		ContrailUsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 125
+		DeathType: 4
+		Versus:
+			None: 100
+			Harvester: 25
+			Wall: 10
+			Wood: 75
+			Light: 40
+			Heavy: 20
+			Concrete: 100
+			Building: 25
+	Warhead@2Eff: CreateEffect
+		Explosion: piffs
+
+## Sardaukar secondary
+M_HMG:
+	ReloadDelay: 50
+	Range: 3c512
+	Report: 20MMGUN1.WAV
+	Projectile: Bullet
+		Speed: 500c0
+		ContrailLength: 3
+		TrailInterval: 1
+		ContrailDelay: 0
+		ContrailUsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 250
+		DeathType: 4
+		Versus:
+			None: 25
+			Harvester: 50
+			Wall: 100
+			Wood: 65
+			Light: 100
+			Heavy: 50
+			Concrete: 100
+			Building: 50
+	Warhead@2Eff: CreateEffect
+		Explosion: piffs
+
+## Fremen primary
+Fremen_S:
+	ReloadDelay: 40
+	Range: 2c512
+	Report: FREMODD1.WAV
+	Projectile: Bullet
+		Speed: 500c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 125
+		DeathType: 4
+		Versus:
+			None: 100
+			Harvester: 25
+			Wall: 10
+			Wood: 75
+			Light: 40
+			Heavy: 20
+			Concrete: 100
+			Building: 25
+	Warhead@2Eff: CreateEffect
+		Explosion: small_explosion
+		ImpactSound: EXPLLG5.WAV
+
+## Fremen secondary
+Fremen_L:
+	ReloadDelay: 40
+	Range: 3c512
+	Report: BAZOOK2.WAV
+	ValidTargets: Ground
+	Projectile: Bullet
+		Speed: 500c0
+	Warhead@1Dam: SpreadDamage
+		Spread: 64
+		Damage: 250
+		DeathType: 3
+		Versus:
+			None: 8
+			Harvester: 50
+			Wall: 75
+			Wood: 45
+			Light: 70
+			Heavy: 100
+			Concrete: 100
+			Building: 40
+	Warhead@2Eff: CreateEffect
+		Explosion: small_explosion
+		ImpactSound: EXPLLG5.WAV
+
+## Trike primary
+HMG:
+	ReloadDelay: 20
+	Range: 3c0
+#	Burst: 3	# Actually fires 3 times in D2k but deals damage all at once, purely visual/audio effect
+#	BurstDelay: 5
+	Report: 20MMGUN1.WAV
+	Projectile: Bullet
+		Speed: 500c0
+		ContrailLength: 3
+		TrailInterval: 1
+		ContrailDelay: 0
+		ContrailUsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 180
+		DeathType: 4
+		Versus:
+			None: 100
+			Harvester: 25
+			Wall: 10
+			Wood: 75
+			Light: 40
+			Heavy: 20
+			Concrete: 100
+			Building: 25
+	Warhead@2Eff: CreateEffect
+		Explosion: piffs
+
+## Raider / Stealth Raider primary
+HMGo:
+	ReloadDelay: 18
+	Range: 3c0
+#	Burst: 3	# Actually fires 3 times in D2k but deals damage all at once, purely visual/audio effect
+#	BurstDelay: 5
+	Report: 20MMGUN1.WAV
+	Projectile: Bullet
+		Speed: 500c0
+		ContrailLength: 3
+		TrailInterval: 1
+		ContrailDelay: 0
+		ContrailUsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 180
+		DeathType: 4
+		Versus:
+			None: 100
+			Harvester: 25
+			Wall: 10
+			Wood: 75
+			Light: 40
+			Heavy: 20
+			Concrete: 100
+			Building: 25
+	Warhead@2Eff: CreateEffect
+		Explosion: piffs
+
+## Quad primary
+QuadRocket:
+	ReloadDelay: 30
+	Range: 3c512
+	Report: ROCKET1.WAV
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		Arm: 0
+		Inaccuracy: 64
+		Image: RPG
+		ROT: 0
+		Speed: 256
+		RangeLimit: 40
+		Trail: smoke_s
+		TrailDelay: 1
+	Warhead@1Dam: SpreadDamage
+		Spread: 560
+		Damage: 250
+		DeathType: 3
+		ValidTargets: Ground, Air
+		Versus:
+			None: 8
+			Harvester: 50
+			Wall: 75
+			Wood: 45
+			Light: 70
+			Heavy: 100
+			Concrete: 100
+			Building: 40
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: med_explosion
+		ImpactSound: EXPLSML1.WAV
+
+## Atreides Combat Tank primary
+80mma:
+	ReloadDelay: 50
+	Range: 4c0
+	Report: MEDTANK1.WAV
+	Projectile: Bullet
+		Speed: 500
+		Inaccuracy: 380
+		Image: 120mm
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 270
+		DeathType: 3
+		Versus:
+			None: 20
+			Harvester: 50
+			Wall: 50
+			Wood: 60
+			Light: 100
+			Heavy: 75
+			Concrete: 100
+			Building: 50
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: small_napalm
+		ImpactSound: EXPLSML3.WAV
+
+## Harkonnen Combat Tank primary
+80mmh:
+	ReloadDelay: 55
+	Range: 4c0
+	Report: MEDTANK1.WAV
+	Projectile: Bullet
+		Speed: 500
+		Inaccuracy: 380
+		Image: 120mm
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 270
+		DeathType: 3
+		Versus:
+			None: 20
+			Harvester: 50
+			Wall: 50
+			Wood: 60
+			Light: 100
+			Heavy: 75
+			Concrete: 100
+			Building: 50
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: small_napalm
+		ImpactSound: EXPLSML3.WAV
+
+## Ordos Combat Tank primary
+80mmo:
+	ReloadDelay: 45
+	Range: 4c0
+	Report: MEDTANK1.WAV
+	Projectile: Bullet
+		Speed: 500
+		Inaccuracy: 380
+		Image: 120mm
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 270
+		DeathType: 3
+		Versus:
+			None: 20
+			Harvester: 50
+			Wall: 50
+			Wood: 60
+			Light: 100
+			Heavy: 75
+			Concrete: 100
+			Building: 50
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: small_napalm
+		ImpactSound: EXPLSML3.WAV
+
+## Siege Tank primary
+155mm:
+	ReloadDelay: 80
+	Range: 5c512
+	Report: MORTAR1.WAV
+	Projectile: Bullet
+		Speed: 256
+		High: true
+		Shadow: yes
+		Angle: 62
+		Inaccuracy: 768
+		ContrailLength: 20
+		Image: 155mm
+	Warhead@1Dam: SpreadDamage
+		Spread: 960
+		Damage: 450
+		DeathType: 1
+		Versus:
+			None: 125
+			Harvester: 25
+			Wall: 100
+			Wood: 70
+			Light: 30
+			Heavy: 20
+			Concrete: 100
+			Building: 100
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: med_explosion
+		ImpactSound: EXPLLG3.WAV
+
+## Missile Tank primary
+227mm:
+	ReloadDelay: 110
+	Range: 6c0
+	Report: MISSLE1.WAV
+	ValidTargets: Ground, Air
+	Projectile: Bullet
+		Speed: 256
+		Arm: 5
+		High: yes
+		Shadow: yes
+		Inaccuracy: 96
+		Angle: 110
+		Image: MISSILE2
+		ROT: 0
+		Trail: smoke_s
+		TrailDelay: 1
+	Warhead@1Dam: SpreadDamage
+		Spread: 768
+		Damage: 600
+		DeathType: 1
+		ValidTargets: Ground, Air
+		Versus:
+			None: 15
+			Harvester: 50
+			Wall: 75
+			Wood: 65
+			Light: 90
+			Heavy: 100
+			Concrete: 100
+			Building: 60
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: large_explosion
+		ImpactSound: EXPLMD3.WAV
+
+## Sonic Tank primary
+Sound:
+	ReloadDelay: 90
+	Range: 5c0
+	Report: SONIC1.WAV
+	Projectile: LaserZap
+		BeamWidth: 10
+		HitAnim: laserfire
+		BeamDuration: 8
+		UsePlayerColor: true
+	Warhead@1Dam: SpreadDamage
+		Spread: 95
+		Damage: 500	#80 D2k but damages through all in path
+		DeathType: 1
+		Versus:
+			None: 100
+			Harvester: 50
+			Wall: 100
+			Wood: 100
+			Light: 100
+			Heavy: 60
+			Concrete: 100
+			Building: 60
+
+## Devastator primary
+DevBullet:
+	ReloadDelay: 75
+	Range: 4c0
+	Report: TANKHVY1.WAV
+	Projectile: Bullet
+		Speed: 640
+		Image: doubleblastbullet
+	Warhead@1Dam: SpreadDamage
+		Spread: 384
+		Damage: 650
+		DeathType: 4
+		Versus:
+			None: 50
+			Harvester: 100
+			Wall: 100
+			Wood: 60
+			Light: 100
+			Heavy: 100
+			Concrete: 100
+			Building: 75
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: shockwave
+		ImpactSound: EXPLMD1.WAV
+
+## Deviator primary
+DeviatorMissile:
+	ReloadDelay: 160
+	Range: 5c0
+	Report: MISSLE1.WAV
+	Projectile: Bullet
+		Speed: 256
+		High: true
+		Shadow: yes
+		Angle: 110
+		Inaccuracy: 0c256
+		Image: MISSILE
+		ROT: 0
+		Trail: smoke_s
+		TrailDelay: 1
+	Warhead@1Dam: SpreadDamage
+		Spread: 768
+		Damage: 500
+		Versus:
+			None: 20
+			Harvester: 20
+			Wall: 20
+			Wood: 20
+			Light: 20
+			Heavy: 20
+			Concrete: 20
+			Building: 20
+	Warhead@2OwnerChange: ChangeOwner
+		Range: 1c0
+		Duration: 750
+	Warhead@3Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@4Eff: CreateEffect
+		Explosion: deviator
+		ImpactSound: EXPLSML2.WAV
+
+## Gun Turret primary
+110mm:
+	ReloadDelay: 35
+	Range: 5c0
+	Report: TURRET1.WAV
+	Projectile: Bullet
+		Speed: 650
+		High: yes
+		Inaccuracy: 380
+		Image: 120mm
+	Warhead@1Dam: SpreadDamage
+		Spread: 128
+		Damage: 290
+		DeathType: 3
+		Versus:
+			None: 20
+			Harvester: 50
+			Wall: 50
+			Wood: 60
+			Light: 100
+			Heavy: 75
+			Concrete: 100
+			Building: 50
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: small_napalm
+		ImpactSound: EXPLSML3.WAV
+
+## Rocket Tower primary
+TowerMissile:
+	ReloadDelay: 60
+	Range: 5c512
+	Report: ROCKET1.WAV
+	ValidTargets: Ground, Air
+	Projectile: Missile
+		Speed: 256
+		Arm: 0
+		Inaccuracy: 96
+		Image: RPG
+		ROT: 0
+		RangeLimit: 40
+		Trail: smoke_s
+	Warhead@1Dam: SpreadDamage
+		Spread: 768
+		Damage: 480
+		DeathType: 1
+		ValidTargets: Ground, Air
+		Versus:
+			None: 15
+			Harvester: 50
+			Wall: 75
+			Wood: 65
+			Light: 90
+			Heavy: 100
+			Concrete: 100
+			Building: 60
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater, RockCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: large_explosion
+		ImpactSound: EXPLMD1.WAV
+
+## Sand Worm primary
+WormJaw:
+	ReloadDelay: 40
+	Range: 1c0
+	Report: WORM.WAV
+	Warhead@1Dam: SpreadDamage
+		Spread: 160
+		Damage: 999999
+		Versus:
+			None: 100
+			Harvester: 100
+			Wall: 100
+			Wood: 100
+			Light: 100
+			Heavy: 100
+			Concrete: 100
+			Building: 100
+	Warhead@2Eff: CreateEffect
+		Explosion: wormmouth
+	Warhead@3Eff: CreateEffect
+		Explosion: wormsand
+
+## Ornithopter primary
+Napalm:
+	ReloadDelay: 5
+	Range: 3c0
+	Projectile: GravityBomb
+		Image: BOMBS
+	Warhead@1Dam: SpreadDamage
+		Spread: 640
+		Damage: 400
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		DeathType: 3
+		Versus:
+			None: 90
+			Harvester: 25
+			Wall: 50
+			Wood: 60
+			Light: 60
+			Heavy: 60
+			Concrete: 100
+			Building: 75
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: Crater
+	Warhead@3Eff: CreateEffect
+		Explosion: large_explosion
+		ImpactSound: NAPALM1.WAV
+
+Crush:
+	Warhead@1Dam: SpreadDamage
+		Damage: 100
+	Warhead@2Eff: CreateEffect
+		ImpactSound: CRUSH1.WAV
+
+Demolish:
+	Warhead@1Dam: SpreadDamage
+	Warhead@2Eff: CreateEffect
+		Explosion: building
+		ImpactSound: EXPLLG2.WAV
+
+## Death Hand primary
+Atomic:
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c0
+		Damage: 675	#225 in D2k but had 3 shrapnel pieces
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		DeathType: 2
+		Versus:
+			None: 90
+			Harvester: 25
+			Wall: 50
+			Wood: 60
+			Light: 60
+			Heavy: 60
+			Concrete: 100
+			Building: 75
+	Warhead@2Eff: CreateEffect
+		Explosion: nuke
+		ImpactSound: EXPLLG2.WAV
+
+CrateNuke:
+	Warhead@1Dam: SpreadDamage
+		Spread: 1c576
+		Damage: 675
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		DeathType: 2
+		Versus:
+			None: 90
+			Harvester: 25
+			Wall: 50
+			Wood: 60
+			Light: 60
+			Heavy: 60
+			Concrete: 100
+			Building: 75
+		AffectsParent: true
+	Warhead@2Eff: CreateEffect
+		Explosion: nuke
+		ImpactSound: EXPLLG2.WAV
+
+CrateExplosion:
+	Warhead@1Dam: SpreadDamage
+		Spread: 320
+		Damage: 250
+		Falloff: 1000, 368, 135, 50, 18, 7, 0
+		DeathType: 3
+		Versus:
+			None: 125
+			Harvester: 25
+			Wall: 100
+			Wood: 70
+			Light: 30
+			Heavy: 20
+			Concrete: 100
+			Building: 65
+		AffectsParent: true
+	Warhead@2Eff: CreateEffect
+		Explosion: building
+		ImpactSound: EXPLSML4.WAV
+
+## Small unit dies
+UnitExplodeSmall:
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 0
+		DeathType: 3
+		Versus:
+			None: 125
+			Harvester: 25
+			Wall: 100
+			Wood: 70
+			Light: 30
+			Heavy: 20
+			Concrete: 100
+			Building: 65
+	Warhead@2Eff: CreateEffect
+		Explosion: self_destruct
+		ImpactSound: EXPLLG2.WAV, EXPLLG3.WAV, EXPLLG5.WAV
+
+## Big unit dies
+UnitExplode:
+	Warhead@1Dam: SpreadDamage
+		Spread: 45
+		Damage: 0
+		DeathType: 3
+		Versus:
+			None: 125
+			Harvester: 25
+			Wall: 100
+			Wood: 70
+			Light: 30
+			Heavy: 20
+			Concrete: 100
+			Building: 65
+	Warhead@2Eff: CreateEffect
+		Explosion: building
+		ImpactSound: EXPLLG2.WAV, EXPLLG3.WAV, EXPLLG5.WAV
+
+## Building shrapnel
+Shrapnel:
+	ReloadDelay: 60
+	Range: 2c0
+	Report:
+	Projectile: Bullet
+		Speed: 25, 85
+		High: true
+		Angle: 25, 90
+		Inaccuracy: 416
+		Image: bombs
+		Trail: smoke_s
+		TrailDelay: 1
+	Warhead@1Dam: SpreadDamage
+		Spread: 512
+		Damage: 1000
+		DeathType: 1
+		Versus:
+			None: 90
+			Harvester: 25
+			Wall: 5
+			Wood: 50
+			Light: 40
+			Heavy: 30
+			Concrete: 100
+			Building: 65
+	Warhead@2Smu: LeaveSmudge
+		SmudgeType: SandCrater
+	Warhead@3Eff: CreateEffect
+		Explosion: med_explosion
+		ImpactSound: EXPLLG5.WAV
+
+## Harvester explosion
+SpiceExplosion:
+	Warhead@1Dam: SpreadDamage
+		Spread: 9
+		Damage: 75
+		DeathType: 1
+		Versus:
+			None: 90
+			Harvester: 25
+			Wall: 5
+			Wood: 50
+			Light: 40
+			Heavy: 30
+			Concrete: 100
+			Building: 65
+	Warhead@2Res: CreateResource
+		AddsResourceType: Spice
+		Size: 2,2
+	Warhead@3Eff: CreateEffect
+		Explosion: building
+		ImpactSound: EXPLLG5.WAV
+
+Weathering:
+	ReloadDelay: 100
+	Warhead@1Dam: SpreadDamage
+		Damage: 50
