@@ -355,30 +355,30 @@ resources:
 		Frames: 748, 749, 750, 751, 752, 753, 754, 755, 756, 757, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 300, 301, 320, 321
 		Length: 54
 		Offset: -16,-16
-
+		
 shroud:
 	typea: DATA.R8
 		Start: 40
 		Length: 14
 		Offset: -16,-16
-		BlendMode: Multiply
+		BlendMode: Subtractive
 	typeb: DATA.R8
 		Start: 56
 		Length: 14
 		Offset: -16,-16
-		BlendMode: Multiply
+		BlendMode: Subtractive
 	typec: DATA.R8
 		Start: 72
 		Length: 14
 		Offset: -16,-16
-		BlendMode: Multiply
+		BlendMode: Subtractive
 	typed: DATA.R8
 		Start: 88
 		Length: 14
 		Offset: -16,-16
-		BlendMode: Multiply
+		BlendMode: Subtractive
 	full: fullshroud.shp
-		BlendMode: Multiply
+		BlendMode: Subtractive
 
 rockcraters:
 	rockcrater1: DATA.R8

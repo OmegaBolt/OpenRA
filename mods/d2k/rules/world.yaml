@@ -81,19 +81,19 @@ World:
 		Name: shroud
 		Filename: DATA.R8
 		Offset: 12007
-		InvertColor: true
+		InvertColor: false
 	FogPaletteFromR8@fog:
 		Name: fog
 		Filename: DATA.R8
 		Offset: 12007
-		InvertColor: true
+		InvertColor: false
 	ShroudRenderer:
 		ShroudVariants: typea, typeb, typec, typed
 		FogVariants: typea, typeb, typec, typed
 		Index: 11, 3, 7, 9, 6, 13, 12, 14, 4, 8, 2, 1, 5, 10
 		OverrideFullShroud: full
 		OverrideFullFog: full
-		ShroudBlend: Multiply
+		ShroudBlend: Subtractive
 	Country@Random:
 		Name: Any
 		Race: Random
