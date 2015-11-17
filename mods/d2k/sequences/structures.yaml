@@ -22,6 +22,11 @@ wall:
 		Offset: -30,-24
 
 medium_gun_turret:
+	crumble-overlay: DATA.R8
+		Start: 4320
+		Length: 7
+		Offset: -16,16
+		Tick: 200
 	idle: DATA.R8
 		Frames: 2573, 2576, 2574, 2584, 2577, 2578, 2588, 2581, 2575, 2585, 2579, 2580, 2586, 2582, 2583, 2587
 		Length: 16
@@ -45,6 +50,11 @@ medium_gun_turret:
 		Offset: -30,-24
 
 large_gun_turret:
+	crumble-overlay: DATA.R8
+		Start: 4320
+		Length: 7
+		Offset: -16,16
+		Tick: 200
 	idle: DATA.R8
 		Frames: 2573, 2576, 2574, 2584, 2577, 2578, 2588, 2581, 2575, 2585, 2579, 2580, 2586, 2582, 2583, 2587
 		Length: 16

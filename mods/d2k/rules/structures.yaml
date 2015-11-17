@@ -590,6 +590,7 @@ medium_gun_turret:
 		Amount: -50
 	SelectionDecorations:
 		VisualBounds: 32,40,0,-8
+	WithCrumbleOverlay:
 
 large_gun_turret:
 	Inherits: ^Defense
@@ -633,6 +634,7 @@ large_gun_turret:
 		Amount: -60
 	SelectionDecorations:
 		VisualBounds: 32,40,0,-8
+	WithCrumbleOverlay:
 
 repair_pad:
 	Inherits: ^Building
