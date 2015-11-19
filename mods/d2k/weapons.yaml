@@ -280,7 +280,7 @@ TowerMissile:
 	Projectile: Missile
 		Blockable: false
 		Shadow: true
-		HorizontalRateOfTurn: 1
+		HorizontalRateOfTurn: 3
 		RangeLimit: 50
 		Inaccuracy: 384
 		Image: MISSILE2
