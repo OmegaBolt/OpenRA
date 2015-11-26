@@ -1,0 +1,54 @@
+MapFormat: 8
+
+RequiresMod: redres
+
+Title: RedResShell
+
+Description: Red-Res Shellmap
+
+Author: OmegaBolt
+
+Tileset: TEMPERATE
+
+MapSize: 130,146
+
+Bounds: 1,1,128,144
+
+Visibility: Shellmap
+
+Type: Conquest
+
+Videos:
+
+Options:
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: Random
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: Random
+
+Actors:
+
+Smudges:
+
+Rules:
+
+Sequences:
+
+VoxelSequences:
+
+Weapons:
+
+Voices:
+
+Music:
+
+Notifications:
+
+Translations:

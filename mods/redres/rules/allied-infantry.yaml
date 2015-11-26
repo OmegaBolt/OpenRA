@@ -1,0 +1,91 @@
+## GI
+e1:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~gapile
+		BuildPaletteOrder: 10
+	Valued:
+		Cost: 120
+	Tooltip:
+		Name: G.I.
+		Description: General-purpose infantry.
+	Health:
+		HP: 240
+	Mobile:
+		Speed: 60
+	Passenger:
+		PipType: Green
+	RevealsShroud:
+		Range: 6c0
+	AttackFrontal:
+		Voice: Attack
+	Armament@primary:
+		Weapon: M60
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@elite:
+		Weapon: M60
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	Armament@deployed:
+		Weapon: Para
+		UpgradeTypes: deployed
+		UpgradeMinEnabledLevel: 1
+#	Armament@elite-deployed:
+#		Weapon: paraE
+#		UpgradeTypes: eliteparaweapon
+#		UpgradeMinEnabledLevel: 1
+	Voiced:
+		VoiceSet: GIVoice
+	WithInfantryBody:
+		UpgradeTypes: deployed
+		UpgradeMaxEnabledLevel: 0
+	DeployToUpgrade:
+		DeployedUpgrades: deployed
+		Facing: 128
+		AllowedTerrainTypes: Clear, Ore
+	WithSpriteBody@DEPLOYED:
+		Sequence: deployed
+		UpgradeTypes: deployed
+		UpgradeMinEnabledLevel: 1
+	DisableOnUpgrade:
+		UpgradeTypes: deployed
+		UpgradeMinEnabledLevel: 1
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated
+
+## Engineer
+engineer:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~barracks.gdi
+		BuildPaletteOrder: 40
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Engineer
+		Description: Captures & repairs structures.
+	Selectable:
+		Bounds: 20, 30, 0, -11
+	Health:
+		HP: 250
+	Mobile:
+		Speed: 60
+	Passenger:
+		PipType: Blue
+	EngineerRepair:
+	RepairsBridges:
+	Captures:
+		CaptureTypes: building, husk
+	-AutoTarget:
+	RevealsShroud:
+		Range: 5c0
+	Voiced:
+		VoiceSet: AlliedEngineerVoice
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action

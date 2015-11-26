@@ -1,0 +1,73 @@
+## Conscript
+e2:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~nahand
+		BuildPaletteOrder: 10
+	Valued:
+		Cost: 60
+	Tooltip:
+		Name: Conscript
+		Description: General-purpose infantry.
+	Health:
+		HP: 240
+	Mobile:
+		Speed: 60
+	Passenger:
+		PipType: Green
+	RevealsShroud:
+		Range: 6c0
+	AttackFrontal:
+		Voice: Attack
+	Armament@primary:
+		Weapon: M1Carbine
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@elite:
+		Weapon: M1Carbine
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	WithInfantryBody:
+	Voiced:
+		VoiceSet: ConscriptVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated
+	QuantizeFacingsFromSequence:
+		Sequence: stand
+
+## Engineer
+sengineer:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~barracks.nod
+		BuildPaletteOrder: 40
+	Valued:
+		Cost: 300
+	Tooltip:
+		Name: Engineer
+		Description: Captures & repairs structures.
+	Health:
+		HP: 250
+	Mobile:
+		Speed: 60
+	Passenger:
+		PipType: Blue
+	EngineerRepair:
+	RepairsBridges:
+	Captures:
+		CaptureTypes: building, husk
+	-AutoTarget:
+	WithInfantryBody:
+	RevealsShroud:
+		Range: 5c0
+	Voiced:
+		VoiceSet: SovietEngineerVoice
+	Guard:
+		Voice: Action
+	AttackMove:
+		Voice: Action
+	QuantizeFacingsFromSequence:
+		Sequence: stand

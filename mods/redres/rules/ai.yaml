@@ -1,0 +1,22 @@
+Player:
+	HackyAI@TestAI:
+		Name: Test AI
+		MinimumExcessPower: 60
+		BuildingCommonNames:
+			ConstructionYard: gacnst
+			Refinery: 
+			Power: 
+			Barracks: 
+			VehiclesFactory: 
+			Production: 
+			Silo: 
+		UnitsCommonNames:
+			Mcv: amcv
+		BuildingLimits:
+		BuildingFractions:
+		UnitsToBuild:
+			e1: 100%
+			e2: 100%
+		UnitLimits:
+		SquadSize: 20
+

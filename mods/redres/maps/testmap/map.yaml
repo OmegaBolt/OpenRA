@@ -1,0 +1,70 @@
+MapFormat: 8
+
+RequiresMod: redres
+
+Title: Test Map
+
+Description: Test map
+
+Author: OmegaBolt
+
+Tileset: TEMPERATE
+
+MapSize: 130,146
+
+Bounds: 1,1,128,144
+
+Visibility: Lobby
+
+Type: Conquest
+
+Videos:
+
+Options:
+
+Players:
+	PlayerReference@Neutral:
+		Name: Neutral
+		OwnsWorld: True
+		NonCombatant: True
+		Faction: Random
+	PlayerReference@Creeps:
+		Name: Creeps
+		NonCombatant: True
+		Faction: Random
+	PlayerReference@Multi0:
+		Name: Multi0
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+	PlayerReference@Multi1:
+		Name: Multi1
+		Playable: True
+		Faction: Random
+		Enemies: Creeps
+
+Actors:
+	Actor0: mpspawn
+		Owner: Neutral
+		Location: 32,4
+	Actor1: mpspawn
+		Owner: Neutral
+		Location: 170,-59
+
+Smudges:
+
+Rules:
+
+Sequences:
+
+VoxelSequences:
+
+Weapons:
+
+Voices:
+
+Music:
+
+Notifications:
+
+Translations:

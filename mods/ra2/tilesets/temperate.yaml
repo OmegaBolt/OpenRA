@@ -1,0 +1,39 @@
+General:
+	Name: Temperate
+	Id: TEMPERAT
+	Palette: isotem.pal
+	HeightDebugColors: 00000080, 00004480, 00008880, 0000CC80, 0000FF80, 4400CC80, 88008880, CC004480, FF110080, FF550080, FF990080, FFDD0080, DDFF0080, 99FF0080, 55FF0080, 11FF0080
+	EditorTemplateOrder: Ground, Cliffs
+	SheetSize: 2048
+	EnableDepth: true
+
+Terrain:
+	TerrainType@Clear:
+		Type: Clear
+		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
+		Color: 745537
+		TargetTypes: Ground
+	TerrainType@Impassable:
+		Type: Impassable
+		Color: 745537
+		TargetTypes: Ground
+	TerrainType@Ore:
+		Type: Ore
+		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
+		Color: E6C300
+		TargetTypes: Ground
+	TerrainType@Gems:
+		Type: Gems
+		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
+		Color: 9500B3
+		TargetTypes: Ground
+
+Templates:
+	Template@space_debug:
+		Category: Ground
+		Id: 0
+		Images: clear01.tem, clear01a.tem, clear01b.tem, clear01c.tem, clear01d.tem, clear01e.tem, clear01f.tem, clear01g.tem
+		Size: 1, 1
+		Tiles:
+			0: Clear
+

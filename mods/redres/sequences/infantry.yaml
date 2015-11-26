@@ -1,0 +1,254 @@
+## GI
+e1:
+	Defaults: gi
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	idle1:
+		Start: 56
+		Length: 15
+		Tick: 100
+	idle2:
+		Start: 71
+		Length: 15
+		Tick: 100
+	prone-stand:
+		Start: 86
+		Stride: 6
+		Facings: 8
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		Tick: 100
+	die1:
+		Start: 134
+		Length: 14
+		Tick: 120
+	die2:
+		Start: 149
+		Length: 14
+		Tick: 120
+	die4: nukedie
+		Length: *
+		Tick: 80
+		# Problem: Palette = effect
+	die5: flameguy
+		Start: 48
+		Length: 59
+		Tick: 120
+# TODO: This is just the death sequence; normally flameguy would run a bit around before dying
+	die6: electro
+		Length: *
+		Tick: 80
+	die-crushed: death_c
+		Length: 4
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		Tick: 80
+	prone-shoot:
+		Start 212
+		Length: 6
+		Facings: 8
+		Tick: 80
+	standup-0:
+		Start: 276
+		Length: 2
+		Facings: 8
+	deployed:
+		Start: 292
+		Facings: 8
+	deploy:
+		Start: 300
+		Length: 15
+	shoot-deployed:
+		Start: 315
+		Length: 6
+		Facings: 8
+	icon: giicon
+
+## Allied Engineer
+engineer:
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	liedown:
+		Start: 66
+		Length: 2
+		Facings: 8
+	standup:
+		Start: 114
+		Length: 2
+		Facings: 8
+	prone-stand:
+		Start: 87
+		Length: 7
+		Facings: 8
+	prone-run:
+		Start: 87
+		Length: 7
+		Facings: 8
+		Tick: 100
+	idle1:
+		Start: 57
+		Length: 14
+		Tick: 120
+	idle2:
+		Start: 72
+		Length: 14
+		Tick: 120
+	cheer:
+		Start: 245
+		Length: 8
+		Tick: 120
+	die1:
+		Start: 134
+		Length: 15
+		Tick: 80
+	die2:
+		Start: 149
+		Length: 15
+		Tick: 80
+	die4: nukedie
+		Length: *
+		Tick: 50
+		# Problem: Palette = effect
+	die5: flameguy
+		Start: 48
+		Length: 59
+		Tick: 80
+# TODO: This is just the death sequence; normally flameguy would run a bit around before dying
+	die6: electro
+		Length: *
+		Tick: 80
+	die-crushed: death_c
+		Length: 4
+	icon: aengicon
+
+## Conscript
+e2:
+	Defaults: cons
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	idle1:
+		Start: 56
+		Length: 15
+		Tick: 100
+	idle2:
+		Start: 71
+		Length: 15
+		Tick: 100
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		Tick: 100
+	die1:
+		Start: 134
+		Length: 14
+	die2:
+		Start: 149
+		Length: 14
+	die4: nukedie
+		Length: *
+		Tick: 50
+		# Problem: Palette = effect
+	die5: flameguy
+		Start: 48
+		Length: 59
+		Tick: 80
+# TODO: This is just the death sequence; normally flameguy would run a bit around before dying
+	die6: electro
+		Length: *
+		Tick: 80
+	die-crushed: death_c
+		Length: 4
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		Tick: 80
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		Tick: 80
+	icon: e2icon
+
+## Soviet Engineer
+sengineer:
+	Defaults: engineer
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 100
+	liedown:
+		Start: 66
+		Length: 2
+		Facings: 8
+	standup:
+		Start: 114
+		Length: 2
+		Facings: 8
+	prone-stand:
+		Start: 87
+		Length: 7
+		Facings: 8
+	prone-run:
+		Start: 87
+		Length: 7
+		Facings: 8
+		Tick: 100
+	idle1:
+		Start: 57
+		Length: 14
+		Tick: 120
+	idle2:
+		Start: 72
+		Length: 14
+		Tick: 120
+	cheer:
+		Start: 245
+		Length: 8
+		Tick: 120
+	die1:
+		Start: 134
+		Length: 15
+		Tick: 80
+	die2:
+		Start: 149
+		Length: 15
+		Tick: 80
+	die4: nukedie
+		Length: *
+		Tick: 50
+		# Problem: Palette = effect
+	die5: flameguy
+		Start: 48
+		Length: 59
+		Tick: 80
+# TODO: This is just the death sequence; normally flameguy would run a bit around before dying
+	die6: electro
+		Length: *
+		Tick: 80
+	die-crushed: death_c
+		Length: 4
+	icon: sengicon

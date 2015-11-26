@@ -1,0 +1,264 @@
+General:
+	Name: Temperate
+	Id: TEMPERATE
+	Palette: isotem.pal
+	HeightDebugColors: 00000080, 00004480, 00008880, 0000CC80, 0000FF80, 4400CC80, 88008880, CC004480, FF110080, FF550080, FF990080, FFDD0080, DDFF0080, 99FF0080, 55FF0080, 11FF0080
+	EditorTemplateOrder: Ground, Cliffs
+	SheetSize: 4096	##2048
+	EnableDepth: true
+
+Terrain:
+	TerrainType@Clear:
+		Type: Clear
+		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
+		Color: 745537
+		TargetTypes: Ground
+	TerrainType@Cliff:
+		Type: Cliff
+		Color: 745537
+		TargetTypes: Ground
+	TerrainType@Ore:
+		Type: Ore
+		AcceptsSmudgeType: SmallCrater, MediumCrater, LargeCrater, SmallScorch, MediumScorch, LargeScorch
+		Color: A1E21C
+		TargetTypes: Ground
+
+Templates:
+	Template@clear:
+		Category: Ground
+		Id: 0
+		Images: clear01.tem, clear01a.tem, clear01b.tem, clear01c.tem, clear01d.tem, clear01e.tem, clear01f.tem, clear01g.tem
+		Size: 1, 1
+		Tiles:
+			0: Clear
+	Template@cliff01:
+		Category: Cliffs
+		Id: 1
+		Images: cliff01.tem
+		Size: 5, 5
+		Tiles:
+			1: Cliff
+			2: Cliff
+			5: Clear
+			6: Cliff
+			7: Cliff
+			8: Cliff
+			10: Clear
+			11: Cliff
+			12: Cliff
+			13: Cliff
+			14: Cliff
+			16: Clear
+			17: Cliff
+			18: Cliff
+	Template@cliff02:
+		Category: Cliffs
+		Id: 2
+		Images: cliff02.tem
+		Size: 4, 4
+		Tiles:
+			0: Cliff
+			1: Cliff
+			4: Cliff
+			5: Cliff
+			6: Cliff
+			8: Cliff
+			9: Cliff
+			10: Cliff
+			11: Cliff
+			13: Cliff
+			14: Cliff
+			15: Clear
+	Template@cliff03:
+		Category: Cliffs
+		Id: 3
+		Images: cliff03.tem
+		Size: 4, 4
+		Tiles:
+			0: Clear
+			1: Cliff
+			4: Cliff
+			5: Cliff
+			6: Cliff
+			8: Cliff
+			9: Cliff
+			10: Cliff
+			11: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+	Template@cliff04:
+		Category: Cliffs
+		Id: 4
+		Images: cliff04.tem
+		Size: 4, 4
+		Tiles:
+			0: Clear
+			1: Cliff
+			4: Cliff
+			5: Cliff
+			6: Cliff
+			8: Cliff
+			9: Cliff
+			10: Cliff
+			11: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+	Template@cliff05:
+		Category: Cliffs
+		Id: 5
+		Images: cliff05.tem
+		Size: 4, 4
+		Tiles:
+			1: Clear
+			4: Cliff
+			5: Cliff
+			6: Cliff
+			8: Cliff
+			9: Cliff
+			10: Clear
+			13: Cliff
+			14: Cliff
+			15: Clear
+	Template@cliff06:
+		Category: Cliffs
+		Id: 6
+		Images: cliff06.tem
+		Size: 6, 6
+		Tiles:
+			1: Cliff
+			6: Cliff
+			7: Cliff
+			8: Cliff
+			12: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+			18: Clear
+			19: Cliff
+			20: Cliff
+			21: Cliff
+			25: Cliff
+			26: Cliff
+			27: Cliff
+			32: Cliff
+			33: Clear
+	Template@cliff07:
+		Category: Cliffs
+		Id: 7
+		Images: cliff07.tem
+		Size: 6, 6
+		Tiles:
+			1: Cliff
+			6: Cliff
+			7: Cliff
+			8: Cliff
+			12: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+			18: Clear
+			19: Cliff
+			20: Cliff
+			21: Cliff
+			25: Cliff
+			26: Cliff
+			27: Cliff
+			32: Cliff
+			33: Clear
+	Template@cliff08:
+		Category: Cliffs
+		Id: 8
+		Images: cliff08.tem
+		Size: 6, 6
+		Tiles:
+			1: Cliff
+			6: Cliff
+			7: Cliff
+			8: Cliff
+			12: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+			18: Clear
+			19: Cliff
+			20: Cliff
+			21: Cliff
+			25: Cliff
+			26: Cliff
+			27: Cliff
+			32: Cliff
+			33: Clear
+	Template@cliff09:
+		Category: Cliffs
+		Id: 9
+		Images: cliff09.tem
+		Size: 6, 6
+		Tiles:
+			0: Cliff
+			1: Cliff
+			2: Cliff
+			3: Cliff
+			6: Cliff
+			7: Cliff
+			8: Cliff
+			9: Cliff
+			10: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+			16: Cliff
+			17: Cliff
+			22: Clear
+			23: Clear
+	Template@cliff10:
+		Category: Cliffs
+		Id: 10
+		Images: cliff10.tem
+		Size: 6, 6
+		Tiles:
+			0: Cliff
+			1: Cliff
+			2: Cliff
+			6: Cliff
+			7: Cliff
+			8: Cliff
+			9: Cliff
+			12: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+			16: Cliff
+			19: Cliff
+			20: Cliff
+			21: Cliff
+			22: Cliff
+			23: Cliff
+			28: Clear
+			29: Clear
+	Template@cliff11:
+		Category: Cliffs
+		Id: 11
+		Images: cliff11.tem
+		Size: 6, 6
+		Tiles:
+			0: Cliff
+			1: Cliff
+			2: Cliff
+			6: Cliff
+			7: Cliff
+			8: Cliff
+			9: Cliff
+			12: Cliff
+			13: Cliff
+			14: Cliff
+			15: Cliff
+			16: Cliff
+			19: Cliff
+			20: Cliff
+			21: Cliff
+			22: Cliff
+			23: Cliff
+			28: Cliff
+			29: Cliff
