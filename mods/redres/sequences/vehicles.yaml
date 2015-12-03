@@ -25,13 +25,20 @@ aegis:
 
 carrier:
 	icon: carricon
+
+orca:
+	icon: orcaicon
 	
 ## Soviet
+smcv:
+	icon: smcvicon
 
 harv:
 	harvest: oregath
 		Length: 15
 		Facings: 8
+	muzzle: gunfire
+		Length: *
 	icon: harvicon
 
 htk:
@@ -101,9 +108,6 @@ ptruck:
 
 rtnk:
 	icon: rtnkicon
-
-smcv:
-	icon: smcvicon
 
 sref:
 	icon: sreficon

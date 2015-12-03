@@ -1,4 +1,5 @@
-## GI
+## CustomBuildTimeValue: (Cost / 1000) * 0.7 * BuildTimeMultipier * 60 * 40
+
 e1:
 	Inherits: ^Infantry
 	Buildable:
@@ -14,12 +15,8 @@ e1:
 		HP: 240
 	Mobile:
 		Speed: 60
-	Passenger:
-		PipType: Green
 	RevealsShroud:
 		Range: 6c0
-	AttackFrontal:
-		Voice: Attack
 	Armament@primary:
 		Weapon: M60
 		UpgradeTypes: eliteweapon
@@ -29,40 +26,55 @@ e1:
 		Weapon: M60
 		UpgradeTypes: eliteweapon
 		UpgradeMinEnabledLevel: 1
-	Armament@deployed:
-		Weapon: Para
-		UpgradeTypes: deployed
-		UpgradeMinEnabledLevel: 1
+#	Armament@deployed:
+#		Weapon: Para#
+#		UpgradeTypes: deployed
+#		UpgradeMinEnabledLevel: 1
 #	Armament@elite-deployed:
 #		Weapon: paraE
 #		UpgradeTypes: eliteparaweapon
 #		UpgradeMinEnabledLevel: 1
 	Voiced:
 		VoiceSet: GIVoice
-	WithInfantryBody:
-		UpgradeTypes: deployed
-		UpgradeMaxEnabledLevel: 0
-	DeployToUpgrade:
-		DeployedUpgrades: deployed
-		Facing: 128
-		AllowedTerrainTypes: Clear, Ore
-	WithSpriteBody@DEPLOYED:
-		Sequence: deployed
-		UpgradeTypes: deployed
-		UpgradeMinEnabledLevel: 1
-	DisableOnUpgrade:
-		UpgradeTypes: deployed
-		UpgradeMinEnabledLevel: 1
 	ProducibleWithLevel:
 		Prerequisites: barracks.infiltrated
 
-## Engineer
+adog:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~gapile, ~barracks.gdi
+		BuildPaletteOrder: 20
+	Valued:
+		Cost: 100
+	Tooltip:
+		Name: Attack Dog
+		Description: Anti-infantry scout.
+	Health:
+		HP: 310
+	Mobile:
+		Speed: 110
+	RevealsShroud:
+		Range: 10c0
+	AttackLeap:
+		Voice: Attack
+	Armament@primary:
+		Weapon: GoodTeeth
+	AutoTarget:
+		InitialStance: AttackAnything
+	DetectCloaked:
+		CloakTypes: Cloak
+	Voiced:
+		VoiceSet: DogVoice
+	-TakeCover:
+	-AttackFrontal:
+
 engineer:
 	Inherits: ^Infantry
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~barracks.gdi
-		BuildPaletteOrder: 40
+		BuildPaletteOrder: 30
 	Valued:
 		Cost: 300
 	Tooltip:
@@ -81,6 +93,7 @@ engineer:
 	Captures:
 		CaptureTypes: building, husk
 	-AutoTarget:
+	-AttackFrontal:
 	RevealsShroud:
 		Range: 5c0
 	Voiced:
@@ -88,4 +101,265 @@ engineer:
 	Guard:
 		Voice: Action
 	AttackMove:
-		Voice: Action
+		Voice: Move
+
+ggi:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~gapile
+		BuildPaletteOrder: 40
+	Valued:
+		Cost: 250
+	Tooltip:
+		Name: Guardian
+		Description: Anti-air, anti-vehicle infantry.
+	Health:
+		HP: 200
+	Mobile:
+		Speed: 60
+	RevealsShroud:
+		Range: 6c0
+	Armament@primary:
+		Weapon: GuardianRocket
+		LocalOffset: 212,0,556
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@elite:
+		Weapon: GuardianRocket
+		LocalOffset: 212,0,556
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	Voiced:
+		VoiceSet: GuardianVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated
+
+grenadier:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~gapile, gaarse
+		BuildPaletteOrder: 50
+	Valued:
+		Cost: 400
+	Tooltip:
+		Name: Grenadier
+		Description: Infantry support.
+	Health:
+		HP: 275
+	Mobile:
+		Speed: 80
+	RevealsShroud:
+		Range: 6c0
+	Armament@primary:
+		Weapon: Grenade
+		LocalOffset: 192,0,512
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@elite:
+		Weapon: Grenade
+		LocalOffset: 192,0,512
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	Voiced:
+		VoiceSet: GrenadierVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated
+
+spy:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Infantry
+		BuildPaletteOrder: 70
+		Prerequisites: ~gapile, garobo
+	Valued:
+		Cost: 500
+	DisguiseToolTip:
+		Name: Spy
+		GenericName: Soldier
+		Description: Infiltrates enemy structures for intel or\nsabotage. Exact effect depends on the\nbuilding infiltrated.\n  Unarmed\nSpecial Ability: Disguises
+	Health:
+		HP: 200
+	Mobile:
+		Speed: 60
+	RevealsShroud:
+		Range: 8c0
+	Passenger:
+		PipType: Green
+	Disguise:
+	Infiltrates:
+		Types: SpyInfiltrate
+	-AutoTarget:
+	-WithInfantryBody:
+	-TakeCover:
+	-AttackFrontal:
+	WithDisguisingInfantryBody:
+		IdleAnimations: idle1,idle2
+		StandAnimations: stand
+	WithDecoration@disguise:
+		Image: pips
+		Sequence: pip-disguise
+		Palette: pips
+		ReferencePoint: Top, Right
+		Offset: 6, -2
+		ZOffset: 256
+		UpgradeTypes: disguise
+		UpgradeMinEnabledLevel: 1
+	Voiced:
+		VoiceSet: SpyVoice
+
+jumpjet:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Infantry
+		BuildPaletteOrder: 80
+		Prerequisites: ~gapile, gaairf
+	Valued:
+		Cost: 450
+	Tooltip:
+		Name: Rocketeer
+		Description: Airborne soldier.\n  Strong vs Infantry, Aircraft
+	Health:
+		HP: 300
+	-Mobile:
+	RevealsShroud:
+		Range: 8c0
+		Type: CenterPosition
+	Armor:
+		Type: None
+	Armor@2:
+		Type: Rocketeer
+	Armament@primary:
+		Weapon: 20mm
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@elite:
+		Weapon: 20mm
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	Aircraft:
+		Repulsable: false
+		CruiseAltitude: 3072
+		IdealSeparation: 512
+		LandWhenIdle: false
+		InitialFacing: 20
+		ROT: 12
+		Speed: 100
+		AltitudeVelocity: 100
+		Voice: Move
+		AirborneUpgrades: airborne
+		RepairBuildings:
+		RearmBuildings:
+		CanHover: true
+	WithInfantryBody:
+		StandSequence: fly
+		MoveSequence: fly
+		AttackSequence: shoot-air
+		IdleSequences: idle-air
+	Hovers:
+		OffsetModifier: -45
+	-Targetable:
+	Targetable@airborne:
+		TargetTypes: Air
+		UpgradeTypes: airborne
+		UpgradeMinEnabledLevel: 1
+	WithShadow:
+	Voiced:
+		VoiceSet: RocketeerVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated
+	Targetable@ground:
+		TargetTypes: Ground, Infantry, DetonateAttack, Disguise
+		UpgradeTypes: airborne
+		UpgradeMaxEnabledLevel: 0
+
+snipe:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~gapile, gaorep
+		BuildPaletteOrder: 100
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Sniper
+		Description: Long range infantry.
+	Health:
+		HP: 280
+	Armor:
+		Type: Flak
+	Mobile:
+		Speed: 70
+	RevealsShroud:
+		Range: 8c0
+	Armament@primary:
+		Weapon: AWP
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@elite:
+		Weapon: AWP
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	Armament@emp_primary:
+		Weapon: AWP_EMP
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@emp_elite:
+		Weapon: AWP_EMP
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	Voiced:
+		VoiceSet: SniperVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated
+
+tany:
+	Inherits: ^Infantry
+	Buildable:
+		Queue: Infantry
+		BuildAtProductionType: Infantry
+		BuildPaletteOrder: 120
+		Prerequisites: ~gapile, gatech
+		BuildLimit: 1
+	Valued:
+		Cost: 1500
+	Tooltip:
+		Name: Tanya
+		Description: Hero infantry.\n  Strong vs Infantry, Buildings\nBuild Limit: 1
+	Health:
+		HP: 1100
+	Mobile:
+		Speed: 80
+	RevealsShroud:
+		Range: 6c0
+	C4Demolition:
+		C4Delay: 45
+		Voice: Attack
+	Armor:
+		Type: Flak
+	Armor@2:
+		Type: Hero
+	Passenger:
+		PipType: Red
+	Armament@primary:
+		Weapon: DoublePistols
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@elite:
+		Weapon: DoublePistols
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	AnnounceOnBuild:
+	Voiced:
+		VoiceSet: TanyaVoice
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated

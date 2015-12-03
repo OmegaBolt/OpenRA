@@ -12,6 +12,7 @@ Folders:
 	./mods/redres
 	./mods/redres/bits
 	./mods/redres/bits/temperate
+	./mods/redres/bits/sounds
 	./mods/redres/uibits
 	~^Content/redres
 	~^Content/ra2
@@ -25,6 +26,8 @@ Packages:
 # Red-Resurrection
 	rr_voxels.mix:CRC32
 	rr_shp.mix:CRC32
+#	audio01.bag:CRC32
+	##audioyr.bag:CRC32
 # Red Alert 2
 	~ra2.mix:CRC32
 	~language.mix:CRC32
@@ -93,6 +96,7 @@ Rules:
 	./mods/redres/rules/soviet-structures.yaml
 	./mods/redres/rules/soviet-vehicles.yaml
 	./mods/redres/rules/trees.yaml
+	./mods/redres/rules/husks.yaml
 
 Weapons:
 	./mods/redres/weapons.yaml
@@ -140,6 +144,8 @@ ChromeLayout:
 	./mods/redres/chrome/ingame-observerstats.yaml
 	./mods/redres/chrome/musicplayer.yaml
 	./mods/redres/chrome/tooltips.yaml
+	./mods/redres/chrome/editor.yaml
+	./mods/redres/chrome/mainmenu.yaml
 	# NOTE: Use RA chrome until RA2 has its own UI
 	./mods/ra/chrome/ingame.yaml
 	./mods/ra/chrome/ingame-observer.yaml
@@ -152,7 +158,6 @@ ChromeLayout:
 	./mods/ra/chrome/ingame-infobriefing.yaml
 	./mods/ra/chrome/ingame-debug.yaml
 	./mods/ra/chrome/ingame-perf.yaml
-	./mods/ra/chrome/mainmenu.yaml
 	./mods/ra/chrome/settings.yaml
 	./mods/ra/chrome/credits.yaml
 	./mods/ra/chrome/lobby.yaml
@@ -175,7 +180,6 @@ ChromeLayout:
 	./mods/ra/chrome/confirmation-dialogs.yaml
 	./mods/ra/chrome/color-picker.yaml
 	./mods/ra/chrome/dropdowns.yaml
-	./mods/ra/chrome/editor.yaml
 
 Voices:
 	./mods/redres/audio/voices.yaml

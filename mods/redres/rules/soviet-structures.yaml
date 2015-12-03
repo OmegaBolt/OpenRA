@@ -1,43 +1,19 @@
+## CustomBuildTimeValue: (Cost / 1000) * 0.7 * BuildTimeMultipier * 60 * 40
+
 nacnst:
-	Inherits: ^Building
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 1000
-		Prerequisites: ~disabled
-	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4,4
-	Selectable:
-		Bounds: 220, 180, 0, -35
-	ProvidesPrerequisite@soviets:
-		Prerequisite: structures.soviets
-	Health:
-		HP: 1000
-	Armor:
-		Type: Concrete
-	RevealsShroud:
-		Range: 8c0
-	Valued:
-		Cost: 3000
-	Production:
-		Produces: Building, Defense
-	Tooltip:
-		Name: Construction Yard
-		Description: Allows construction of base structures.
-	BaseBuilding:
+	Inherits: gacnst
 	Transforms:
 		IntoActor: smcv
 		Offset: 1,1
 		Facing: 96
-	ProductionBar@Building:
-		ProductionType: Building
-	ProductionBar@Defense:
-		ProductionType: Defense
+	-WithIdleOverlay@fans:
 	WithIdleOverlay@top:
 		Sequence: idle-top
 	WithIdleOverlay@normal:
 		Sequence: idle-normal
-	WithBuildingPlacedAnimation:
+	-ProvidesPrerequisite@allies:
+	ProvidesPrerequisite@soviets:
+		Prerequisite: structures.soviets
 
 napowr:
 	Inherits: ^Building
@@ -45,8 +21,12 @@ napowr:
 		Queue: Building
 		BuildPaletteOrder: 10
 		Prerequisites: ~structures.soviets
+	Selectable:
+		Bounds: 126, 94, 2, -16
 	Valued:
 		Cost: 600
+	CustomBuildTimeValue:
+		Value: 810
 	Tooltip:
 		Name: Tesla Reactor
 		Description: Provides power for other structures.
@@ -55,10 +35,8 @@ napowr:
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3,2
-	Selectable:
-		Bounds: 126, 94, 2, -16
 	Health:
-		HP: 750
+		HP: 1875
 	Armor:
 		Type: Wood
 	RevealsShroud:
@@ -66,235 +44,83 @@ napowr:
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
 	Power:
-		Amount: 150
+		Amount: 125
 	ScalePowerWithHealth:
+	Targetable:
+		TargetTypes: Ground, C4, DetonateAttack, Structure, SpyInfiltrate
+	InfiltrateForPowerOutage:
+	AffectedByPowerOutage:
+	WithBuildingExplosion:
+		Sequences: building, large_bang, large_brnl, verylarge_clsn, large_tumu, tesla_explosion
 	SoundOnDamageTransition:
 		DestroyedSounds: bpowdiea.wav, bpowdieb.wav
 
-nahand:
-	Inherits: ^Building
+narefn:
+	Inherits: garefn
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 20
-		Prerequisites: power, ~structures.soviets
-	Valued:
-		Cost: 500
-	Tooltip:
-		Name: Barracks
-		Description: Produces infantry.
+		Prerequisites: ~structures.soviets
+	Building:
+		Footprint: xxx= xxx= xxx=
+		Dimensions: 4,3
+	FreeActor:
+		Actor: harv
+		SpawnOffset: 4, 1
+		Facing: 160
+
+nahand:
+	Inherits: gapile
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 30
+		Prerequisites: ~structures.soviets
 	ProvidesPrerequisite:
 		Prerequisite: barracks
+	-ProvidesPrerequisite@allies:
 	ProvidesPrerequisite@soviet:
 		Prerequisite: barracks.nod
 		Factions: nod
-	ProvidesPrerequisite@default:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2,2
 	Selectable:
 		Bounds: 94, 168, 0, -58
-	Health:
-		HP: 500
-	Armor:
-		Type: Steel
-	RevealsShroud:
-		Range: 6c0
 	Exit@1:
 		SpawnOffset: -280,280,0
 		ExitCell: 0,2
 	Exit@2:
 		SpawnOffset: 410,140,0
 		ExitCell: 2,0
-	Production:
-		Produces: Infantry
-	PrimaryBuilding:
 	RallyPoint:
-	ProductionBar:
-	Power:
-		Amount: -10
-	UpgradeManager:
-	InfiltrateForSupportPower:
-		Proxy: barracks.infiltrated
-	Targetable:
-		TargetTypes: Ground, C4, DetonateAttack, Structure, SpyInfiltrate
-
-narefn:
-	Inherits: ^Building
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 30
-		Prerequisites: power, ~structures.soviets
-	Selectable:
-		Bounds: 170, 150, -6, -33
-	Valued:
-		Cost: 2000
-	Tooltip:
-		Name: Ore Refinery
-		Description: Processes ore into credits.
-	ProvidesPrerequisite:
-		Prerequisite: refinery
-	ProvidesPrerequisite@default:
-	Building:
-		Footprint: xxx= xxx= xxx=
-		Dimensions: 4,3
-	Health:
-		HP: 1000
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		Range: 6c0
-	TiberianSunRefinery:
-		DockOffset: 3, 1
-		ShowTicks: True
-		TickLifetime: 30
-		TickVelocity: 1
-		TickRate: 10
-		DockAngle: 160
-	StoresResources:
-		PipColor: Yellow
-		PipCount: 0
-		Capacity: 999999
-	CustomSellValue:
-		Value: 300
-	FreeActor:
-		Actor: harv
-		SpawnOffset: 4, 1
-		Facing: 160
-	WithDockingOverlay:
-	WithIdleOverlay@bib:
-		Sequence: idle-bib
-	WithIdleOverlay@drill:
-		Sequence: idle-drill
-	Power:
-		Amount: -50
-
-naradr:
-	Inherits: ^Building
-	Buildable:
-		Queue: Building
-		BuildPaletteOrder: 40
-		Prerequisites: power, narefn, ~structures.soviets
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Radar Tower
-		Description: Provides radar.
-	ProvidesPrerequisite:
-		Prerequisite: radar
-	ProvidesPrerequisite@default:
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Selectable:
-		Bounds: 95, 130, 0, -40
-	Health:
-		HP: 1000
-	Armor:
-		Type: Wood
-	RequiresPower:
-	CanPowerDown:
-	ProvidesRadar:
-	RevealsShroud:
-		Range: 10c0
-	WithIdleOverlay@dish:
-		Sequence: idle-dish
-		PauseOnLowPower: true
-	Targetable:
-		TargetTypes: Ground, C4, SpyInfiltrate, DetonateAttack
-	InfiltrateForExploration:
-	Power:
-		Amount: -50
+		Offset: 2,1
+		Palette: mouse
+		IsPlayerPalette: false
 
 naweap:
-	Inherits: ^Building
+	Inherits: gaweap
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 50
-		Prerequisites: refinery, nahand, ~structures.soviets
-	Selectable:
-		Bounds: 196, 178, -6, -48
-	Valued:
-		Cost: 2000
-	Tooltip:
-		Name: War Factory
-		Description: Produces vehicles.
-	ProvidesPrerequisite@libya:
-		Prerequisite: vehicles.libya
-		Race: libya
-	ProvidesPrerequisite@russia:
-		Prerequisite: vehicles.russia
-		Race: russia
-	ProvidesPrerequisite@default:
-	Building:
-		Footprint: xxxxx xxxxx xxxxx
-		Dimensions: 5,3
-	Health:
-		HP: 1000
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		Range: 4c0
-	RallyPoint:
-	Exit@1:
-		ExitCell: 5,1
-	Production:
-		Produces: Vehicle, Aircraft
-	PrimaryBuilding:
-	ProductionBar:
+		Prerequisites: narefn, ~structures.soviets
+	-ProvidesPrerequisite@allies:
+	ProvidesPrerequisite@soviets:
+		Prerequisite: factory.nod
+		Factions: nod
+	-WithIdleOverlay@flag:
+	-WithIdleOverlay@fan:
+	-WithProductionDoorOverlay@ramp:
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
-	WithIdleOverlay@ramp:
-		Sequence: idle-ramp
-	Power:
-		Amount: -25
-	InfiltrateForSupportPower:
-		Proxy: warfactory.infiltrated
-	Targetable:
-		TargetTypes: Ground, C4, DetonateAttack, Structure, SpyInfiltrate
+	WithProductionDoorOverlay@door:
+		Sequence: build-door
 
 nayard:
-	Inherits: ^Building
-	Valued:
-		Cost: 1000
-	Tooltip:
-		Name: Naval Yard
-		Description: Produces and repairs ships,\nsubmarines, transports, and other naval units.
+	Inherits: gayard
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 50
-		Prerequisites: power, refinery, ~structures.soviets
-	Targetable:
-		TargetTypes: Ground, Water, C4
-	ProvidesPrerequisite@default:
-	Building:
-		Footprint: xxxx xxxx xxxx xxxx
-		Dimensions: 4,4
-		Adjacent: 12
-		TerrainTypes: Water
-	-GivesBuildableArea:
-	Health:
-		HP: 1500
-	Armor:
-		Type: Concrete
-	RevealsShroud:
-		Range: 10c0
-	Exit@1:
-		SpawnOffset: 0,-113,0
-		Facing: 96
-		ExitCell: 5,4
-	Exit@2:
-		SpawnOffset: 0,-113,0
-		Facing: 160
-		ExitCell: 4,5
-	Production:
-		Produces: Ship
-	PrimaryBuilding:
-	RallyPoint:
-	RepairsUnits:
-		FinishRepairingNotification: UnitRepaired
-	ProductionBar:
-	Power:
-		Amount: -20
+		BuildPaletteOrder: 60
+		Prerequisites: narefn, ~structures.soviets
 	WithIdleOverlay@crane:
 		Sequence: idle-crane
 	WithIdleOverlay@waves:
@@ -303,68 +129,114 @@ nayard:
 		Sequence: repair
 	WithProductionOverlay@lights:
 		Sequence: production-lights
-	-EmitInfantryOnSell@gdi:
-	-EmitInfantryOnSell@nod:
 
-nadept:
+naradr:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 40
+		Prerequisites: nahand, ~structures.soviets
+	Valued:
+		Cost: 1000
+	CustomBuildTimeValue:
+		Value: 1575
+	Tooltip:
+		Name: Operations Tower
+		Description: Unlocks additional technology.
+	ProvidesPrerequisite@default:
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 95, 120, 0, -35
+	Health:
+		HP: 1750
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 6c0
+	WithIdleOverlay@dish:
+		Sequence: idle-dish
+		PauseOnLowPower: true
+	Power:
+		Amount: -50
+
+naairf:
+	Inherits: gaairf
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 50
+		Prerequisites: naweap, ~structures.soviets
+	Tooltip:
+		Name: Air Strategy Center
+		Description: Supports 4 aircraft.
+	-ProvidesPrerequisite@allies:
+	ProvidesPrerequisite@soviets:
+		Prerequisite: aircraft.soviets
+	ProvidesPrerequisite@default:
+	-WithIdleOverlay@dish:
+
+nacrane:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
 		BuildPaletteOrder: 60
-		Prerequisites: naweap, ~structures.soviets
+		Prerequisites: naweap, naradr, ~structures.soviets
+		BuildLimit: 2
 	Selectable:
-		Bounds: 156, 150, 0, -38
+		Bounds: 96, 64, -2, -24
 	Valued:
-		Cost: 800
+		Cost: 1500
+	CustomBuildTimeValue:
+		Value: 2363
 	Tooltip:
-		Name: Service Depot
-		Description: Repairs vehicles and removes Terror Drones (for a price).
-	ProvidesPrerequisite:
-		Prerequisite: repairpad
+		Name: Outpost
+		Description: Repairs vehicles and removes Terror Drones.
+	ProvidesPrerequisite@default:
 	Building:
-		Footprint: x=== x=== x===
-		Dimensions: 4,3
+		Footprint: xx xx
+		Dimensions: 2,2
+		Adjacent: 25
 	Health:
-		HP: 1200
+		HP: 2250
 	Armor:
-		Type: Wood
+		Type: Steel
 	RevealsShroud:
 		Range: 5c0
-	Reservable:
-	RallyPoint:
-	RepairsUnits:
-		Interval: 148
-		HpPerStep: 20
-		FinishRepairingNotification: UnitRepaired
-	WithIdleOverlay@normal:
-		Sequence: idle-normal
-	WithIdleOverlay@bib:
-		Sequence: bib
-	WithRepairAnimation:
-		Sequence: repair
+	UpgradeActorsNear:
+		Upgrades: crane-repair
+		Range: 3c768
+	WithIdleOverlay@hook:
+		Sequence: idle-hook
+	WithIdleOverlay@repairring:
+		Sequence: idle-ring
+		Palette: alpha
 	Power:
-		Amount: -25
+		Amount: -15
 
 nanrct:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 160
-		Prerequisites: natech, ~structures.soviets
+		BuildPaletteOrder: 70
+		Prerequisites: naradr, ~structures.soviets
 	Valued:
 		Cost: 1000
+	CustomBuildTimeValue:
+		Value: 1575
 	Tooltip:
 		Name: Nuclear Reactor
 		Description: Provides power for other structures.
 	ProvidesPrerequisite:
 		Prerequisite: power
+	ProvidesPrerequisite@default:
 	Building:
-		Footprint: xxxx xxxx xxxx xxxx
+		Footprint: xxxx xxxx xxxx _xx_
 		Dimensions: 4,4
 	Selectable:
 		Bounds: 167, 130, 9, -31
 	Health:
-		HP: 1000
+		HP: 2500
 	Armor:
 		Type: Concrete
 	RevealsShroud:
@@ -372,21 +244,54 @@ nanrct:
 	WithIdleOverlay@lights:
 		Sequence: idle-lights
 	Power:
-		Amount: 2000
+		Amount: 1500
 	ScalePowerWithHealth:
+	Explodes:
+		Weapon: NukeReactorDeath
+		EmptyWeapon: NukeReactorDeath
 	SoundOnDamageTransition:
 		DestroyedSounds: bpowdiea.wav, bpowdieb.wav
+
+natek:
+	Inherits: ^Building
+	Buildable:
+		Queue: Building
+		BuildPaletteOrder: 60
+		Prerequisites: naweap, naradr, ~structures.soviets
+	Valued:
+		Cost: 1500
+	CustomBuildTimeValue:
+		Value: 2700
+	Tooltip:
+		Name: Tech Center
+		Description: Unlocks additional technology.
+	ProvidesPrerequisite@default:
+	Building:
+		Footprint: xx xx xx
+		Dimensions: 3,2
+	Selectable:
+		Bounds: 122, 216, 0, -81
+	Health:
+		HP: 2000
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 8c0
+	Power:
+		Amount: -100
 
 natech:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 150
-		Prerequisites: naweap, naradr, ~structures.soviets
+		BuildPaletteOrder: 80
+		Prerequisites: naweap, natek, ~structures.soviets
 	Valued:
-		Cost: 2000
+		Cost: 3000
+	CustomBuildTimeValue:
+		Value: 4725
 	Tooltip:
-		Name: Battle Lab
+		Name: War Palace
 		Description: Allows deployment of advanced units.
 	ProvidesPrerequisite@default:
 	Building:
@@ -395,13 +300,13 @@ natech:
 	Selectable:
 		Bounds: 152, 164, 0, -50
 	Health:
-		HP: 500
+		HP: 2500
 	Armor:
-		Type: Wood
+		Type: Steel
 	RevealsShroud:
 		Range: 6c0
 	Power:
-		Amount: -100
+		Amount: -200
 	InfiltrateForSupportPower:
 		Proxy: soviets.tech.infiltrated
 	Targetable:
@@ -411,11 +316,13 @@ naclon:
 	Inherits: ^Building
 	Buildable:
 		Queue: Building
-		BuildPaletteOrder: 170
+		BuildPaletteOrder: 90
 		Prerequisites: natech, ~structures.soviets
 		BuildLimit: 1
 	Valued:
-		Cost: 2500
+		Cost: 2000
+	CustomBuildTimeValue:
+		Value: 2250
 	Tooltip:
 		Name: Cloning Vats
 		Description: Clones most trained infantry.
@@ -425,13 +332,13 @@ naclon:
 	Selectable:
 		Bounds: 108, 134, 0, -48
 	Health:
-		HP: 1000
+		HP: 1550
 	Armor:
-		Type: Wood
+		Type: Steel
 	RevealsShroud:
 		Range: 5c0
 	Power:
-		Amount: -200
+		Amount: -150
 	Exit@1:
 		SpawnOffset: -280,280,0
 		ExitCell: 0,2
@@ -441,97 +348,66 @@ naclon:
 	Production:
 		Produces: Infantry
 	RallyPoint:
+		Offset: 2,2
+		Palette: mouse
+		IsPlayerPalette: false
 	ClonesProducedUnits:
 		CloneableTypes: infantry
-
-napsis:
-	Inherits: ^Building
-	Buildable:
-		Queue: Defense
-		BuildPaletteOrder: 40
-		Prerequisites: natech, ~structures.soviets
-	Valued:
-		Cost: 2000
-	Tooltip:
-		Name: Psychic Sensor
-		Description: Detects enemy units and strikepoints
-	Building:
-		Footprint: xx xx
-		Dimensions: 2,2
-	Selectable:
-		Bounds: 82, 150, -1, -55
-	Health:
-		HP: 750
-	Armor:
-		Type: Wood
-	RevealsShroud:
-		Range: 10c0
-	RenderDetectionCircle:
-	DetectCloaked:
-		Range: 6c0
-	WithIdleOverlay@spin:
-		Sequence: idle-spin
-		PauseOnLowPower: true
-	Power:
-		Amount: -100
 
 nairon:
 	Inherits: ^Building
 	Buildable:
-		Queue: Defense
+		Queue: Building
 		BuildPaletteOrder: 60
-		Prerequisites: natech, ~structures.soviets
+		Prerequisites: natek, ~structures.soviets
 		BuildLimit: 1
 	Valued:
 		Cost: 2500
+	CustomBuildTimeValue:
+		Value: 3375
 	Tooltip:
-		Name: Iron Curtain Device
-		Description: Grants invulnerability to armored units.\nFries fleshy units.
+		Name: Iron Curtain
+		Description: Grants invulnerability to armored units in a 3x3 area.
 	Building:
 		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
 	Selectable:
 		Bounds: 136, 100, 0, -20
 	Health:
-		HP: 750
+		HP: 2125
 	Armor:
 		Type: Concrete
 	RevealsShroud:
-		Range: 4c0
+		Range: 5c0
 	Power:
 		Amount: -200
 	GrantUpgradePower@IRONCURTAIN:
 		Icon: invuln
-		ChargeTime: 120
+		ChargeTime: 300
 		Description: Invulnerability
 		LongDesc: Makes a group of units invulnerable\nfor 20 seconds.
-		Duration: 500
+		Duration: 1250
 		SelectTargetSound:
 		InsufficientPowerSound:
 		BeginChargeSound:
 		EndChargeSound:
-		DisplayRadarPing: True
+		GrantUpgradeSound: siroon.wav
+		DisplayRadarPing: true
+		DisplayTimer: true
+		Range: 1
 		Upgrades: invulnerability
+		Cursor: iron-curtain
 	SupportPowerChargeBar:
 
 nawall:
-	Inherits: ^Wall
+	Inherits: gawall
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 10
-		Prerequisites: barracks, ~structures.soviets
-	Valued:
-		Cost: 100
+		Prerequisites: ~structures.soviets
 	Tooltip:
-		Name: Soviet Wall
-		Description: Light wall.\nCrushable by vehicles.
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Health:
-		HP: 300
-	Armor:
-		Type: Concrete
+		Name: Fortress Wall
+		Description: Blocks movement and most projectiles.
 
 naflak:
 	Inherits: ^VoxelLighting
@@ -540,19 +416,24 @@ naflak:
 		BuildPaletteOrder: 30
 		Prerequisites: barracks, ~structures.soviets
 	Valued:
-		Cost: 1000
+		Cost: 800
+	CustomBuildTimeValue:
+		Value: 1260
 	Tooltip:
 		Name: Flak Cannon
 		Description: Automated anti-aircraft defense.
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
+		Adjacent: 4
 	Health:
-		HP: 900
+		HP: 2250
 	Armor:
 		Type: Steel
+	Armor@t2:
+		Type: T2Def
 	RevealsShroud:
-		Range: 5c0
+		Range: 10c0
 	Selectable:
 		Bounds: 46, 62, 0, -20
 	Turreted:
@@ -568,7 +449,7 @@ naflak:
 	RenderVoxels:
 	WithVoxelTurret:
 	WithRangeCircle:
-		Range: 12c0
+		Range: 8c0
 		Type: flakcannon
 	AutoTarget:
 	Power:
@@ -578,24 +459,29 @@ tesla:
 	Inherits: ^Building
 	Buildable:
 		Queue: Defense
-		BuildPaletteOrder: 30
-		Prerequisites: naradr, ~structures.soviets
+		BuildPaletteOrder: 50
+		Prerequisites: natek, ~structures.soviets
 	Valued:
 		Cost: 1500
+	CustomBuildTimeValue:
+		Value: 2363
 	Tooltip:
 		Name: Tesla Coil
-		Description: Advanced base defense.\nRequires power to operate.\n  Strong vs Infantry, Vehicles\n  Weak vs Aircraft
+		Description: Advanced base defense.\n Strong vs Infantry, Vehicles
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
+		Adjacent: 4
 	Health:
-		HP: 600
+		HP: 1500
 	Armor:
 		Type: Steel
+	Armor@t2:
+		Type: T2Def
 	RevealsShroud:
 		Range: 8c0
 	Selectable:
-		Bounds: 44, 88, -2, -33
+		Bounds: 44, 88, 0, -33
 	WithChargeAnimation:
 	Armament@primary:
 		Weapon: CoilBolt
@@ -621,8 +507,41 @@ tesla:
 		Range: 8c0
 		Type: teslacoil
 	Power:
-		Amount: -75
+		Amount: -100
 	WithIdleOverlay@powered:
 		Sequence: idle-powered
 		PauseOnLowPower: true
+
+napsis:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 40
+		Prerequisites: natek, ~structures.soviets
+	Valued:
+		Cost: 1000
+	CustomBuildTimeValue:
+		Value: 1575
+	Tooltip:
+		Name: Psychic Sensor
+		Description: Detects enemy attack patterns.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+	Selectable:
+		Bounds: 82, 150, 0, -55
+	Health:
+		HP: 2500
+	Armor:
+		Type: Steel
+	RevealsShroud:
+		Range: 10c0
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 10c0
+	WithIdleOverlay@spin:
+		Sequence: idle-spin
+		PauseOnLowPower: true
+	Power:
+		Amount: -50
 

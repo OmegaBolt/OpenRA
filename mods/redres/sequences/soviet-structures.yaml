@@ -1,6 +1,6 @@
 nacnst:
 	Defaults:
-		Offset: 4, -58
+		Offset: 3, -55
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -8,13 +8,11 @@ nacnst:
 	idle: ngcnst_c
 		Length: 1
 		ShadowStart: 4
-		Tick: 150
 	damaged-idle: ngcnst_c
 		Start: 1
 		Length: 1
 		ShadowStart: 5
-		Tick: 150
-	make: ntcnstmk
+	make: ngcnstmk
 		Length: 31
 		ShadowStart: 31
 		TilesetOverrides:
@@ -34,13 +32,15 @@ nacnst:
 		Start: 1
 		ShadowStart: 4
 		ZOffset: -1024
-	build: ngcnst_b
+	crane-overlay: ngcnst_b
 		Length: 21
 		Tick: 150
-	damaged-build: ngcnst_b
+		ZOffset: 128
+	damaged-crane-overlay: ngcnst_b
 		Start: 21
 		Length: 21
 		Tick: 150
+		ZOffset: 128
 	dead: ngcnstdm # SHP broken & unused
 		Length: 25
 		ShadowStart: 25
@@ -51,7 +51,7 @@ nacnst:
 
 napowr:
 	Defaults:
-		Offset: -15, -37
+		Offset: -18, -29
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -75,7 +75,7 @@ napowr:
 		Start: 9
 		Length: 9
 		Tick: 150
-	make: ntpowrmk
+	make: ngpowrmk
 		Length: 26
 		ShadowStart: 26
 		TilesetOverrides:
@@ -87,7 +87,7 @@ napowr:
 
 nahand:
 	Defaults:
-		Offset: 1, -31
+		Offset: 0, -28
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -100,6 +100,9 @@ nahand:
 	critical-idle: nghand
 		Start: 2
 		ShadowStart: 5
+	idle-flag: nghand_a
+		Length: *
+		Tick: 120
 	make: nthandmk
 		Length: 24
 		ShadowStart: 24
@@ -112,7 +115,7 @@ nahand:
 
 narefn:
 	Defaults:
-		Offset: -13, -53
+		Offset: -12, -45
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -147,7 +150,7 @@ narefn:
 
 naradr:
 	Defaults:
-		Offset: 2, -31
+		Offset: 0, -28
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -169,13 +172,45 @@ naradr:
 		ShadowStart: 138
 		Length: 45
 		Tick: 150
-	make: ntradrmk
+	make: ngradrmk
 		Length: 30
 		ShadowStart: 30
 		TilesetOverrides:
 			TEMPERATE: TEMPERATE
 			URBAN: URBAN
 	icon: nradicon
+		Offset: 0,0
+		UseTilesetCode: false
+
+naairf:
+	Defaults:
+		Offset: 30, -55
+		UseTilesetCode: true
+		TilesetOverrides:
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: ngairf
+		Length: 1
+	damaged-idle: ngairf
+		Start: 1
+		Length: 2
+	idle-bib: ngairfbb
+		Length: 1
+		ZOffset: -512
+	damage-idle-bib: ngairfbb
+		Start: 1
+		Length: 1
+		ZOffset: -512
+	idle-lights: ngairf_a
+		Length: 6
+		Tick: 120
+	idle-lights2: ngairf_b
+		Length: 8
+		Tick: 120
+	make: ngairfmk
+		Length: 21
+		ShadowStart: 21
+	icon: sairicon
 		Offset: 0,0
 		UseTilesetCode: false
 
@@ -187,10 +222,10 @@ naweap:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
 	idle: ngweap
-		ShadowStart: 3
+		ShadowStart: 2
 	damaged-idle: ngweap
-		Start: 2
-		ShadowStart: 4
+		Start: 1
+		ShadowStart: 3
 # TODO: door and top sequences out-commented in the rules file
 	build-door: ngweap_1
 		ShadowStart: 2
@@ -224,10 +259,8 @@ naweap:
 		Length: 13
 		ShadowStart: 13
 		Tick: 150
-	damaged-idle-lights: ngweap_a # doesn't have damage frames
-		Length: 13
-		ShadowStart: 13
-		Tick: 150
+	damaged-idle-lights: null
+		Length: *
 	make: ntweapmk
 		Length: 24
 		ShadowStart: 25
@@ -288,48 +321,35 @@ nayard:
 		Offset: 0,0
 		UseTilesetCode: false
 
-nadept:
+nacrane:
 	Defaults:
-		Offset: -15, -53
+		Offset: 0, -28
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
-	idle: ngdept_b
-		Length: 10
-		ShadowStart: 20
-		Tick: 180
-	damaged-idle: ngdept_d
-		Start: 10
-		Length: 10
-		ShadowStart: 29
-	idle-normal: ngdept
-		ShadowStart: 3
-	damaged-idle-normal: ngdept
-		Start: 2
-		ShadowStart: 4
-	bib: ngdeptbb
-		ShadowStart: 3
-		ZOffset: -512
-	damaged-bib: ngdeptbb
-		Start: 1
+	idle: ngcrane
 		ShadowStart: 2
-	make: ntdeptmk
+	damaged-idle: ngcrane
+		Start: 1
+		ShadowStart: 3
+	idle-hook: ngcrane_a
+		Length: 9
+		ShadowStart: 19
+		Tick: 120
+	damaged-idle-hook: ngcrane_a
+		Start: 9
+		Length: 9
+		ShadowStart: 28
+		Tick: 120
+	idle-ring: outpring
+		Length: *
+		BlendMode: DoubleMultiplicative
+		Offset: 0, 13
+	make: ngcranemk
 		Length: 25
 		ShadowStart: 25
-		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
-	repair: ngdept_c
-		Length: 50
-		ShadowStart: 100
-		Tick: 120
-	damaged-repair: ngdept_c
-		Start: 50
-		Length: 50
-		ShadowStart: 150
-		Tick: 120
-	icon: rfixicon
+	icon: scrnicon
 		Offset: 0,0
 		UseTilesetCode: false
 
@@ -366,6 +386,25 @@ nanrct:
 			TEMPERATE: TEMPERATE
 			URBAN: URBAN
 	icon: nrcticon
+		Offset: 0,0
+		UseTilesetCode: false
+
+natek:
+	Defaults:
+		Offset: -15, -40
+		UseTilesetCode: true
+		TilesetOverrides:
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: ngtek
+		ShadowStart: 3
+	damaged-idle: ngtek
+		Start: 1
+		ShadowStart: 4
+	make: ngtekmk
+		Length: 17
+		ShadowStart: 17
+	icon: ntekicon
 		Offset: 0,0
 		UseTilesetCode: false
 
@@ -413,12 +452,10 @@ naclon:
 		Start: 11
 		Length: 11
 		ShadowStart: 33
-	make: ntclonmk
+	make: ngclonmk
 		Length: 25
 		ShadowStart: 25
 		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
 	icon: clonicon
 		Offset: 0,0
 		UseTilesetCode: false
@@ -502,13 +539,20 @@ nawall:
 	Defaults:
 		Offset: 0, -12
 		UseTilesetCode: true
-	idle: ntwall
-		Length: 16
-		ShadowStart: 32
-	damaged-idle: ntwall
-		Start: 16
+		TilesetOverrides:
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: ngwall
 		Length: 16
 		ShadowStart: 48
+	damaged-idle: ngwall
+		Start: 16
+		Length: 16
+		ShadowStart: 64
+	critical-idle: ngwall
+		Start: 32
+		Length: 16
+		ShadowStart: 80
 	icon: nwalicon
 		Offset: 0,0
 		UseTilesetCode: false

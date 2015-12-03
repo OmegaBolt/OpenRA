@@ -22,8 +22,6 @@ waypoint:
 		InitialFacing: 160
 	Turreted:
 		InitialFacing: 160
-	WithInfantryBody:
-		StandSequences: run
 	RenderVoxels:
 		Image: amcv
 		Palette: colorpicker
@@ -53,13 +51,15 @@ CRATE:
 		Amount: 1000
 		SelectionShares: 50
 		Effect: dollar
-		UseCashTick: true
+		Notification: ubonus.wav
 	LevelUpCrateAction:
 		SelectionShares: 50
 		Effect: levelup
+		Notification: gcraprom.wav
 	HealUnitsCrateAction:
 		SelectionShares: 10
 		Effect: heal
+		Notification: gcraheal.wav
 	GiveMcvCrateAction:
 		SelectionShares: 0
 		NoBaseSelectionShares: 100
@@ -68,16 +68,16 @@ CRATE:
 		SelectionShares: 25
 		Effect: firepower
 		Upgrades: firepower
-		Notification: 00-i070.aud
+		Notification: gcrafire.wav
 	GrantUpgradeCrateAction@armor:
 		SelectionShares: 25
 		Effect: armor
 		Upgrades: damage
-		Notification: 00-i068.aud
+		Notification: gcraarmo.wav
 	GrantUpgradeCrateAction@speed:
 		SelectionShares: 25
 		Upgrades: speed
-		Notification: 00-i080.aud
+		Notification: gcraspee.wav
 
 SROCK01:
 	Inherits: ^Rock

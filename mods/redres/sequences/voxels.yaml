@@ -1,5 +1,12 @@
+## Allied
 amcv:
-	idle: mcv
+	idle:
+	water: amcv_w
+
+cmin:
+	idle:
+	unload: cmon
+	water: cmin_w
 
 aegis:
 	idle:
@@ -7,11 +14,24 @@ aegis:
 asw:
 	idle:
 
-#axle	# TODO: unused debris
-#	idle:
+orca:
+	idle:
 
 beag:
 	idle:
+
+## Soviets
+smcv:
+	idle:
+	water: smcv_w
+
+harv:
+	idle:
+	turret: harvtur
+	unload: horv
+	water: harv_w
+
+## Civilian
 
 bus:
 	idle:
@@ -31,10 +51,6 @@ cona:
 
 cop:
 	idle:
-
-cmin:
-	idle:
-	unload: cmon
 
 cargoplane:
 	idle: cplane
@@ -56,9 +72,6 @@ dred:
 euroc:
 	idle:
 
-orca: #Harrier
-	idle: falc
-
 naflak:
 	turret: flaktur	
 
@@ -77,11 +90,6 @@ mtnk:
 	idle: gtnk
 	turret: gtnktur
 	barrel: gtnkbarl
-
-harv:
-	idle:
-	turret: harvtur
-	unload: horv
 
 hind: #Unused
 	idle:
@@ -149,9 +157,6 @@ nasam:
 	turret: sam
 
 shad: #Nighthawk
-	idle:
-
-smcv:
 	idle:
 
 sref: #Has 3 charge states for the turret not possible yet

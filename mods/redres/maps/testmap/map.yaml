@@ -44,12 +44,105 @@ Players:
 		Enemies: Creeps
 
 Actors:
-	Actor0: mpspawn
+	Actor2: mpspawn
 		Owner: Neutral
-		Location: 32,4
+		Location: 33,9
 	Actor1: mpspawn
 		Owner: Neutral
 		Location: 170,-59
+	Actor3: tree13
+		Owner: Neutral
+		Location: 61,50
+	Actor4: tree13
+		Owner: Neutral
+		Location: 69,45
+	Actor5: tree13
+		Owner: Neutral
+		Location: 76,44
+	Actor6: tree13
+		Owner: Neutral
+		Location: 79,51
+	Actor7: tree13
+		Owner: Neutral
+		Location: 80,59
+	Actor8: tree13
+		Owner: Neutral
+		Location: 81,63
+	Actor9: tree13
+		Owner: Neutral
+		Location: 56,53
+	Actor10: tree13
+		Owner: Neutral
+		Location: 59,42
+	Actor11: tree14
+		Owner: Neutral
+		Location: 60,44
+	Actor12: tree14
+		Owner: Neutral
+		Location: 66,42
+	Actor13: tree14
+		Owner: Neutral
+		Location: 71,42
+	Actor14: tree14
+		Owner: Neutral
+		Location: 77,46
+	Actor15: tree14
+		Owner: Neutral
+		Location: 80,52
+	Actor16: tree14
+		Owner: Neutral
+		Location: 80,53
+	Actor17: tree14
+		Owner: Neutral
+		Location: 81,61
+	Actor18: tree14
+		Owner: Neutral
+		Location: 62,51
+	Actor19: tree14
+		Owner: Neutral
+		Location: 69,50
+	Actor20: tree14
+		Owner: Neutral
+		Location: 56,52
+	Actor21: tree14
+		Owner: Neutral
+		Location: 57,50
+	Actor22: tree22
+		Owner: Neutral
+		Location: 63,51
+	Actor23: tree22
+		Owner: Neutral
+		Location: 68,46
+	Actor24: tree22
+		Owner: Neutral
+		Location: 57,51
+	Actor25: tree22
+		Owner: Neutral
+		Location: 82,62
+	Actor26: tree22
+		Owner: Neutral
+		Location: 80,57
+	Actor27: tree22
+		Owner: Neutral
+		Location: 77,47
+	Actor28: trock02
+		Owner: Neutral
+		Location: 66,50
+	Actor29: trock01
+		Owner: Neutral
+		Location: 78,45
+	Actor30: srock03
+		Owner: Neutral
+		Location: 82,59
+	Actor31: srock01
+		Owner: Neutral
+		Location: 57,43
+	Actor32: tibtre01
+		Owner: Neutral
+		Location: 43,24
+	Actor33: tibtre01
+		Owner: Neutral
+		Location: 43,18
 
 Smudges:
 

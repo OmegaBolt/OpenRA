@@ -1,35 +1,42 @@
 Player:
 	AlwaysVisible:
 	TechTree:
+	Production:
+		Produces: Building, Upgrades
 	ClassicProductionQueue@Building:
 		Type: Building
-		BuildSpeed: .4
+		BuildSpeed: .7
 		LowPowerSlowdown: 3
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
 	ClassicProductionQueue@Defense:
 		Type: Defense
-		BuildSpeed: .4
+		BuildSpeed: .7
 		LowPowerSlowdown: 3
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
-		BuildSpeed: .4
+		BuildSpeed: .5
 		LowPowerSlowdown: 3
 		SpeedUp: True
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
-		BuildSpeed: .4
+		BuildSpeed: .25
 		LowPowerSlowdown: 3
 		SpeedUp: True
 	ClassicProductionQueue@Aircraft:
 		Type: Aircraft
-		BuildSpeed: .4
+		BuildSpeed: .5
 		LowPowerSlowdown: 3
 		SpeedUp: True
+	ClassicProductionQueue@Upgrades:
+		Type: Upgrades
+		BuildSpeed: 1
+		LowPowerSlowdown: 0
+		SpeedUp: False
 	PlaceBuilding:
 		Palette: placebuilding
 	SupportPowerManager:

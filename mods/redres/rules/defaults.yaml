@@ -19,8 +19,8 @@
 		Scale: 11.7
 		LightYaw: 800
 		LightPitch: 150
-		LightAmbientColor: -0.5,-0.5,-0.5
-		LightDiffuseColor: 1.4,1.4,1.4
+		LightAmbientColor: -0.25,-0.25,-0.25
+		LightDiffuseColor: 1.15,1.15,1.15
 
 ^GainsExperience:
 	GainsExperience:
@@ -40,10 +40,10 @@
 		UpgradeTypes: reload
 		Modifier: 90, 75
 	SelfHealing@ELITE:
-		Step: 2
-		Ticks: 100
+		Step: 16
+		Ticks: 160
 		HealIfBelow: 1
-		DamageCooldown: 125
+		DamageCooldown: 60
 		UpgradeTypes: selfheal
 		UpgradeMinEnabledLevel: 1
 	WithRankDecoration:
@@ -61,11 +61,22 @@
 	UpgradeOverlay@ironcurtain:
 		UpgradeTypes: invulnerability
 		UpgradeMinEnabledLevel: 1
+		Palette: ironcurtain
 	DamageMultiplier@ironcurtain:
 		UpgradeTypes: invulnerability
 		Modifier: 0, 0
 	TimedUpgradeBar:
 		Upgrade: invulnerability
+		Color: FFFFFF
+	WithDecoration@ironcurtain:
+		Image: iron_blast
+		Sequence: idle
+		ReferencePoint: HCenter, VCenter
+		Palette: effect
+		UpgradeTypes: invulnerability
+		ShowToEnemies: true
+		ZOffset: 1024
+		UpgradeMinEnabledLevel: 1
 
 ^EmpDisable:
 	UpgradeOverlay@EMPDISABLE:
@@ -85,11 +96,20 @@
 		Palette: effect
 		UpgradeTypes: empdisable
 		ShowToEnemies: true
-		ZOffset: 512
+		ZOffset: 1024
 		UpgradeMinEnabledLevel: 1
 	PowerMultiplier@EMPDISABLE:
 		UpgradeTypes: empdisable
 		Modifier: 0
+
+^CraneRepair:
+	SelfHealing:
+		Step: 30
+		Ticks: 25
+		HealIfBelow: 1
+		DamageCooldown: 0
+		UpgradeTypes: crane-repair
+		UpgradeMinEnabledLevel: 1
 
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
@@ -99,35 +119,35 @@
 	Selectable:
 		Priority: 3
 	Targetable:
-		TargetTypes: Ground, Building, C4, DetonateAttack, SpyInfiltrate
+		TargetTypes: Ground, Building, C4, DetonateAttack
 	Building:
 		Dimensions: 1,1
 		Footprint: x
 		BuildSounds: uplace.wav
 		UndeploySounds: uselbuil.wav
-		TerrainTypes: Clear
+		TerrainTypes: Clear, Dirt, Sand, Grass
 		Adjacent: 3
 	FrozenUnderFog:
 	SoundOnDamageTransition:
 		DamagedSounds: gdamag1a.wav, gdamag1b.wav, gdamag1c.wav, gdamag1d.wav, gdamag1e.wav
-		DestroyedSounds: bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav
+		DestroyedSounds: bgendiea.wav, bgendieb.wav, bgendiec.wav, bgendied.wav, bgendiee.wav, bgendief.wav, gexpshaa.wav, gexpshaa.wav
 	WithSpriteBody:
 	WithBuildingExplosion:
+		Delay: 1
 		Sequences: building, large_bang, large_brnl, verylarge_clsn, large_tumu
 	EngineerRepairable:
-	ShakeOnDeath:
 	AcceptsSupplies:
 	Guardable:
 		Range: 3c0
 	Demolishable:
+	GpsDot:
+		String: Structure
 
 ^Building:
 	Inherits@1: ^BasicBuilding
-	Inherits@2: ^EmpDisable
 	GivesBuildableArea:
 	Capturable:
 	RepairableBuilding:
-		IndicatorPalette: mousepal
 	EmitInfantryOnSell@gdi:
 		ActorTypes: e1
 		Factions: gdi
@@ -141,9 +161,9 @@
 		SellSounds: uselbuil.wav
 	WithMakeAnimation:
 	ThrowsShrapnel:
-		Weapons: LargeDebris
-		Pieces: 3, 7
-		Range: 2c0, 5c0
+		Weapons: SmallDebris, LargeDebris
+		Pieces: 5, 15
+		Range: 1c0, 4c0
 
 ^CivBuilding:
 	Inherits: ^BasicBuilding
@@ -177,7 +197,7 @@
 		Name: Crate
 	Crate:
 		Lifetime: 180
-		TerrainTypes: Clear
+		TerrainTypes: Clear, Dirt, Sand, Grass, Rough
 	RenderSprites:
 		Palette: terraindecoration
 	WithCrateBody:
@@ -186,33 +206,30 @@
 		CustomBounds: 24,24
 
 ^Wall:
-	Inherits@1: ^SpriteActor
+	Inherits: ^SpriteActor
 	CombatDebugOverlay:
 	HiddenUnderShroud:
 	AppearsOnRadar:
 	Building:
 		Dimensions: 1,1
 		Footprint: x
-		BuildSounds: place2.aud
-		Adjacent: 7
-		TerrainTypes: Clear
-	SoundOnDamageTransition:
-		DamagedSounds: expnew01.aud
-		DestroyedSounds: crmble2.aud
+		BuildSounds: uplace.wav
+		Adjacent: 6
+		TerrainTypes: Clear, Dirt, Sand, Grass
 	Crushable:
 		CrushClasses: wall
 	LineBuild:
-		Range: 8
+		Range: 6
 		NodeTypes: wall
 	LineBuildNode:
 		Types: wall
 	Targetable:
-		TargetTypes: Ground, Wall, C4
+		TargetTypes: Ground, Wall
 	WithWallSpriteBody:
 		Type: wall
 	AutoTargetIgnore:
 	Sellable:
-		SellSounds: cashturn.aud
+		SellSounds: uselbuil.wav
 	Demolishable:
 	ScriptTriggers:
 	UpgradeManager:
@@ -220,7 +237,7 @@
 ^BuildingPlug:
 	AlwaysVisible:
 	Building:
-		BuildSounds: place2.aud
+		BuildSounds: uplace.wav
 	KillsSelf:
 		RemoveInstead: true
 	RenderSprites:
@@ -246,15 +263,20 @@
 		SharesCell: true
 		TerrainSpeeds:
 			Clear: 100
+			Dirt: 100
+			Sand: 100
+			Grass: 100
+			Rough: 100
 			Ore: 100
+			Gems: 100
 	SelectionDecorations:
 		Palette: pips
 	Selectable:
-		Bounds: 20, 30, 0, -11
+		Bounds: 20, 28, 0, -10
 	Voiced:
 		VoiceSet: Infantry
 	Targetable:
-		TargetTypes: Ground, Infantry
+		TargetTypes: Ground, Infantry, DetonateAttack, Disguise
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 	WithInfantryBody:
@@ -266,11 +288,11 @@
 			SmallExplosionDeath: 2
 			HeadshotDeath: 3
 			FireDeath: 5
-	WithDeathAnimation@explosion:
+	WithDeathAnimation@rad:
 		DeathSequencePalette: effect
 		DeathPaletteIsPlayerPalette: False
 		DeathTypes:
-			ExplosionDeath: 4
+			RadDeath: 4
 	WithDeathAnimation@energy:
 		DeathSequencePalette: ra
 		DeathPaletteIsPlayerPalette: False
@@ -287,8 +309,11 @@
 	AutoTarget:
 	AttackMove:
 		Voice: Move
+	AttackFrontal:
+		Voice: Attack
 	Passenger:
 		CargoType: Infantry
+		PipType: Green
 		Voice: Move
 	HiddenUnderFog:
 	ActorLostNotification:
@@ -311,10 +336,13 @@
 		InitialDelay: 0
 		CloakDelay: 90
 		IsPlayerPalette: true
+	GpsDot:
+		String: Infantry
 
 ^Cyborg:
 	Inherits@1: ^Infantry
 	Inherits@2: ^EmpDisable
+	Inherits@3: ^CraneRepair
 	RevealsShroud:
 		Range: 4c0
 	MustBeDestroyed:
@@ -336,28 +364,58 @@
 		CrushedSequencePalette: player
 		CrushedPaletteIsPlayerPalette: true
 
+^AmphibiousInfantry:
+	Mobile:
+		TerrainSpeeds:
+			Clear: 100
+			Dirt: 100
+			Sand: 100
+			Grass: 100
+			Rough: 100
+			Ore: 100
+			Gems: 100
+			Water: 75
+			Swamp: 75
+
+^T2SelfHealing:
+	SelfHealing:
+		Step: 16
+		Ticks: 160
+		HealIfBelow: 0.5
+		DamageCooldown: 0
+		UpgradeTypes: selfheal
+		UpgradeMinEnabledLevel: 0
+		UpgradeMaxEnabledLevel: 1
+
 ^Vehicle:
 	Inherits@1: ^GainsExperience
 	Inherits@2: ^ExistsInWorld
-	Inherits@3: ^EmpDisable
 	Inherits@4: ^IronCurtainable
 	Inherits@5: ^VoxelLighting
+	Inherits@6: ^CraneRepair
 	DrawLineToTarget:
 	Mobile:
-		Crushes: crate
+		Crushes: crate, infantry
 		TerrainSpeeds:
 			Clear: 100
+			Dirt: 100
+			Sand: 100
+			Grass: 100
+			Rough: 50
 			Ore: 100
+			Gems: 100
 		ROT: 5
 		Voice: Move
 	Selectable:
-		Bounds: 40,24
+		Bounds: 36,36,0,-10
 	SelectionDecorations:
 		Palette: pips
 	Voiced:
 		VoiceSet: Vehicle
 	Targetable:
-		TargetTypes: Ground, Vehicle, Repair
+		TargetTypes: Ground, Vehicle, Repair, C4
+	Targetable@EMP:
+		TargetTypes: EMPable
 	Repairable:
 		RepairBuildings: gadept, nadept
 		Voice: Move
@@ -382,38 +440,70 @@
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
 	MustBeDestroyed:
+	WithVoxelBody:
 	RenderSprites:
-	ThrowsShrapnel:
-		Weapons: SmallDebris
-		Pieces: 3, 7
-		Range: 2c0, 5c0
+	GpsDot:
+		String: Vehicle
 
-^Tank:
-	Inherits: ^Vehicle
+^WallCrusher:
 	Mobile:
 		Crushes: wall, crate, infantry
+
+^AmphibiousVehicle:
+	Mobile:
 		TerrainSpeeds:
 			Clear: 100
+			Dirt: 100
+			Sand: 100
+			Grass: 100
+			Rough: 50
 			Ore: 100
+			Gems: 100
+			Water: 75
+			Swamp: 75
 
-^VoxelVehicle:
-	Inherits: ^Vehicle
+^Ship:
+	Inherits@1: ^GainsExperience
+	Inherits@2: ^ExistsInWorld
+	Inherits@4: ^IronCurtainable
+	Inherits@5: ^VoxelLighting
+	Inherits@6: ^CraneRepair
+	DrawLineToTarget:
+	Mobile:
+		Crushes: crate
+		TerrainSpeeds:
+			Water: 100
+		ROT: 5
+		Voice: Move
+	Selectable:
+		Bounds: 36,36,0,-10
+	SelectionDecorations:
+		Palette: pips
+	Voiced:
+		VoiceSet: Vehicle
+	Targetable:
+		TargetTypes: Ground, Water, Vehicle, Repair, C4
+	Targetable@EMP:
+		TargetTypes: EMPable
+	RepairableNear:
+	AttackMove:
+		Voice: Move
+	HiddenUnderFog:
+	ActorLostNotification:
+	Guard:
+		Voice: Move
+	Guardable:
 	BodyOrientation:
-		QuantizedFacings: 0
-	RenderVoxels:
+		QuantizedFacings: 32
+		CameraPitch: 90
+	Explodes:
+		Weapon: UnitExplodeSmall
+		EmptyWeapon: UnitExplodeSmall
+	MustBeDestroyed:
 	WithVoxelBody:
-
-^VoxelTank:
-	Inherits: ^Tank
-	BodyOrientation:
-		QuantizedFacings: 0
-	RenderVoxels:
-	WithVoxelBody:
-
-^CivilianVoxelVehicle:
-	Inherits: ^VoxelVehicle
-	-RenderSprites:
-	-MustBeDestroyed:
+	RenderSprites:
+	GpsDot:
+		String: Ship
 
 ^Aircraft:
 	Inherits@1: ^GainsExperience
@@ -422,7 +512,7 @@
 	AppearsOnRadar:
 		UseLocation: yes
 	Targetable@GROUND:
-		TargetTypes: Ground
+		TargetTypes: Ground, Vehicle
 		UpgradeTypes: airborne
 		UpgradeMaxEnabledLevel: 0
 	Targetable@AIRBORNE:
@@ -430,6 +520,7 @@
 		UpgradeTypes: airborne
 		UpgradeMinEnabledLevel: 1
 	Selectable:
+		Bounds: 36,36,0,-10
 	SelectionDecorations:
 		Palette: pips
 	Voiced:
@@ -440,7 +531,7 @@
 		Voice: Move
 	ActorLostNotification:
 	BodyOrientation:
-		QuantizedFacings: 0
+		QuantizedFacings: 32
 		CameraPitch: 90
 	Guard:
 		Voice: Move
@@ -448,61 +539,60 @@
 	MustBeDestroyed:
 	RenderVoxels:
 	WithVoxelBody:
+	GpsDot:
+		String: Plane
 
 ^Helicopter:
 	Inherits: ^Aircraft
 	Aircraft:
-		RepairBuildings: gadept
+		RepairBuildings: 
 		RearmBuildings:
 		LandWhenIdle: no
-		CruiseAltitude: 2048
+		CruiseAltitude: 3072
 		Voice: Move
 		AirborneUpgrades: airborne
 		CanHover: True
+	GpsDot:
+		String: Helicopter
 
 ^Plane:
 	Inherits: ^Aircraft
 	Aircraft:
-		RepairBuildings: gadept
-		RearmBuildings: gahpad, nahpad
-		LandWhenIdle: no
-		CruiseAltitude: 2560
+		Repulsable: false
+		RepairBuildings: gaairf, naairf
+		RearmBuildings: gaairf, naairf
+		LandWhenIdle: yes
+		CruiseAltitude: 5128
 		Voice: Move
 		AirborneUpgrades: airborne
+		TakeoffSound: vintupa.wav
+		LandingSound: vintdna.wav
 	ReturnOnIdle:
+	DeathSounds:
+	GpsDot:
+		String: Plane
 
-^Viceroid:
-	Inherits@1: ^ExistsInWorld
-	Inherits@2: ^SpriteActor
-	DrawLineToTarget:
+^CrashingPlane:
+	Inherits: ^VoxelLighting
 	Health:
-		Radius: 256
+		HP: 280
 	Armor:
-		Type: Light
-	Mobile:
-		Speed: 113
-		ROT: 16
-		Crushes: crate
-		SharesCell: no
-		TerrainSpeeds:
-			Clear: 90
-			Road: 100
-			Rail: 80
-			DirtRoad: 90
-			Rough: 70
-			Tiberium: 100
-			BlueTiberium: 100
-			Veins: 100
-	SelectionDecorations:
-		Palette: pips
-	Selectable:
-		Bounds: 26,26,0,-3
-	Targetable:
-		TargetTypes: Ground
-	AttackMove:
+		Type: Heavy
 	HiddenUnderFog:
-	Guardable:
-	WithSpriteBody:
+		Type: CenterPosition
+	AutoTargetIgnore:
+	Tooltip:
+		GenericName: Destroyed Plane
+	FallsToEarth:
+		Spins: true
+		Moves: true
+		Velocity: 128
+		Explosion: UnitExplode
+	BodyOrientation:
+		QuantizedFacings: 32
+		CameraPitch: 90
+	RenderVoxels:
+	WithVoxelBody:
 
 ^BlossomTree:
 	Inherits@1: ^SpriteActor
@@ -516,12 +606,12 @@
 		Dimensions: 1,1
 	AppearsOnRadar:
 	RadarColorFromTerrain:
-		Terrain: Tiberium
+		Terrain: Impassable
 	FrozenUnderFog:
 		StartsRevealed: true
 	SeedsResource:
-		ResourceType: Tiberium
-		Interval: 55
+		ResourceType: Ore
+		Interval: 120
 	WithActiveAnimation:
 
 ^Tree:
@@ -535,7 +625,7 @@
 		Dimensions: 1, 1
 	AppearsOnRadar:
 	RadarColorFromTerrain:
-		Terrain: Tree
+		Terrain: Impassable
 	Tooltip:
 		Name: Tree
 
@@ -550,7 +640,7 @@
 		Dimensions: 1, 1
 	AppearsOnRadar:
 	RadarColorFromTerrain:
-		Terrain: Rock
+		Terrain: Impassable
 	Tooltip:
 		Name: Rock
 
@@ -563,21 +653,6 @@
 	Building:
 		Footprint: x
 		Dimensions: 1, 1
-
-^Box:
-	Inherits: ^Decoration
-	Tooltip:
-		Name: Box
-
-^Drum:
-	Inherits: ^Decoration
-	Tooltip:
-		Name: Drum
-
-^Palette:
-	Inherits: ^Decoration
-	Tooltip:
-		Name: Palette
 
 ^Defense:
 	Inherits: ^Building

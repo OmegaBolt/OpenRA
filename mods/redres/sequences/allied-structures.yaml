@@ -1,6 +1,6 @@
 gacnst:
 	Defaults:
-		Offset: 3, -60
+		Offset: 3, -55
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -40,14 +40,14 @@ gacnst:
 
 gapowr:
 	Defaults:
-		Offset: 0, -31
+		Offset: 0, -26
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
 	idle: ggpowr
 		ShadowStart: 3
-	damaged-idle: gtpowr
+	damaged-idle: ggpowr
 		Start: 1
 		ShadowStart: 4
 	idle-glow: ggpowr_a
@@ -55,6 +55,15 @@ gapowr:
 		ShadowStart: 16
 		Tick: 150
 	damaged-idle-glow: ggpowr_a
+		Start: 8
+		Length: 8
+		ShadowStart: 24
+		Tick: 150
+	idle-powrup: ggpowrup
+		Length: 8
+		ShadowStart: 16
+		Tick: 150
+	damaged-idle-powrup: ggpowrup
 		Start: 8
 		Length: 8
 		ShadowStart: 24
@@ -69,9 +78,12 @@ gapowr:
 		Offset: 0,0
 		UseTilesetCode: false
 
+gapowrup:
+	icon: pwruicon
+
 garefn:
 	Defaults:
-		Offset: -12, -52
+		Offset: -12, -45
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -127,12 +139,9 @@ gapile:
 		Length: 25
 		ShadowStart: 25
 		Tick: 100
-	make: gtpilemk
+	make: ggpilemk
 		Length: 25
 		ShadowStart: 25
-		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
 	icon: abckicon
 		Offset: 0,0
 		UseTilesetCode: false
@@ -158,7 +167,7 @@ gaarse:
 
 gaairf:
 	Defaults:
-		Offset: 30, 15
+		Offset: 30, -55
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -178,7 +187,6 @@ gaairf:
 	idle-lights: ggairf_a
 		Length: 7
 		Tick: 120
-		ZOffset: -512
 	idle-lights2: ggairf_b
 		Length: 6
 		Tick: 120
@@ -202,7 +210,7 @@ gaairf:
 
 gaweap:
 	Defaults:
-		Offset: -40, -60
+		Offset: -30, -55
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -210,8 +218,8 @@ gaweap:
 	idle: ggweap
 		ShadowStart: 2
 	damaged-idle: ggweap
-		Start: 2
-		ShadowStart: 5
+		Start: 1
+		ShadowStart: 3
 	build-ramp: ggweap_1
 		ShadowStart: 2
 		ZOffset: -5000
@@ -220,21 +228,21 @@ gaweap:
 		ShadowStart: 3
 		ZOffset: -5000
 	build-top: ggweap_2
-		ShadowStart: 2
+		ShadowStart: 1
 	damaged-build-top: ggweap_2
 		Start: 1
-		ShadowStart: 3
+		ShadowStart: 2
 # TODO: ggweap_3 and ggweap_4 are used for producing flying actors
 	build-air-open: ggweap_3
-		ShadowStart: 2
+		ShadowStart: 1
 	damaged-air-open: ggweap_3
 		Start: 1
-		ShadowStart: 3
-	build-air-inside: ggweap_4
 		ShadowStart: 2
+	build-air-inside: ggweap_4
+		ShadowStart: 1
 	damaged-air-inside: ggweap_4
 		Start: 1
-		ShadowStart: 3
+		ShadowStart: 2
 	idle-ramp: ggweapbb
 		ShadowStart: 2
 	damaged-idle-ramp: ggweapbb
@@ -272,10 +280,12 @@ gayard:
 	idle-crane: ggyard_a
 		Length: 15
 		ShadowStart: 30
+		Tick: 180
 	damaged-idle-crane: ggyard_a
 		Start: 15
 		Length: 15
 		ShadowStart: 45
+		Tick: 180
 	idle-waves: ggyard_c
 		Length: 15
 		ShadowStart: 30
@@ -328,43 +338,26 @@ garobo:
 		Offset: 0,0
 		UseTilesetCode: false
 
-gadept:
+gacrane:
 	Defaults:
-		Offset: 7, -40
+		Offset: 0, -28
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
-	idle: ggdept_d
+	idle: ggcrane
 		ShadowStart: 2
-	damaged-idle: ggdept_d
+	idle-ring: cranering
+		Length: *
+		BlendMode: DoubleMultiplicative
+		Offset: 0, 13
+	damaged-idle: ggcrane
 		Start: 1
 		ShadowStart: 3
-	idle-side: ggdept
-		ShadowStart: 3
-	damaged-idle-side: ggdept
-		Start: 1
-		Length: 2
-		ShadowStart: 4
-	bib: ggdeptbb
-		ShadowStart: 3
-		ZOffset: -512
-	make: gtdeptmk
-		Length: 25
-		ShadowStart: 25
-		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
-	repair: ggdept_c
+	make: ggcranemk
 		Length: 10
-		ShadowStart: 20
-		Tick: 180
-	damaged-repair: ggdept_c
-		Start: 10
-		Length: 10
-		ShadowStart: 30
-		Tick: 180
-	icon: fixicon
+		ShadowStart: 10
+	icon: acrnicon
 		Offset: 0,0
 		UseTilesetCode: false
 
@@ -408,7 +401,7 @@ atek:
 
 gaorep:
 	Defaults:
-		Offset: 0, -45
+		Offset: 5, -40
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -441,13 +434,20 @@ gawall:
 	Defaults:
 		Offset: 0, -12
 		UseTilesetCode: true
-	idle: gtwall
-		Length: 16
-		ShadowStart: 32
-	damaged-idle: gtwall
-		Start: 16
+		TilesetOverrides:
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: ggwall
 		Length: 16
 		ShadowStart: 48
+	damaged-idle: ggwall
+		Start: 16
+		Length: 16
+		ShadowStart: 64
+	critical-idle: ggwall
+		Start: 32
+		Length: 16
+		ShadowStart: 80
 	icon: wallicon
 		Offset: 0,0
 		UseTilesetCode: false
@@ -467,49 +467,72 @@ gapill:
 	critical-idle: ggpill
 		Start: 2
 		ShadowStart: 5
-	muzzle0: mgun-n
+	## Machine Gun muzzle
+	mgun_muz0: mgun-n
 		Length: *
 		UseTilesetCode: false
-	muzzle1: mgun-nw
+	mgun_muz1: mgun-nw
 		Length: *
 		UseTilesetCode: false
-	muzzle2: mgun-w
+	mgun_muz2: mgun-w
 		Length: *
 		UseTilesetCode: false
-	muzzle3: mgun-sw
+	mgun_muz3: mgun-sw
 		Length: *
 		UseTilesetCode: false
-	muzzle4: mgun-s
+	mgun_muz4: mgun-s
 		Length: *
 		UseTilesetCode: false
-	muzzle5: mgun-se
+	mgun_muz5: mgun-se
 		Length: *
 		UseTilesetCode: false
-	muzzle6: mgun-e
+	mgun_muz6: mgun-e
 		Length: *
 		UseTilesetCode: false
-	muzzle7: mgun-ne
+	mgun_muz7: mgun-ne
 		Length: *
 		UseTilesetCode: false
-	make: gtpillmk
+	## Cannon muzzle
+	120mm_muz0: 120mm_n
+		Length: *
+		UseTilesetCode: false
+	120mm_muz1: 120mm_nw
+		Length: *
+		UseTilesetCode: false
+	120mm_muz2: 120mm_w
+		Length: *
+		UseTilesetCode: false
+	120mm_muz3: 120mm_sw
+		Length: *
+		UseTilesetCode: false
+	120mm_muz4: 120mm_s
+		Length: *
+		UseTilesetCode: false
+	120mm_muz5: 120mm_se
+		Length: *
+		UseTilesetCode: false
+	120mm_muz6: 120mm_e
+		Length: *
+		UseTilesetCode: false
+	120mm_muz7: 120mm_ne
+		Length: *
+		UseTilesetCode: false
+	make: ggpillmk
 		Length: 8
 		ShadowStart: 8
-		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
 	icon: pillicon
 		Offset: 0,0
 		UseTilesetCode: false
 
 nasam:
-	Defaults:
-		Offset: 0, -15
+	Defaults: ggsam
+		Offset: 0, -12
 		ZOffset: -512
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
-	idle: ngsam
+	idle:
 		ShadowStart: 3
 	damaged-idle: ngsam
 		Start: 1
@@ -517,13 +540,11 @@ nasam:
 	critical-idle: ngsam
 		Start: 2
 		ShadowStart: 5
-	make: ntsammk
-		Length: 8
-		ShadowStart: 8
-		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
-		ZOffset: 0
+	make: ggsammk
+		Length: 26
+		ShadowStart: 26
+	turret: samtur
+		Facings: 32
 	icon: samicon
 		Offset: 0,0
 		UseTilesetCode: false
@@ -594,7 +615,7 @@ gaspysat:
 
 gagap:
 	Defaults:
-		Offset: -15, -7
+		Offset: 0, -12
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -606,13 +627,18 @@ gagap:
 		Start: 2
 		Length: 1
 		ShadowStart: 4
+	idle-spin: gggap_a
+		Length: 12
+		ShadowStart: 12
+		Tick: 80
+	damaged-idle-spin: gggap_a
+		Length: 12
+		ShadowStart: 12
+		Tick: 120
 	make: gtgapmk
 		Length: 9
 		ShadowStart: 9
 		Tick: 90
-		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
 	icon: gapicon
 		Offset: 0,0
 		UseTilesetCode: false

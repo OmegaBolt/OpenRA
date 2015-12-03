@@ -80,7 +80,13 @@
 		R: 0
 		G: 0
 		B: 0
-		A: 180
+		A: 128
+	PaletteFromRGBA@ironcurtain:
+		Name: ironcurtain
+		R: 196
+		G: 0
+		B: 0
+		A: 120
 	PaletteFromPaletteWithAlpha@placebuilding:
 		Name: placebuilding
 		BasePalette: ra

@@ -37,37 +37,20 @@ e2:
 	QuantizeFacingsFromSequence:
 		Sequence: stand
 
+## Soviet Attack Dog
+dog:
+	Inherits: adog
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~nahand, ~barracks.gdi
+		BuildPaletteOrder: 20
+
 ## Engineer
 sengineer:
-	Inherits: ^Infantry
+	Inherits: engineer
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~barracks.nod
 		BuildPaletteOrder: 40
-	Valued:
-		Cost: 300
-	Tooltip:
-		Name: Engineer
-		Description: Captures & repairs structures.
-	Health:
-		HP: 250
-	Mobile:
-		Speed: 60
-	Passenger:
-		PipType: Blue
-	EngineerRepair:
-	RepairsBridges:
-	Captures:
-		CaptureTypes: building, husk
-	-AutoTarget:
-	WithInfantryBody:
-	RevealsShroud:
-		Range: 5c0
 	Voiced:
 		VoiceSet: SovietEngineerVoice
-	Guard:
-		Voice: Action
-	AttackMove:
-		Voice: Action
-	QuantizeFacingsFromSequence:
-		Sequence: stand

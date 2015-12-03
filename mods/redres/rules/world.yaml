@@ -13,7 +13,7 @@
 		ShroudPalette: shroud
 		FogPalette: shroud
 	Faction@Random:
-		Name: Any
+		Name: Random
 		InternalName: Random
 		RandomFactionMembers: gdi, nod
 	Faction@0:
@@ -27,9 +27,9 @@
 		Palette: resource
 		Variants: tib01, tib02, tib03, tib04, tib05, tib06, tib07, tib08, tib09, tib10, tib11, tib12, tib13, tib14, tib15, tib16, tib17, tib18, tib19, tib20
 		MaxDensity: 12
-		ValuePerUnit: 50
+		ValuePerUnit: 30
 		Name: Ore
-		PipColor: Green
+		PipColor: Yellow
 		AllowedTerrainTypes: Clear
 		AllowUnderActors: true
 		TerrainType: Ore
@@ -38,7 +38,7 @@
 		Palette: resource
 		Variants: gem01, gem02, gem03, gem04, gem05, gem06, gem07, gem08, gem09, gem10, gem11, gem12
 		MaxDensity: 12
-		ValuePerUnit: 100
+		ValuePerUnit: 60
 		Name: Gems
 		PipColor: Blue
 		AllowedTerrainTypes: Clear
@@ -91,71 +91,29 @@ World:
 	CreateMPPlayers:
 	MPStartUnits@AMCV:
 		Class: none
-		ClassName: MCV Only
+		ClassName: Basic
 		Factions: gdi
 		BaseActor: amcv
+		SupportActors: adog
+		InnerSupportRadius: 3
+		OuterSupportRadius: 4
 	MPStartUnits@SMCV:
 		Class: none
-		ClassName: MCV Only
+		ClassName: Basic
 		Factions: nod
 		BaseActor: smcv
-	MPStartUnits@light.gdi:
-		Class: light
-		ClassName: Light
-		Factions: gdi
-		BaseActor: amcv
-		SupportActors: e1,e1,e1,e2,e2
+		SupportActors: dog
 		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	MPStartUnits@light.nod:
-		Class: light
-		ClassName: Light
-		Factions: nod
-		BaseActor: smcv
-		SupportActors: e2, e2
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	MPStartUnits@med.gdi:
-		Class: medium
-		ClassName: Medium
-		Factions: gdi
-		BaseActor: amcv
-		SupportActors: e1, e1
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	MPStartUnits@med.nod:
-		Class: medium
-		ClassName: Medium
-		Factions: nod
-		BaseActor: smcv
-		SupportActors: e1, e1
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	MPStartUnits@heavy.gdi:
-		Class: heavy
-		ClassName: Heavy
-		Factions: gdi
-		BaseActor: amcv
-		SupportActors: e1, e1
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
-	MPStartUnits@heavy.nod:
-		Class: heavy
-		ClassName: Heavy
-		Factions: nod
-		BaseActor: smcv
-		SupportActors: e2, e2
-		InnerSupportRadius: 3
-		OuterSupportRadius: 5
+		OuterSupportRadius: 4
 	MPStartLocations:
 	SpawnMPUnits:
 	CrateSpawner:
 		Minimum: 1
 		Maximum: 6
-		SpawnInterval: 3000
+		SpawnInterval: 1500
 		WaterChance: 0
-		ValidGround: Clear, Rough, Road, DirtRoad, Tiberium, BlueTiberium
-		InitialSpawnDelay: 1500
+		ValidGround: Clear, Dirt, Sand, Grass, Ore, Gems, Rough
+		InitialSpawnDelay: 5000
 	PathFinder:
 	ValidateOrder:
 	DebugPauseState:
@@ -168,6 +126,7 @@ World:
 EditorWorld:
 	Inherits: ^BaseWorld
 	EditorActorLayer:
+		BinSize: 1024
 	EditorResourceLayer:
 	EditorSelectionLayer:
 		Palette: placebuilding
