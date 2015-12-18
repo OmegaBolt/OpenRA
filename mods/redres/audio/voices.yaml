@@ -72,7 +72,7 @@ SpyVoice:
 		Burned: ienadia #gotta put something as temp else game crashes
 		Melted: igenmela, igenmelb, igenmelc
 
-SealVoice:
+SEALVoice:
 	DefaultVariant: .wav
 	Voices:
 		Select: iseasea, iseaseb, iseasec, iseased
@@ -157,7 +157,7 @@ SovietEngineerVoice:
 		Melted: igenmela, igenmelb, igenmelc
 
 ## Allied Vehicles
-AlliedVehicleVoice:
+GenAllVehicleVoice:
 	DefaultVariant: .wav
 	Voices:
 		Select: vgrasea, vgraseb, vgrasec, vgrased, vgrasee
@@ -178,7 +178,38 @@ ChronoMinerVoice:
 		Move: vchrmoa, vchrmob, vchrmoc, vchrmod, vchrmoe
 		Harvest: vchrhaa, vchrhab, vchrhac, vchrhad, vchrhae
 		Return: vchrgoa, vchrgob, vchrgoc, vchrgod, vchrgoe
-		
+
+RobotTankVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: vrobsela
+		Move: vrobmova, vrobmovb
+		Attack: vrobatca
+		Die: vrobdiea
+
+IFVVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: vifvsea, vifvseb, vifvsec, vifvsed, vifvsee, vifvsef, vifvseg
+		Move: vifvmoa, vifvmob, vifvmoc, vifvmod, vifvmoe, vifvmof
+		Attack: vifvata, vifvatb, vifvatc, vifvatd, vifvate
+
+NighthawkVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: vblhsea, vblhseb, vblhsec, vblhsed
+		Move: vblhmoa, vblhmob, vblhmoc, vblhmod
+		Attack: vblhata, vblhatb, vblhatc, vblhatd
+		Die: vblhdia, vblhdib, vblhdic
+
+PenguinArtilleryVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: peng_sela, peng_selb, peng_selc, peng_seld, peng_sele, peng_self, peng_selg
+		Move: peng_mova, peng_movb, peng_movc, peng_movd, peng_move, peng_movf, peng_movg
+		Attack: peng_atta, peng_attb, peng_attc, peng_attd, peng_atte, peng_attf, peng_attg
+		Feedback: peng_feaa, peng_feab, peng_feac, peng_fead
+
 LightningVoice:
 	DefaultVariant: .wav
 	Voices:
@@ -187,6 +218,15 @@ LightningVoice:
 		Attack: falc_atta, falc_attb, falc_attc, falc_attd, falc_atte, falc_attf, falc_attg, falc_atth, falc_atti
 		Feedback: falc_feaa, falc_feab, falc_feac, falc_fead, falc_feae
 		Die: falc_craa, falc_crab, falc_crac, falc_crad
+
+SpiritBomberVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: swlw_sela, swlw_selb, swlw_selc, swlw_seld
+		Move: swlw_mova, swlw_movb, swlw_movc, swlw_movd, swlw_move
+		Attack: swlw_atta, swlw_attb, swlw_attc, swlw_attd, swlw_atte, swlw_attf
+		Feedback: swlw_feaa, swlw_feab, swlw_feac
+		Die: 
 
 ## Soviet Vehicles
 SovietVehicleVoice:

@@ -16,7 +16,7 @@ Bounds: 1,1,128,144
 
 Visibility: Shellmap
 
-Type: Conquest
+Type: Shellmap
 
 Videos:
 
@@ -38,6 +38,13 @@ Actors:
 Smudges:
 
 Rules:
+	World:
+		-StartGameNotification:
+		-SpawnMPUnits:
+		-MPStartLocations:
+		MusicPlaylist:
+			StartingMusic: grinder
+			LoopStartingMusic: true
 
 Sequences:
 

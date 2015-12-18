@@ -2,11 +2,74 @@
 amcv:
 	icon: mcvicon
 
-fv:
-	icon: fvicon
+robo:
+	muzzle: gunfire
+		Length: *
+	icon: roboicon
 
-mtnk:
-	icon: gtnkicon
+fv:
+	icon: ifvicon
+	## Machine Gun muzzle
+	mgun_muz0: mgun-n
+		Length: *
+	mgun_muz1: mgun-nw
+		Length: *
+	mgun_muz2: mgun-w
+		Length: *
+	mgun_muz3: mgun-sw
+		Length: *
+	mgun_muz4: mgun-s
+		Length: *
+	mgun_muz5: mgun-se
+		Length: *
+	mgun_muz6: mgun-e
+		Length: *
+	mgun_muz7: mgun-ne
+		Length: *
+	## Cannon muzzle
+	120mm_muz0: 120mm_n
+		Length: *
+	120mm_muz1: 120mm_nw
+		Length: *
+	120mm_muz2: 120mm_w
+		Length: *
+	120mm_muz3: 120mm_sw
+		Length: *
+	120mm_muz4: 120mm_s
+		Length: *
+	120mm_muz5: 120mm_se
+		Length: *
+	120mm_muz6: 120mm_e
+		Length: *
+	120mm_muz7: 120mm_ne
+		Length: *
+
+libty:
+	icon: libticon
+	muzzle0: 120mm_n
+		Length: *
+	muzzle1: 120mm_nw
+		Length: *
+	muzzle2: 120mm_w
+		Length: *
+	muzzle3: 120mm_sw
+		Length: *
+	muzzle4: 120mm_s
+		Length: *
+	muzzle5: 120mm_se
+		Length: *
+	muzzle6: 120mm_e
+		Length: *
+	muzzle7: 120mm_ne
+		Length: *
+
+shad:
+	icon: shadicon
+
+arty:
+	icon: artyicon
+	muzzle: gunfire
+		Length: *
 
 mgtk:
 	icon: rtnkicon
@@ -16,6 +79,9 @@ cmin:
 		Length: 15
 		Facings: 8
 	icon: cminicon
+
+ctnk:
+	icon: ctnkicon
 
 dest:
 	icon: desticon
@@ -28,6 +94,9 @@ carrier:
 
 orca:
 	icon: orcaicon
+
+spirit:
+	icon: sprticon
 	
 ## Soviet
 smcv:
@@ -39,7 +108,11 @@ harv:
 		Facings: 8
 	muzzle: gunfire
 		Length: *
+		Facings: 1
 	icon: harvicon
+
+scorcher:
+	icon: srchicon
 
 htk:
 	icon: htkicon

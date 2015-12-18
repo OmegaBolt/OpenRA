@@ -1,0 +1,64 @@
+caoild:
+	Defaults:
+		Offset: 0, -30
+		UseTilesetCode: true
+			URBAN: TEMPERATE
+	idle: ctoild
+		ShadowStart: 4
+	damaged-idle: ctoild
+		Start: 1
+		ShadowStart: 5
+	idle-pump: ctoild_a
+		Length: 32
+		ShadowStart: 64
+	damaged-idle-pump: ctoild_a
+		Start: 32
+		Length: 32
+		ShadowStart: 96
+	idle-flag: ctoild_f
+		Length: 16
+
+caoild.husk:
+	Defaults:
+		Offset: 0, -30
+		UseTilesetCode: true
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: ctoild
+		Start: 3
+		ShadowStart: 7
+
+camach:
+	Defaults:
+		Offset: 0, -40
+		UseTilesetCode: true
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: cgmach
+		ShadowStart: 4
+	damaged-idle: cgmach
+		Start: 1
+		ShadowStart: 5
+	idle-flag: cgmach_f
+		Length: 16
+		ShadowStart: 16
+
+camach.husk:
+	Defaults:
+		Offset: 0, -40
+		UseTilesetCode: true
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: cgmach
+		Start: 3
+		ShadowStart: 7
+
+caobs:
+	Defaults: cgobs
+		Offset: 0, -30
+		UseTilesetCode: true
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: cgobs_a
+	idle-dish: cgobs_a
+		Length: 1

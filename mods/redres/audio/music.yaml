@@ -1,3 +1,4 @@
+## RA2
 grinder: Grinder
 	Extension: wav
 power: Power
@@ -13,6 +14,7 @@ eaglehun: Eagle Hunter
 industro: Industro Funk
 	Extension: wav
 jank: Jank
+	Hidden: true
 	Extension: wav
 200meter: 200 Meters
 	Extension: wav
@@ -26,9 +28,37 @@ motorize: Motorized
 	Extension: wav
 hm2: HM2
 	Extension: wav
-credits: Credits
+credits: Credits RA2
 	Filename: ra2-opt
+	Hidden: true
 	Extension: wav
-score: Score
+score: Score RA2
 	Filename: ra2-sco
+	Hidden: true
 	Extension: wav
+## Yuri's Revenge
+brainfre: Brain Freeze
+	Extension: wav
+drok: Drok
+	Extension: wav
+deceiver: Deceiver
+	Extension: wav
+phatatta: Phat Attack
+	Extension: wav
+bully: Bully Kit
+	Extension: wav
+defend: Defend the Base
+	Extension: wav
+tactics: Tactics
+	Extension: wav
+trancelv: Trance L. Vania
+	Extension: wav
+optionx: Credits YR
+	Hidden: true
+	Extension: wav
+scorex: Score YR
+	Hidden: true
+	Extension: wav
+## Red-Resurrection
+#remarch: Re-March
+#	Extension: wav

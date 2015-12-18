@@ -1,7 +1,7 @@
 amcv:
 	Inherits: ^Vehicle
 	Inherits@amphibious: ^AmphibiousVehicle
-	Inherits@selfhealing: ^T2SelfHealing
+	Inherits@selfhealing: ^VehSelfHealT2
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 50
@@ -34,8 +34,11 @@ amcv:
 		Facing: 96
 		TransformSounds: uplace.wav
 		NoTransformNotification: BuildingCannotPlaceAudio
+	-GainsExperience:
 	-WithVoxelBody:
 	WithVoxelWaterBody:
+	RenderVoxels:
+		Scale: 12.5
 	LeavesTrails:
 		Image: wake
 		Palette: effect
@@ -46,7 +49,7 @@ amcv:
 cmin:
 	Inherits: ^Vehicle
 	Inherits@amphibious: ^AmphibiousVehicle
-	Inherits@selfhealing: ^T2SelfHealing
+	Inherits@selfhealing: ^VehSelfHeal
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 10
@@ -89,6 +92,351 @@ cmin:
 	Voiced:
 		VoiceSet: ChronoMinerVoice
 
+robo:
+	Inherits: ^Vehicle
+	Inherits@amphibious: ^AmphibiousVehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 20
+		Prerequisites: ~gaweap
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: Robot Tank
+		Description: Anti-infantry.
+	Health:
+		HP: 700
+	Armor:
+		Type: Light
+	Mobile:
+		Crushes: crate
+		Speed: 90
+		ROT: 8
+	Hovers:
+		OffsetModifier: -128
+	RevealsShroud:
+		Range: 6c0
+	Armament@primary:
+		Weapon: RoboGun
+		LocalOffset: 212,16,512
+		Muzzle: muzzle
+	Armament@primary2:
+		Weapon: RoboScatter
+		LocalOffset: 212,16,512
+	Armament@secondary:
+		Weapon: RoboPointer
+		LocalOffset: 128,-16,512
+	AutoTarget:
+	Turreted:
+		ROT: 8
+		Offset: -64,0,0
+	AttackTurreted:
+		Voice: Attack
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+	-GainsExperience:
+	LeavesTrails:
+		Image: wake
+		Palette: effect
+		TerrainTypes: Water
+	Voiced:
+		VoiceSet: RobotTankVoice
+	DeathSounds:
+
+fv:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Prerequisites: ~gaweap
+	Valued:
+		Cost: 600
+	Tooltip:
+		Name: IFV
+		Description: Anti-air multi purpose vehicle.
+	Health:
+		HP: 660
+	Armor:
+		Type: Light
+	Mobile:
+		Crushes: crate
+		Speed: 100
+		ROT: 7
+	RevealsShroud:
+		Range: 6c0
+	Cargo:
+		Types: Garrisonable, Infantry
+		MaxWeight: 1
+		PipCount: 1
+		UnloadVoice: Select
+	Armament@none:
+		Weapon: IFVRocket
+		LocalOffset: 200,65,768, 200,-65,768
+		UpgradeTypes: ifv-machinegun, ifv-advmissiles, ifv-engineer, ifv-grenades, ifv-sniper, ifv-chrono, ifv-flak, ifv-demo, ifv-tesla, ifv-psicorps, ifv-deso, ifv-hero
+		UpgradeMaxEnabledLevel: 0
+	Armament@machinegun:
+		Weapon: IFVMachineGun
+		LocalOffset: 188,32,600, 188,-32,600
+		UpgradeTypes: ifv-machinegun
+		MuzzleSequence: mgun_muz
+		MuzzleSplitFacings: 8
+		UpgradeMinEnabledLevel: 1
+	Armament@adv_missiles:
+		Weapon: IFVAdvRocket
+		LocalOffset: 200,-65,800, 200,65,800
+		UpgradeTypes: ifv-advmissiles
+		UpgradeMinEnabledLevel: 1
+	Armament@repair:
+		Weapon: IFVRepair
+		LocalOffset: 164,0,864
+		UpgradeTypes: ifv-engineer
+		Cursor: goldwrench
+		OutsideRangeCursor: goldwrench
+		TargetStances: Ally
+		ForceTargetStances: None
+		UpgradeMinEnabledLevel: 1
+	Armament@grenadier:
+		Weapon: IFVGrenade
+		LocalOffset: 188,0,600
+		UpgradeTypes: ifv-grenades
+		MuzzleSequence: 120mm_muz
+		MuzzleSplitFacings: 8
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+		UpgradeMinEnabledLevel: 1
+	Armament@sniper:
+		Weapon: IFVSniper
+		LocalOffset: 188,0,600
+		UpgradeTypes: ifv-sniper
+		UpgradeMinEnabledLevel: 1
+	Armament@sniper_2:
+		Weapon: IFVSniper_EMP
+		LocalOffset: 188,0,600
+		UpgradeTypes: ifv-sniper
+		UpgradeMinEnabledLevel: 1
+	Armament@hero:
+		Weapon: IFVHeroCannon
+		LocalOffset: 200,0,800
+		UpgradeTypes: ifv-hero
+		UpgradeMinEnabledLevel: 1
+	AutoTarget:
+	Turreted:
+		ROT: 7
+		Offset: -168,0,0
+	AttackTurreted:
+		Voice: Attack
+	WithVoxelTurret@none:
+		Sequence: turret
+		UpgradeTypes: ifv-machinegun, ifv-advmissiles, ifv-engineer, ifv-grenades, ifv-sniper, ifv-chrono, ifv-flak, ifv-demo, ifv-tesla, ifv-psicorps, ifv-deso, ifv-hero
+		UpgradeMaxEnabledLevel: 0
+	WithVoxelTurret@machinegun:
+		Sequence: turret-mg
+		UpgradeTypes: ifv-machinegun
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@advmissiles:
+		Sequence: turret-advm
+		UpgradeTypes: ifv-advmissiles
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@engineer:
+		Sequence: turret-engi
+		UpgradeTypes: ifv-engineer
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@grenades:
+		Sequence: turret-gren
+		UpgradeTypes: ifv-grenades
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@sniper:
+		Sequence: turret-sniper
+		UpgradeTypes: ifv-sniper
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@chrono:
+		Sequence: turret-chrono
+		UpgradeTypes: ifv-chrono
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@flak:
+		Sequence: turret-flak
+		UpgradeTypes: ifv-flak
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@demo:
+		Sequence: turret-demo
+		UpgradeTypes: ifv-demo
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@tesla:
+		Sequence: turret-tesla
+		UpgradeTypes: ifv-tesla
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@psi:
+		Sequence: turret-psi
+		UpgradeTypes: ifv-psicorps
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@desolator:
+		Sequence: turret-deso
+		UpgradeTypes: ifv-deso
+		UpgradeMinEnabledLevel: 1
+	WithVoxelTurret@hero:
+		Sequence: turret-hero
+		UpgradeTypes: ifv-hero
+		UpgradeMinEnabledLevel: 1
+	Voiced:
+		VoiceSet: IFVVoice
+
+libty:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 30
+		Prerequisites: ~gaweap, gaarse
+	Valued:
+		Cost: 800
+	Tooltip:
+		Name: Liberty Tank
+		Description: Main battle tank.
+	Health:
+		HP: 600
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 80
+		ROT: 6
+	RevealsShroud:
+		Range: 8c0
+	Armament@primary:
+		Weapon: Liberty105MM
+		LocalOffset: 768,0,512
+		Muzzle: muzzle
+		MuzzleSplitFacings: 8
+	AutoTarget:
+	Turreted:
+		ROT: 6
+		Offset: 0,0,0
+	AttackTurreted:
+		Voice: Attack
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+	Voiced:
+		VoiceSet: GenAllVehicleVoice
+
+shad:
+	Inherits: ^Helicopter
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 40
+		Prerequisites: ~gaweap, gaarse
+	Tooltip:
+		Name: Nighthawk Transport
+		Description: Infantry transport.
+	Valued:
+		Cost: 1000
+	Aircraft:
+		CruiseAltitude: 2000
+		ROT: 5
+		Speed: 120
+		AltitudeVelocity: 100
+		Voice: Move
+		AirborneUpgrades: airborne
+		CanHover: true
+		LandWhenIdle: true
+	Health:
+		HP: 500
+	Armor:
+		Type: Light
+	Cargo:
+		Types: Infantry, Garrisonable
+		MaxWeight: 4
+		PipCount: 4
+	AutoTarget:
+		ScanRadius: 6
+	AttackGarrisoned:
+		PortOffsets: 256,128,128, 256,-128,128, -256,-128,128, -256,0,400, -256,128,128, 64,128,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 255, 255, 255, 255, 255, 255
+		Voice: Attack
+	RevealsShroud:
+		Range: 4c0
+		Type: CenterPosition
+	RenderVoxels:
+		Scale: 11
+	-WithVoxelBody:
+	WithVoxelWalkerBody:
+		TickRate: 2
+	Voiced:
+		VoiceSet: NighthawkVoice
+	SpawnActorOnDeath:
+		Actor: shad.husk
+
+arty:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 50
+		Prerequisites: ~gaweap, garobo
+	Valued:
+		Cost: 950
+	Tooltip:
+		Name: Penguin Artillery
+		Description: Siege unit.
+	Health:
+		HP: 400
+	Armor:
+		Type: Medium
+	Mobile:
+		Speed: 60
+		ROT: 5
+	RevealsShroud:
+		Range: 8c0
+	Armament@primary:
+		Weapon: PenguinArtillery
+		LocalOffset: 768,0,1024
+		Muzzle: muzzle
+	AutoTarget:
+	Turreted:
+		ROT: 5
+		Offset: -196,0,0
+	AttackTurreted:
+		Voice: Attack
+	WithVoxelTurret:
+	WithMuzzleOverlay:
+	RenderVoxels:
+		Scale: 10.7
+	Voiced:
+		VoiceSet: PenguinArtilleryVoice
+
+ctnk:
+	Inherits: ^Vehicle
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 100
+		Prerequisites: ~gaweap #, gacsph
+	Valued:
+		Cost: 2400
+	Tooltip:
+		Name: Chrono Tank
+		Description: Siege unit.
+	Health:
+		HP: 700
+	Armor:
+		Type: Light
+	Mobile:
+		Speed: 80
+		ROT: 6
+	RevealsShroud:
+		Range: 6c0
+	Armament@primary:
+		Weapon: ChronoRockets
+		LocalOffset: 0,196,1024, 0,96,1024, 0,-96,1024, 0,-196,1024
+	AutoTarget:
+	AttackFrontal:
+		Voice: Attack
+	RenderVoxels:
+		Scale: 10
+	PortableChrono:
+		ChargeDelay: 300
+		HasDistanceLimit: false
+		ChronoshiftSound: schrmov.wav
+		Voice: Move
+	Voiced:
+		VoiceSet: GenAllVehicleVoice
+
 orca:
 	Inherits: ^Plane
 	Tooltip:
@@ -100,7 +448,7 @@ orca:
 		Prerequisites: ~gaairf
 	Aircraft:
 		ROT: 4
-		Speed: 192
+		Speed: 220
 	ReturnOnIdle:
 	Valued:
 		Cost: 1500
@@ -111,23 +459,17 @@ orca:
 	Armor@2:
 		Type: AirLight
 	RevealsShroud:
-		Range: 8c0
+		Range: 12c0
 		Type: CenterPosition
-	Armament@primary1:
+	Armament@primary:
 		Weapon: Maverick
-		LocalOffset: 0,-512,-128
-	Armament@primary2:
-		Weapon: Maverick
-		LocalOffset: 0,512,-128
-	Armament@secondary1:
+		LocalOffset: 0,-512,-128, 0,512,-128
+	Armament@secondary:
 		Weapon: LightningLaser
-		LocalOffset: 0,-512,-128
-	Armament@secondary2:
-		Weapon: LightningLaser
-		LocalOffset: 0,512,-128
+		LocalOffset: 0,-512,-128, 0,512,-128
 	AttackPlane:
 		Voice: Attack
-		FacingTolerance: 20
+		FacingTolerance: 120
 	AmmoPool:
 		Ammo: 4
 		PipCount: 4
@@ -139,7 +481,6 @@ orca:
 		TargetWhenIdle: false
 		TargetWhenDamaged: false
 		EnableStances: false
-	RenderSprites:
 	SmokeTrailWhenDamaged:
 		Offset: -853,0,172
 		Sprite: largesmoke
@@ -149,5 +490,65 @@ orca:
 		UpgradeMinEnabledLevel: 1
 	SpawnActorOnDeath:
 		Actor: orca.husk
+	RenderVoxels:
+		Scale: 11
 	Voiced:
 		VoiceSet: LightningVoice
+
+spirit:
+	Inherits: ^Plane
+	Tooltip:
+		Name: Spirit Bomber
+		Description: Heavy bomber aircraft.\n Strong vs Structures
+	Buildable:
+		Queue: Aircraft
+		BuildPaletteOrder: 50
+		Prerequisites: ~gaairf, gatech
+	Aircraft:
+		ROT: 3
+		Speed: 180
+	ReturnOnIdle:
+	Valued:
+		Cost: 2000
+	Health:
+		HP: 700
+	Armor:
+		Type: Light
+	Armor@2:
+		Type: AirLight
+	RevealsShroud:
+		Range: 10c0
+		Type: CenterPosition
+	-AppearsOnRadar:
+	GpsDot:
+		Type: None
+	Armament@primary1:
+		Weapon: SpiritBomb
+		LocalOffset: 0,0,-128
+	AttackPlane:
+		Voice: Attack
+		FacingTolerance: 40
+	AmmoPool:
+		Ammo: 1
+		PipCount: 1
+		ReloadCount: 1
+		ReloadTicks: 800
+		PipType: Ammo
+		PipTypeEmpty: AmmoEmpty
+	AutoTarget:
+		TargetWhenIdle: false
+		TargetWhenDamaged: false
+		EnableStances: false
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,172
+		Sprite: largesmoke
+		Interval: 2
+	Hovers@AIRBORNE:
+		UpgradeTypes: airborne
+		UpgradeMinEnabledLevel: 1
+	RenderVoxels:
+		Scale: 13.7
+	SpawnActorOnDeath:
+		Actor: spirit.husk
+	Voiced:
+		VoiceSet: SpiritBomberVoice

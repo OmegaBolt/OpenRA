@@ -1,0 +1,56 @@
+caoild:
+	Inherits: ^TechBuilding
+	Tooltip:
+		Name: Tech Oil Derrick
+	ProvidesPrerequisite@default:
+	Selectable:
+		Bounds: 96, 98, 0, -24
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	CashTrickler:
+		Period: 167
+		Amount: 20
+		CaptureAmount: 1000
+	WithIdleOverlay@flag:
+		Sequence: idle-flag
+	WithIdleOverlay@pump:
+		Sequence: idle-pump
+
+camach:
+	Inherits: ^TechBuilding
+	Tooltip:
+		Name: Tech Machine Shop
+	ProvidesPrerequisite@default:
+	Health:
+		HP: 4000
+	Selectable:
+		Bounds: 132, 64, 0, -32
+	Building:
+		Footprint: xxx xxx
+		Dimensions: 3, 3
+	WithIdleOverlay@flag:
+		Sequence: idle-flag
+
+caobs:
+	Inherits: ^TechBuilding
+	Tooltip:
+		Name: Observation Post
+	ProvidesPrerequisite@default:
+	-GivesBuildableArea:
+	-Capturable:
+	-RepairableBuilding:
+	Health:
+		HP: 10000
+	RevealsShroud:
+		Range: 16c0
+	Selectable:
+		Bounds: 96, 64, 0, -16
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
+	ProximityCapturable:
+		Range: 2
+		CaptorTypes: obs_post
+	WithIdleOverlay@dish:
+		Sequence: idle-dish

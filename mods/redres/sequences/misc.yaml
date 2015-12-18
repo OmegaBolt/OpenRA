@@ -36,6 +36,7 @@ rallypoint:
 	flag: mouse
 		Start: 31
 		Length: 10
+		Tick: 80
 	circles: null
 
 beacon:
@@ -65,9 +66,13 @@ crate-effects:
 	nuke: mltimisl
 	levelup: veteran
 
+cameo-chevron:
+	idle: 
+		Length: *
+
 rank:
 	rank: pips
-		Start: 7
+		Start: 14
 		Length: 2
 
 mpspawn:
@@ -93,6 +98,7 @@ darken:
 		BlendMode: Multiply
 
 gpsdot:
+	None: null
 	Infantry:
 	Vehicle:
 		Start: 1
@@ -108,8 +114,10 @@ gpsdot:
 		Start: 6
 
 pips:
-	medic: 
-		Start: 6
+	medic:
+		Start: 13
+	mechanic: 
+		Start: 20
 	groups: pipsra #TODO: backfall to RA asset
 		Start: 8
 		Length: 10
@@ -120,30 +128,47 @@ pips:
 		Start: 1
 	pip-yellow: pips2
 		Start: 2
-	pip-gray: pips2
+	pip-grey: pips2
 		Start: 3
 	pip-red: pips2
 		Start: 4
 	pip-blue: pips2
 		Start: 5
-	pip-ammo: ammopips
-	pip-ammoempty: ammopips
-		Start: 1
+	pip-ammoempty: pips2
+		Start: 14
+	pip-ammo: pips2
+		Start: 13
+	pip-ammo-red: pips2
+		Start: 15
+	pip-ammo-yellow: pips2
+		Start: 16
+	pip-ammo-blue: pips2
+		Start: 18
 	pip-disguise: pip-disguise
 		Length: *
 		Tick: 300
 # TODO:
-	pip-empty-building:
-	pip-green-building:
-		Start: 1
-	pip-yellow-building:
-		Start: 2
-	pip-gray-building:
-		Start: 3
-	pip-red-building:
+	pip-empty-building: pips2
+		Start: 6
+	pip-green-building: pips2
+		Start: 7
+	pip-yellow-building: pips2
+		Start: 8
+	pip-grey-building: pips2
+		Start: 9
+	pip-red-building: pips2
+		Start: 10
+	pip-blue-building: pips2
+		Start: 11
+	pip-purple-building: pips2
+		Start: 12
+
+litning:
+	bright:
+		Length: 4
+	dim:
 		Start: 4
-	pip-blue-building:
-		Start: 5
+		Length: 4
 
 explosion:
 	Defaults:
@@ -197,14 +222,43 @@ explosion:
 	reactor_nuke: nukeanim
 		Tick: 80
 	da_exp02: da_exp02
+	cryo_expl01: cryo_expl01
+	flame_exp: flame_exp
+	flame_exp_e: flame_exp_e
 
 discus:
 	idle:
 		Length: *
-		
+
 grenp:
 	idle:
 		Length: *
+
+grenp_e:
+	idle:
+		Length: *
+
+flamep:
+	idle:
+		Length: *
+
+flamep_e:
+	idle:
+		Length: *
+
+artmm:
+	idle:
+		Length: *
+
+dragon:
+	idle:
+		Length: 1
+		Facings: 32
+
+patriot:
+	idle:
+		Length: 1
+		Facings: 32
 
 canister:
 	idle:
@@ -214,14 +268,6 @@ pulsball:
 	idle:
 		Length: *
 		BlendMode: Additive
-
-dragon:
-	idle:
-		Facings: 32
-
-patriot:
-	idle:
-		Facings: 32
 
 crystal4:
 	idle:
@@ -258,6 +304,14 @@ smokey2:
 	idle:
 		Length: *
 
+smkt:
+	idle:
+		Length: *
+
+v3trail:
+	idle:
+		Length: *
+
 largefire:
 	idle: fire01
 		Length: *
@@ -277,7 +331,6 @@ tinyfire:
 moveflsh:
 	idle: ring
 		Length: *
-		Tick: 60
 
 wake:
 	idle: wake2
@@ -293,6 +346,12 @@ iron_blast:
 	idle: ironblst
 		Length: *
 		BlendMode: Additive
+
+target-painter:
+	idle: mouse
+		Start: 53
+		Length: 5
+		Tick: 120
 
 resources:
 	Defaults:

@@ -1,3 +1,19 @@
+shad.husk:
+	Inherits: ^CrashingPlane
+	Tooltip:
+		Name: Nighthawk
+	Aircraft:
+		ROT: 10
+		Speed: 256
+		AirborneUpgrades: airborne
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,172
+		Sprite: largesmoke
+		Interval: 1
+		MinDamage: Undamaged
+	RenderVoxels:
+		Image: shad
+
 orca.husk:
 	Inherits: ^CrashingPlane
 	Tooltip:
@@ -13,3 +29,19 @@ orca.husk:
 		MinDamage: Undamaged
 	RenderVoxels:
 		Image: orca
+
+spirit.husk:
+	Inherits: ^CrashingPlane
+	Tooltip:
+		Name: Spirit Bomber
+	Aircraft:
+		ROT: 10
+		Speed: 256
+		AirborneUpgrades: airborne
+	SmokeTrailWhenDamaged:
+		Offset: -853,0,172
+		Sprite: largesmoke
+		Interval: 1
+		MinDamage: Undamaged
+	RenderVoxels:
+		Image: spirit

@@ -1,22 +1,73 @@
 Player:
 	HackyAI@TestAI:
 		Name: Test AI
-		MinimumExcessPower: 60
+		MinimumExcessPower: 120
 		BuildingCommonNames:
-			ConstructionYard: gacnst
-			Refinery: 
-			Power: 
-			Barracks: 
-			VehiclesFactory: 
-			Production: 
-			Silo: 
+			ConstructionYard: gacnst, nacnst
+			Refinery: garefn, narefn
+			Power: gapowr, gapowrup, napowr, nanrct
+			Barracks: gapile, nahand
+			VehiclesFactory: gaweap, naweap
+			Production: gacnst, nacnst, gapile, nahand, gaweap, naweap, gayard, nayard, gaairf, naairf
+			Silo: garefn, narefn
 		UnitsCommonNames:
 			Mcv: amcv
 		BuildingLimits:
 		BuildingFractions:
+			gapowr: 10%
+			garefn: 20.1%
+			gapile: 0.1%
+			gaarse: 0.1%
+			gaweap: 0.1%
+			gayard: 0.1%
+			gaairf: 0.1%
+			garobo: 0.1%
+			gapowrup: 2%
+			gaorep: 0.1%
+			gatech: 0.1%
+			gacrane: 0.1%
+			gapill: 8%
+			nasam: 8%
+			gtgcan: 5%
+			gagap: 2%
+			napowr: 10%
+			narefn: 20.1%
+			nahand: 0.1%
+			naradr: 0.1%
+			naweap: 0.1%
+			nayard: 0.1%
+			naairf: 0.1%
+			natek: 0.1%
+			nanrct: 0.1%
+			##naindp: 0.1%
+			natech: 0.1%
+			nacrane: 0.1%
+			nabnkr: 8%
+			naflak: 8%
+			tesla: 5%
+			napsis: 0.1%
 		UnitsToBuild:
 			e1: 100%
+			adog: 20%
+			engineer: 5%
+			ggi: 80%
+			grenadier: 80%
+			seal: 60%
+			snipe: 50%
+			tany: 100%
+			cmin: 5%
+			robo: 80%
+			fv: 100%
+			libty: 80%
+			arty: 50%
+			orca: 80%
 			e2: 100%
+			dog: 20%
+			sengineer: 5%
+			harv: 5%
 		UnitLimits:
+			amcv: 1
+			cmin: 5
+			harv: 5
 		SquadSize: 20
 

@@ -2,6 +2,8 @@
 
 e1:
 	Inherits: ^Infantry
+	Inherits@2: ^InfGarrison
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~gapile
@@ -19,28 +21,21 @@ e1:
 		Range: 6c0
 	Armament@primary:
 		Weapon: M60
-		UpgradeTypes: eliteweapon
-		UpgradeMaxEnabledLevel: 0
-		UpgradeMaxAcceptedLevel: 1
-	Armament@elite:
-		Weapon: M60
-		UpgradeTypes: eliteweapon
-		UpgradeMinEnabledLevel: 1
 #	Armament@deployed:
 #		Weapon: Para#
 #		UpgradeTypes: deployed
 #		UpgradeMinEnabledLevel: 1
-#	Armament@elite-deployed:
-#		Weapon: paraE
-#		UpgradeTypes: eliteparaweapon
-#		UpgradeMinEnabledLevel: 1
 	Voiced:
 		VoiceSet: GIVoice
+	Passenger:
+		GrantUpgrades: garrisoned, ifv-machinegun
 	ProducibleWithLevel:
 		Prerequisites: barracks.infiltrated
 
 adog:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~gapile, ~barracks.gdi
@@ -56,21 +51,29 @@ adog:
 		Speed: 110
 	RevealsShroud:
 		Range: 10c0
-	AttackLeap:
-		Voice: Attack
 	Armament@primary:
+		Name: dog-attack
 		Weapon: GoodTeeth
+	AttackFrontal:
+		FacingTolerance: 40
+		Armaments: dog-attack
 	AutoTarget:
+		ScanRadius: 6
 		InitialStance: AttackAnything
+		EnableStances: false
 	DetectCloaked:
 		CloakTypes: Cloak
 	Voiced:
 		VoiceSet: DogVoice
+	Passenger:
+		GrantUpgrades: ifv-none
 	-TakeCover:
-	-AttackFrontal:
+	-GainsExperience:
 
 engineer:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~barracks.gdi
@@ -88,12 +91,14 @@ engineer:
 		Speed: 60
 	Passenger:
 		PipType: Blue
+		GrantUpgrades: ifv-engineer
 	EngineerRepair:
 	RepairsBridges:
 	Captures:
 		CaptureTypes: building, husk
 	-AutoTarget:
 	-AttackFrontal:
+	-GainsExperience:
 	RevealsShroud:
 		Range: 5c0
 	Voiced:
@@ -105,6 +110,8 @@ engineer:
 
 ggi:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~gapile
@@ -127,17 +134,32 @@ ggi:
 		UpgradeMaxEnabledLevel: 0
 		UpgradeMaxAcceptedLevel: 1
 	Armament@elite:
-		Weapon: GuardianRocket
+		Weapon: GuardianRocket_E
+		LocalOffset: 212,0,556
+		UpgradeTypes: eliteweapon
+		UpgradeMinEnabledLevel: 1
+	Armament@secondary:
+		Weapon: GuardianRocketAA
+		LocalOffset: 212,0,556
+		UpgradeTypes: eliteweapon
+		UpgradeMaxEnabledLevel: 0
+		UpgradeMaxAcceptedLevel: 1
+	Armament@secondary_elite:
+		Weapon: GuardianRocketAA_E
 		LocalOffset: 212,0,556
 		UpgradeTypes: eliteweapon
 		UpgradeMinEnabledLevel: 1
 	Voiced:
 		VoiceSet: GuardianVoice
+	Passenger:
+		GrantUpgrades: ifv-advmissiles
 	ProducibleWithLevel:
 		Prerequisites: barracks.infiltrated
 
 grenadier:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~gapile, gaarse
@@ -160,17 +182,57 @@ grenadier:
 		UpgradeMaxEnabledLevel: 0
 		UpgradeMaxAcceptedLevel: 1
 	Armament@elite:
-		Weapon: Grenade
+		Weapon: Grenade_E
 		LocalOffset: 192,0,512
 		UpgradeTypes: eliteweapon
 		UpgradeMinEnabledLevel: 1
 	Voiced:
 		VoiceSet: GrenadierVoice
+	Passenger:
+		GrantUpgrades: ifv-grenades
+	ProducibleWithLevel:
+		Prerequisites: barracks.infiltrated
+
+seal:
+	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@3: ^AmphibiousInfantry
+	Inherits@selfhealing: ^InfSelfHealT2
+	Buildable:
+		Queue: Infantry
+		Prerequisites: ~gapile, gaarse
+		BuildPaletteOrder: 60
+	Valued:
+		Cost: 500
+	Tooltip:
+		Name: SEAL
+		Description: Sabotage infantry.
+	Health:
+		HP: 350
+	Armor:
+		Type: Flak
+	Mobile:
+		Speed: 80
+	RevealsShroud:
+		Range: 6c0
+	Armament@primary:
+		Weapon: MP5
+		LocalOffset: 192,0,512
+	C4Demolition:
+		C4Delay: 45
+		Voice: Attack
+	Voiced:
+		VoiceSet: SEALVoice
+	Passenger:
+		GrantUpgrades: ifv-machinegun
+	-Crushable:
 	ProducibleWithLevel:
 		Prerequisites: barracks.infiltrated
 
 spy:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Infantry
@@ -190,16 +252,21 @@ spy:
 		Range: 8c0
 	Passenger:
 		PipType: Green
+		GrantUpgrades: ifv-machinegun
 	Disguise:
+		Voice: Attack
 	Infiltrates:
 		Types: SpyInfiltrate
 	-AutoTarget:
 	-WithInfantryBody:
 	-TakeCover:
 	-AttackFrontal:
+	-Guard:
+	-GainsExperience:
 	WithDisguisingInfantryBody:
 		IdleAnimations: idle1,idle2
 		StandAnimations: stand
+		AttackSequence: shoot
 	WithDecoration@disguise:
 		Image: pips
 		Sequence: pip-disguise
@@ -214,6 +281,8 @@ spy:
 
 jumpjet:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Infantry
@@ -244,7 +313,8 @@ jumpjet:
 		UpgradeTypes: eliteweapon
 		UpgradeMinEnabledLevel: 1
 	Aircraft:
-		Repulsable: false
+		Repulsable: true
+		RepulsionSpeed: 5
 		CruiseAltitude: 3072
 		IdealSeparation: 512
 		LandWhenIdle: false
@@ -272,6 +342,8 @@ jumpjet:
 	WithShadow:
 	Voiced:
 		VoiceSet: RocketeerVoice
+	Passenger:
+		GrantUpgrades: ifv-machinegun
 	ProducibleWithLevel:
 		Prerequisites: barracks.infiltrated
 	Targetable@ground:
@@ -281,6 +353,8 @@ jumpjet:
 
 snipe:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~gapile, gaorep
@@ -318,11 +392,16 @@ snipe:
 		UpgradeMinEnabledLevel: 1
 	Voiced:
 		VoiceSet: SniperVoice
+	Passenger:
+		GrantUpgrades: ifv-sniper
 	ProducibleWithLevel:
 		Prerequisites: barracks.infiltrated
 
 tany:
 	Inherits: ^Infantry
+	Inherits@2: ^InfPassenger
+	Inherits@3: ^AmphibiousInfantry
+	Inherits@selfhealing: ^InfSelfHealHero
 	Buildable:
 		Queue: Infantry
 		BuildAtProductionType: Infantry
@@ -341,7 +420,7 @@ tany:
 	RevealsShroud:
 		Range: 6c0
 	C4Demolition:
-		C4Delay: 45
+		C4Delay: 15
 		Voice: Attack
 	Armor:
 		Type: Flak
@@ -349,6 +428,7 @@ tany:
 		Type: Hero
 	Passenger:
 		PipType: Red
+		GrantUpgrades: ifv-hero
 	Armament@primary:
 		Weapon: DoublePistols
 		UpgradeTypes: eliteweapon
@@ -359,6 +439,7 @@ tany:
 		UpgradeTypes: eliteweapon
 		UpgradeMinEnabledLevel: 1
 	AnnounceOnBuild:
+	-Crushable:
 	Voiced:
 		VoiceSet: TanyaVoice
 	ProducibleWithLevel:

@@ -5,32 +5,32 @@ Player:
 		Produces: Building, Upgrades
 	ClassicProductionQueue@Building:
 		Type: Building
-		BuildSpeed: .7
-		LowPowerSlowdown: 3
+		BuildSpeed: .6
+		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
 	ClassicProductionQueue@Defense:
 		Type: Defense
-		BuildSpeed: .7
-		LowPowerSlowdown: 3
+		BuildSpeed: .6
+		LowPowerSlowdown: 2
 		QueuedAudio: Building
 		ReadyAudio: ConstructionComplete
 		SpeedUp: True
 	ClassicProductionQueue@Vehicle:
 		Type: Vehicle
-		BuildSpeed: .5
-		LowPowerSlowdown: 3
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
 		SpeedUp: True
 	ClassicProductionQueue@Infantry:
 		Type: Infantry
-		BuildSpeed: .25
-		LowPowerSlowdown: 3
+		BuildSpeed: .15
+		LowPowerSlowdown: 2
 		SpeedUp: True
 	ClassicProductionQueue@Aircraft:
 		Type: Aircraft
-		BuildSpeed: .5
-		LowPowerSlowdown: 3
+		BuildSpeed: .3
+		LowPowerSlowdown: 2
 		SpeedUp: True
 	ClassicProductionQueue@Upgrades:
 		Type: Upgrades
@@ -55,4 +55,11 @@ Player:
 	HarvesterAttackNotifier:
 	PlayerStatistics:
 	PlaceBeacon:
+	GlobalUpgradeManager:
+	VeteranProductionIconOverlay:
+		ReferencePoint: Top, Left
+		Offset: -3, 3
+		Image: cameo-chevron
+		Sequence: idle
+		Palette: cameo
 

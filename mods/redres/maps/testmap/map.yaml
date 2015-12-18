@@ -143,6 +143,36 @@ Actors:
 	Actor33: tibtre01
 		Owner: Neutral
 		Location: 43,18
+	Actor34: tibtre01
+		Owner: Neutral
+		Location: 163,-76
+	Actor35: tibtre01
+		Owner: Neutral
+		Location: 163,-80
+	Actor36: tibtre01
+		Owner: Neutral
+		Location: 42,-23
+	Actor37: tibtre01
+		Owner: Neutral
+		Location: 46,-27
+	Actor38: tibtre01
+		Owner: Neutral
+		Location: 148,-27
+	Actor39: tibtre01
+		Owner: Neutral
+		Location: 152,-31
+	Actor40: caoild
+		Owner: Neutral
+		Location: 63,32
+	Actor41: caoild
+		Owner: Neutral
+		Location: 57,-12
+	Actor42: caoild
+		Owner: Neutral
+		Location: 133,-34
+	Actor44: caoild
+		Owner: Neutral
+		Location: 136,-96
 
 Smudges:
 

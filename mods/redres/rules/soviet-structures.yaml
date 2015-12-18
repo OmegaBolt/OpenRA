@@ -22,7 +22,7 @@ napowr:
 		BuildPaletteOrder: 10
 		Prerequisites: ~structures.soviets
 	Selectable:
-		Bounds: 126, 94, 2, -16
+		Bounds: 132, 96, 0, -20
 	Valued:
 		Cost: 600
 	CustomBuildTimeValue:
@@ -39,6 +39,8 @@ napowr:
 		HP: 1875
 	Armor:
 		Type: Wood
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@lights:
@@ -153,6 +155,8 @@ naradr:
 		HP: 1750
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 6c0
 	WithIdleOverlay@dish:
@@ -201,6 +205,8 @@ nacrane:
 		HP: 2250
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 5c0
 	UpgradeActorsNear:
@@ -239,6 +245,8 @@ nanrct:
 		HP: 2500
 	Armor:
 		Type: Concrete
+	Armor@size:
+		Type: B_Big
 	RevealsShroud:
 		Range: 5c0
 	WithIdleOverlay@lights:
@@ -275,6 +283,8 @@ natek:
 		HP: 2000
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Med
 	RevealsShroud:
 		Range: 8c0
 	Power:
@@ -303,6 +313,8 @@ natech:
 		HP: 2500
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Med
 	RevealsShroud:
 		Range: 6c0
 	Power:
@@ -335,6 +347,8 @@ naclon:
 		HP: 1550
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 5c0
 	Power:
@@ -377,6 +391,8 @@ nairon:
 		HP: 2125
 	Armor:
 		Type: Concrete
+	Armor@size:
+		Type: B_Med
 	RevealsShroud:
 		Range: 5c0
 	Power:
@@ -409,12 +425,59 @@ nawall:
 		Name: Fortress Wall
 		Description: Blocks movement and most projectiles.
 
+nabnkr:
+	Inherits: ^Building
+	Buildable:
+		Queue: Defense
+		BuildPaletteOrder: 20
+		Prerequisites: nahand, ~structures.soviets
+	Valued:
+		Cost: 600
+	CustomBuildTimeValue:
+		Value: 945
+	Tooltip:
+		Name: Battle Bunker
+		Description: Garrisonable defense structure.
+	Building:
+		Footprint: xx xx
+		Dimensions: 2,2
+		Adjacent: 4
+	Selectable:
+		Bounds: 64, 64, 0, -10
+	Health:
+		HP: 1250
+	Armor:
+		Type: Steel
+	Armor@t1:
+		Type: T1Def
+	Armor@size:
+		Type: B_Small
+	RevealsShroud:
+		Range: 6c0
+	WithIdleOverlay@garrisoned:
+		Sequence: garrisoned
+		UpgradeTypes: garrisoned
+		UpgradeMinEnabledLevel: 1
+	Cargo:
+		Types: Garrisonable
+		MaxWeight: 6
+		PipCount: 6
+	AttackGarrisoned:
+		Armaments: garrisoned
+		PortOffsets: 384,0,400, 384,-384,400, -256,-384,400, -384,0,400, -384,384,400, 384,256,400
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 255, 255, 255, 255, 255, 255	#86, 86, 86, 86, 86, 86
+	AutoTarget:
+		ScanRange: 6
+	-AutoTargetIgnore:
+
 naflak:
-	Inherits: ^VoxelLighting
+	Inherits: ^Building
+	Inherits@2: ^VoxelLighting
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 30
-		Prerequisites: barracks, ~structures.soviets
+		Prerequisites: barracks, naradr, ~structures.soviets
 	Valued:
 		Cost: 800
 	CustomBuildTimeValue:
@@ -445,15 +508,21 @@ naflak:
 	Armament:
 		Weapon: FlakWeapon
 	BodyOrientation:
-		QuantizedFacings: 16
+		QuantizedFacings: 32
 	RenderVoxels:
 	WithVoxelTurret:
 	WithRangeCircle:
 		Range: 8c0
 		Type: flakcannon
 	AutoTarget:
+	-AutoTargetIgnore:
 	Power:
 		Amount: -50
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 6c0
+	Targetable@EMPDefense:
+		TargetTypes: EMPDef
 
 tesla:
 	Inherits: ^Building
@@ -500,8 +569,9 @@ tesla:
 		Armaments: primary, charged
 		MaxCharges: 3
 		ReloadTime: 120
-		ChargeAudio: tslachg2.aud
+		ChargeAudio: btespow.wav
 	AutoTarget:
+	-AutoTargetIgnore:
 	RequiresPower:
 	WithRangeCircle:
 		Range: 8c0
@@ -511,6 +581,8 @@ tesla:
 	WithIdleOverlay@powered:
 		Sequence: idle-powered
 		PauseOnLowPower: true
+	Targetable@EMPDefense:
+		TargetTypes: EMPDef
 
 napsis:
 	Inherits: ^Building
@@ -534,6 +606,8 @@ napsis:
 		HP: 2500
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 10c0
 	RenderDetectionCircle:

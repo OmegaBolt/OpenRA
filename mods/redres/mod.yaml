@@ -15,6 +15,7 @@ Folders:
 	./mods/redres/bits/sounds
 	./mods/redres/uibits
 	~^Content/redres
+	~^Content/yr
 	~^Content/ra2
 	~^Content/ts
 
@@ -27,7 +28,38 @@ Packages:
 	rr_voxels.mix:CRC32
 	rr_shp.mix:CRC32
 #	audio01.bag:CRC32
-	##audioyr.bag:CRC32
+	redrestheme.mix:CRC32
+# Yuri's Revenge
+	expandmd01.mix:CRC32
+	~ra2md.mix:CRC32
+	~langmd.mix:CRC32
+	~multimd.mix:CRC32
+	audiomd.mix:CRC32
+	cachemd.mix:CRC32
+	cameomd.mix:CRC32
+	conqmd.mix:CRC32
+	des.mix:CRC32
+	desert.mix:CRC32
+	genermd.mix:CRC32
+	isodes.mix:CRC32
+	isodesmd.mix:CRC32
+	isogenmd.mix:CRC32
+	isolun.mix:CRC32
+	isolunmd.mix:CRC32
+	isosnomd.mix:CRC32
+	isotemmd.mix:CRC32
+	isoubn.mix:CRC32
+	isoubnmd.mix:CRC32
+	isourbmd.mix:CRC32
+	~loadmd.mix:CRC32
+	localmd.mix:CRC32
+	lun.mix:CRC32
+	lunar.mix:CRC32
+	~ntrlmd.mix:CRC32
+	snowmd.mix:CRC32
+	~thememd.mix:CRC32
+	ubn.mix:CRC32
+	urbann.mix:CRC32
 # Red Alert 2
 	~ra2.mix:CRC32
 	~language.mix:CRC32
@@ -95,6 +127,7 @@ Rules:
 	./mods/redres/rules/soviet-infantry.yaml
 	./mods/redres/rules/soviet-structures.yaml
 	./mods/redres/rules/soviet-vehicles.yaml
+	./mods/redres/rules/tech-structures.yaml
 	./mods/redres/rules/trees.yaml
 	./mods/redres/rules/husks.yaml
 
@@ -110,6 +143,7 @@ Sequences:
 	./mods/redres/sequences/trees.yaml
 	./mods/redres/sequences/allied-structures.yaml
 	./mods/redres/sequences/soviet-structures.yaml
+	./mods/redres/sequences/tech-structures.yaml
 
 VoxelSequences:
 	./mods/redres/sequences/voxels.yaml

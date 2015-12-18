@@ -8,6 +8,40 @@ cmin:
 	unload: cmon
 	water: cmin_w
 
+robo:
+	idle:
+	turret: robotur
+
+fv:
+	idle:
+	turret: fvtur
+	turret-mg: fvtur1
+	turret-gren: fvtur2
+	turret-advm: fvtur3
+	turret-sniper: fvtur4
+	turret-chrono: fvtur5
+	turret-flak: fvtur6
+	turret-tesla: fvtur7
+	turret-demo: fvtur8
+	turret-deso: fvtur9
+	turret-psi: fvtur10
+	turret-hero: fvtur11
+	turret-engi: fvtur12
+
+libty:
+	idle:
+	turret: libtytur
+
+shad:
+	idle:
+
+arty:
+	idle:
+	turret: artytur
+
+ctnk:
+	idle:
+
 aegis:
 	idle:
 
@@ -15,6 +49,9 @@ asw:
 	idle:
 
 orca:
+	idle:
+
+spirit:
 	idle:
 
 beag:
@@ -30,6 +67,12 @@ harv:
 	turret: harvtur
 	unload: horv
 	water: harv_w
+
+scorcher:
+	idle: scrch
+	turret: scrchtur
+	turret-rockets: scrchtur1
+	turret-engi: scrchtur2
 
 ## Civilian
 
@@ -77,10 +120,6 @@ naflak:
 
 flata: #Unused
 	idle:
-
-fv: #Has different turrets per unit thats inside,default is patriot
-	idle:
-	turret: fvtur
 
 gtgcan:
 	turret: gtgcantur
@@ -155,9 +194,6 @@ mgtk: #Mirage Tank, the tur and barrel files are beta, final has fixed turret
 
 nasam:
 	turret: sam
-
-shad: #Nighthawk
-	idle:
 
 sref: #Has 3 charge states for the turret not possible yet
 	idle:

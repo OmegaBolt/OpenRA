@@ -17,6 +17,18 @@ Terrain:
 		Type: Rough
 		Color: A2A850
 		TargetTypes: Ground
+	TerrainType@Sand:
+		Type: Sand
+		Color: D3C558
+		TargetTypes: Ground
+	TerrainType@Grass:
+		Type: Grass
+		Color: 366C28
+		TargetTypes: Ground
+	TerrainType@Dirt:
+		Type: Dirt
+		Color: 84552B
+		TargetTypes: Ground
 	TerrainType@Cliff:
 		Type: Cliff
 		Color: 7C5A33

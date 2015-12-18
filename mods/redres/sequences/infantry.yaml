@@ -43,6 +43,9 @@ e1:
 	die6: electro
 		Length: *
 		Tick: 120
+	die7: freezedie
+		Length: *
+		Tick: 120
 	die-crushed: death_c
 		Length: 4
 	shoot:
@@ -69,6 +72,9 @@ e1:
 		Start: 315
 		Length: 6
 		Facings: 8
+	g-muzzle: ucflash
+		Length: *
+		Facings: 1
 	icon: giicon
 
 ## Allied Dog
@@ -103,11 +109,18 @@ adog:
 	die6:
 		Start: 87
 		Length: 14
+	die7: freezedie
+		Length: *
+		Tick: 120
 	die-crushed: null
 		Length: *
-	shoot: adogp
-		Length: 1
-		Facings: 64
+	shoot:
+		Start: 116
+		Length: 6
+		Facings: 8
+	#shoot: adogp
+	#	Length: 1
+	#	Facings: 64
 	icon: adogicon
 
 ## Allied Engineer
@@ -168,6 +181,9 @@ engineer:
 	die6: electro
 		Length: *
 		Tick: 120
+	die7: freezedie
+		Length: *
+		Tick: 120
 	die-crushed: death_c
 		Length: 4
 	icon: aengicon
@@ -215,6 +231,9 @@ ggi:
 		Tick: 80
 # TODO: This is just the death sequence; normally flameguy would run a bit around before dying
 	die6: electro
+		Length: *
+		Tick: 120
+	die7: freezedie
 		Length: *
 		Tick: 120
 	die-crushed: death_c
@@ -289,6 +308,9 @@ grenadier:
 	die6: electro
 		Length: *
 		Tick: 120
+	die7: freezedie
+		Length: *
+		Tick: 120
 	die-crushed: death_a
 		Length: 4
 	shoot:
@@ -316,6 +338,107 @@ grenadier:
 		Length: 6
 		Facings: 8
 	icon: grenicon
+
+## SEAL
+seal:
+	stand:
+		Facings: 8
+	run:
+		Start: 8
+		Length: 6
+		Facings: 8
+		Tick: 120
+	idle1:
+		Start: 56
+		Length: 15
+		Tick: 100
+	idle2:
+		Start: 71
+		Length: 15
+		Tick: 100
+	prone-run:
+		Start: 86
+		Length: 6
+		Facings: 8
+		Tick: 100
+	die1:
+		Start: 134
+		Length: 14
+	die2:
+		Start: 149
+		Length: 14
+	die4: nukedie
+		Length: *
+		Tick: 120
+		# Problem: Palette = effect
+	die5: flameguy
+		Start: 48
+		Length: 59
+		Tick: 80
+# TODO: This is just the death sequence; normally flameguy would run a bit around before dying
+	die6: electro
+		Length: *
+		Tick: 120
+	die7: freezedie
+		Length: *
+		Tick: 120
+	die-crushed: death_c
+		Length: 4
+		Tick: 80
+	shoot:
+		Start: 164
+		Length: 6
+		Facings: 8
+		Tick: 80
+	prone-shoot:
+		Start: 212
+		Length: 6
+		Facings: 8
+		Tick: 80
+	standup-0:
+		Start: 276
+		Length: 2
+		Facings: 8
+	plant:
+		Start: 292
+		Length: 6
+		Facings: 8
+		Tick: 80
+	water-stand:
+		Start: 340
+		Length: 6
+		Facings: 8
+		Tick: 120
+	water-run:
+		Start: 388
+		Length: 6
+		Facings: 8
+		Tick: 120
+	water-shoot:
+		Start: 436
+		Length: 6
+		Facings: 8
+		Tick: 80
+	water-idle1:
+		Start: 484
+		Length: 15
+		Tick: 100
+	water-idle2:
+		Start: 499
+		Length: 15
+		Tick: 100
+	water-die1:
+		Start: 514
+		Length: 14
+	water-die2:
+		Start: 534
+		Length: 14
+	water-plant:
+		Start: 554
+		Length: 6
+		Facings: 8
+		Tick: 80
+	icon: sealicon
 
 ## Spy
 spy:
@@ -355,6 +478,9 @@ spy:
 		Tick: 80
 # TODO: This is just the death sequence; normally flameguy would run a bit around before dying
 	die6: electro
+		Length: *
+		Tick: 120
+	die7: freezedie
 		Length: *
 		Tick: 120
 	die-crushed: death_c
@@ -421,6 +547,10 @@ jumpjet:
 		Tick: 80
 # TODO: This is just the death sequence; normally flameguy would run a bit around before dying
 	die6: electro
+		Length: *
+		Facings: 1
+		Tick: 120
+	die7: freezedie
 		Length: *
 		Facings: 1
 		Tick: 120
@@ -493,6 +623,9 @@ snipe:
 	die6: electro
 		Length: *
 		Tick: 120
+	die7: freezedie
+		Length: *
+		Tick: 120
 	die-crushed: death_c
 		Length: 4
 		Tick: 80
@@ -546,6 +679,9 @@ tany:
 		Tick: 80
 # TODO: This is just the death sequence; normally flameguy would run a bit around before dying
 	die6: electro
+		Length: *
+		Tick: 120
+	die7: freezedie
 		Length: *
 		Tick: 120
 	die-crushed: death_c
@@ -605,6 +741,9 @@ e2:
 	die6: electro
 		Length: *
 		Tick: 80
+	die7: freezedie
+		Length: *
+		Tick: 120
 	die-crushed: death_c
 		Length: 4
 	shoot:
@@ -617,6 +756,9 @@ e2:
 		Length: 6
 		Facings: 8
 		Tick: 80
+	g-muzzle: ucflash
+		Length: *
+		Facings: 1
 	icon: e2icon
 
 ## Soviet Dog
@@ -651,11 +793,18 @@ dog:
 	die6:
 		Start: 87
 		Length: 14
+	die7: freezedie
+		Length: *
+		Tick: 120
 	die-crushed: null
 		Length: *
-	shoot: dogp
-		Length: 1
-		Facings: 64
+	shoot:
+		Start: 116
+		Length: 6
+		Facings: 8
+	#shoot: dogp
+	#	Length: 1
+	#	Facings: 64
 	icon: dogicon
 
 ## Soviet Engineer
@@ -715,6 +864,9 @@ sengineer:
 		Tick: 80
 # TODO: This is just the death sequence; normally flameguy would run a bit around before dying
 	die6: electro
+		Length: *
+		Tick: 120
+	die7: freezedie
 		Length: *
 		Tick: 120
 	die-crushed: death_c

@@ -17,6 +17,8 @@ gacnst:
 		Type: Concrete
 	Armor@con_yard:
 		Type: Con_Yard
+	Armor@size:
+		Type: B_Big
 	RevealsShroud:
 		Range: 10c0
 	Valued:
@@ -59,7 +61,7 @@ gapowr:
 		BuildPaletteOrder: 10
 		Prerequisites: ~structures.allies
 	Selectable:
-		Bounds: 96, 98, -2, -24
+		Bounds: 96, 98, 0, -24
 	Valued:
 		Cost: 800
 	CustomBuildTimeValue:
@@ -77,6 +79,8 @@ gapowr:
 		HP: 2125
 	Armor:
 		Type: Wood
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 4c0
 	WithIdleOverlay@glow:
@@ -131,6 +135,8 @@ garefn:
 		HP: 3125
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Big
 	RevealsShroud:
 		Range: 6c0
 	TiberianSunRefinery:
@@ -165,7 +171,7 @@ gapile:
 		BuildPaletteOrder: 30
 		Prerequisites: ~structures.allies
 	Selectable:
-		Bounds: 134, 132, 0, -28
+		Bounds: 132, 96, 0, -20
 	Valued:
 		Cost: 500
 	CustomBuildTimeValue:
@@ -186,6 +192,8 @@ gapile:
 		HP: 1250
 	Armor:
 		Type: Concrete
+	Armor@size:
+		Type: B_Med
 	RevealsShroud:
 		Range: 5c0
 	RallyPoint:
@@ -239,6 +247,8 @@ gaweap:
 		HP: 1875
 	Armor:
 		Type: Concrete
+	Armor@size:
+		Type: B_Big
 	RevealsShroud:
 		Range: 4c0
 	RallyPoint:
@@ -294,6 +304,8 @@ gayard:
 		HP: 2250
 	Armor:
 		Type: Concrete
+	Armor@size:
+		Type: B_Big
 	RevealsShroud:
 		Range: 5c0
 	Exit@1:
@@ -347,6 +359,8 @@ gaarse:
 		HP: 1750
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 6c0
 	Power:
@@ -379,6 +393,8 @@ gaairf:
 		HP: 1750
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Big
 	RevealsShroud:
 		Range: 5c0
 	WithIdleOverlay@bib:
@@ -435,6 +451,8 @@ garobo:
 		HP: 1750
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 8c0
 	Power:
@@ -466,6 +484,8 @@ gaorep:
 		HP: 1875
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Med
 	RevealsShroud:
 		Range: 5c0
 	WithIdleOverlay@glow:
@@ -496,6 +516,8 @@ gatech:
 		HP: 2500
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Med
 	RevealsShroud:
 		Range: 6c0
 	WithIdleOverlay@lights:
@@ -540,6 +562,8 @@ gaspysat:
 		HP: 1550
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 5c0
 	WithIdleOverlay@dish:
@@ -572,6 +596,8 @@ gacsph:
 		HP: 2125
 	Armor:
 		Type: Concrete
+	Armor@size:
+		Type: B_Big
 	RevealsShroud:
 		Range: 5c0
 	Power:
@@ -617,6 +643,8 @@ gaweat:
 		HP: 3125
 	Armor:
 		Type: Concrete
+	Armor@size:
+		Type: B_Med
 	RevealsShroud:
 		Range: 5c0
 	Power:
@@ -675,12 +703,12 @@ gapill:
 	WithMuzzleOverlay:
 	Armament@primary:
 		Weapon: PillBoxMG
-		LocalOffset: 400,0,512
+		LocalOffset: 300,0,96
 		MuzzleSequence: mgun_muz
 		MuzzleSplitFacings: 8
 	Armament@secondary:
 		Weapon: PillBox60MM
-		LocalOffset: 400,0,512
+		LocalOffset: 300,0,96
 		MuzzleSequence: 120mm_muz
 		MuzzleSplitFacings: 8
 	AttackTurreted:
@@ -693,6 +721,7 @@ gapill:
 		Range: 5c512
 		Type: pillbox
 	AutoTarget:
+	-AutoTargetIgnore:
 
 nasam:
 	Inherits: ^Building
@@ -741,8 +770,14 @@ nasam:
 		Range: 8c0
 		Type: patriot
 	AutoTarget:
+	-AutoTargetIgnore:
 	Power:
 		Amount: -50
+	RenderDetectionCircle:
+	DetectCloaked:
+		Range: 6c0
+	Targetable@EMPDefense:
+		TargetTypes: EMPDef
 
 gacrane:
 	Inherits: ^Building
@@ -768,6 +803,8 @@ gacrane:
 		HP: 2250
 	Armor:
 		Type: Steel
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 5c0
 	UpgradeActorsNear:
@@ -785,7 +822,7 @@ atesla:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 50
-		Prerequisites: garobo, ~structures.allies
+		Prerequisites: ~disabled	#garobo, ~structures.allies
 	Valued:
 		Cost: 1200
 	CustomBuildTimeValue:
@@ -820,6 +857,7 @@ atesla:
 	Power:
 		Amount: -75
 	AutoTarget:
+	-AutoTargetIgnore:
 	RequiresPower:
 	WithIdleOverlay@normal:
 		Sequence: idle-normal
@@ -827,6 +865,8 @@ atesla:
 	WithRangeCircle:
 		Range: 8c0
 		Type: prismcannon
+	Targetable@EMPDefense:
+		TargetTypes: EMPDef
 
 gagap:
 	Inherits: ^Building
@@ -890,7 +930,7 @@ gtgcan:
 	Buildable:
 		Queue: Defense
 		BuildPaletteOrder: 80
-		Prerequisites: gaorep, ~structures.allies
+		Prerequisites: garobo, ~structures.allies
 	Valued:
 		Cost: 1500
 	CustomBuildTimeValue:
@@ -908,6 +948,8 @@ gtgcan:
 		Type: Steel
 	Armor@t2:
 		Type: T2Def
+	Armor@size:
+		Type: B_Small
 	RevealsShroud:
 		Range: 10c0
 	Selectable:
@@ -930,13 +972,16 @@ gtgcan:
 		NormalsPalette: ts-normals
 	WithVoxelTurret:
 	WithVoxelBarrel:
-	AutoTarget:
 	WithMuzzleOverlay:
 	WithRangeCircle:
 		Range: 12c0
 		Type: grandcannon
+	AutoTarget:
+	-AutoTargetIgnore:
 	Power:
 		Amount: -125
+	Targetable@EMPDefense:
+		TargetTypes: EMPDef
 
 power:
 	AlwaysVisible:

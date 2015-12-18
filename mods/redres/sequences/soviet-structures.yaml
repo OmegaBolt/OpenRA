@@ -87,7 +87,7 @@ napowr:
 
 nahand:
 	Defaults:
-		Offset: 0, -28
+		Offset: 0, -26
 		UseTilesetCode: true
 		TilesetOverrides:
 			TEMPERATE: GENERIC
@@ -191,9 +191,11 @@ naairf:
 			URBAN: GENERIC
 	idle: ngairf
 		Length: 1
+		ShadowStart: 3
 	damaged-idle: ngairf
 		Start: 1
 		Length: 2
+		ShadowStart: 4
 	idle-bib: ngairfbb
 		Length: 1
 		ZOffset: -512
@@ -460,50 +462,6 @@ naclon:
 		Offset: 0,0
 		UseTilesetCode: false
 
-napsis:
-	Defaults:
-		Offset: 1, -30
-		UseTilesetCode: true
-		TilesetOverrides:
-			TEMPERATE: GENERIC
-			URBAN: GENERIC
-	idle: ngpsis
-		ShadowStart: 3
-	damaged-idle: ngpsis
-		Start: 1
-		ShadowStart: 4
-	critical-idle: ngpsis
-		Start: 2
-		ShadowStart: 5
-	idle-spin: ngpsis_a
-		Length: 40
-		Tick: 150
-		ShadowStart: 80
-	damaged-idle-spin: ngpsis_a
-		Start: 39
-		Length: 40
-		Tick: 150
-		ShadowStart: 120
-	make: ntpsismk
-		Length: 24
-		ShadowStart: 24
-		TilesetOverrides:
-			TEMPERATE: TEMPERATE
-			URBAN: URBAN
-	icon: psisicon
-		Offset: 0,0
-		UseTilesetCode: false
-
-# TODO: ngmisl is not a valid shp
-# namisl:
-# 	idle: ngmisl
-# 	damaged-idle: ngmisl
-# 		Start: 1
-# 	critical-idle: ngmisl
-# 		Start: 2
-# 	make: ntmisl
-# 	icon: msslicon
-
 nairon:
 	Defaults:
 		Offset: 0, -45
@@ -535,6 +493,16 @@ nairon:
 		Offset: 0,0
 		UseTilesetCode: false
 
+# TODO: ngmisl is not a valid shp
+# namisl:
+# 	idle: ngmisl
+# 	damaged-idle: ngmisl
+# 		Start: 1
+# 	critical-idle: ngmisl
+# 		Start: 2
+# 	make: ntmisl
+# 	icon: msslicon
+
 nawall:
 	Defaults:
 		Offset: 0, -12
@@ -554,6 +522,35 @@ nawall:
 		Length: 16
 		ShadowStart: 80
 	icon: nwalicon
+		Offset: 0,0
+		UseTilesetCode: false
+
+nabnkr:
+	Defaults:
+		Offset: 0, -20
+		UseTilesetCode: true
+		TilesetOverrides:
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: ngbnkr
+		Length: 1
+		ShadowStart: 4
+	damaged-idle: ngbnkr
+		Start: 1
+		Length: 1
+		ShadowStart: 5
+	garrisoned: ngbnkr
+		Start: 2
+		Length: 1
+		ShadowStart: 6
+	damaged-garrisoned: ngbnkr
+		Start: 3
+		Length: 1
+		ShadowStart: 7
+	make: ngbnkrmk
+		Length: 25
+		ShadowStart: 25
+	icon: bnkricon
 		Offset: 0,0
 		UseTilesetCode: false
 
@@ -624,5 +621,39 @@ naflak:
 			URBAN: URBAN
 		ZOffset: 0
 	icon: flakicon
+		Offset: 0,0
+		UseTilesetCode: false
+
+napsis:
+	Defaults:
+		Offset: 1, -30
+		UseTilesetCode: true
+		TilesetOverrides:
+			TEMPERATE: GENERIC
+			URBAN: GENERIC
+	idle: ngpsis
+		ShadowStart: 3
+	damaged-idle: ngpsis
+		Start: 1
+		ShadowStart: 4
+	critical-idle: ngpsis
+		Start: 2
+		ShadowStart: 5
+	idle-spin: ngpsis_a
+		Length: 40
+		Tick: 150
+		ShadowStart: 80
+	damaged-idle-spin: ngpsis_a
+		Start: 39
+		Length: 40
+		Tick: 150
+		ShadowStart: 120
+	make: ntpsismk
+		Length: 24
+		ShadowStart: 24
+		TilesetOverrides:
+			TEMPERATE: TEMPERATE
+			URBAN: URBAN
+	icon: psesicon
 		Offset: 0,0
 		UseTilesetCode: false

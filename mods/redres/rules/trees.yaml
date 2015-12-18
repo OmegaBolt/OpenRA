@@ -1,12 +1,6 @@
 TIBTRE01:
 	Inherits: ^BlossomTree
 
-TIBTRE02:
-	Inherits: ^BlossomTree
-
-TIBTRE03:
-	Inherits: ^BlossomTree
-
 TREE01:
 	Inherits: ^Tree
 

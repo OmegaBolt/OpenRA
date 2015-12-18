@@ -25,8 +25,8 @@
 ^GainsExperience:
 	GainsExperience:
 		Upgrades:
-			1000: rank, firepower, damage, speed, reload
-			2000: rank, firepower, damage, speed, reload, selfheal, eliteweapon
+			750: rank, firepower, damage, speed, reload
+			1500: rank, firepower, damage, speed, reload, eliteweapon
 	FirepowerMultiplier@EXPERIENCE:
 		UpgradeTypes: firepower
 		Modifier: 110, 130
@@ -39,23 +39,58 @@
 	ReloadDelayMultiplier@EXPERIENCE:
 		UpgradeTypes: reload
 		Modifier: 90, 75
-	SelfHealing@ELITE:
-		Step: 16
-		Ticks: 160
-		HealIfBelow: 1
-		DamageCooldown: 60
-		UpgradeTypes: selfheal
-		UpgradeMinEnabledLevel: 1
 	WithRankDecoration:
 		Image: rank
 		Sequence: rank
-		Palette: ra
+		Palette: pips
 		ReferencePoint: Bottom, Right
-		Offset: 2, 2
+		Offset: -1, -1
 		UpgradeTypes: rank
 		ZOffset: 256
 		UpgradeMinEnabledLevel: 1
 		UpgradeMaxAcceptedLevel: 2
+
+^InfSelfHeal:
+	SelfHealing:
+		Step: 16
+		Ticks: 83
+		HealIfBelow: 1
+		DamageCooldown: 0
+
+^InfSelfHealT2:
+	SelfHealing:
+		Step: 32
+		Ticks: 83
+		HealIfBelow: 1
+		DamageCooldown: 0
+
+^InfSelfHealHero:
+	SelfHealing:
+		Step: 48
+		Ticks: 83
+		HealIfBelow: 1
+		DamageCooldown: 0
+
+^VehSelfHeal:
+	SelfHealing:
+		Step: 16
+		Ticks: 83
+		HealIfBelow: 0.5
+		DamageCooldown: 0
+
+^VehSelfHealT2:
+	SelfHealing:
+		Step: 24
+		Ticks: 83
+		HealIfBelow: 1
+		DamageCooldown: 0
+
+^VehSelfHealT3:
+	SelfHealing:
+		Step: 32
+		Ticks: 83
+		HealIfBelow: 1
+		DamageCooldown: 0
 
 ^IronCurtainable:
 	UpgradeOverlay@ironcurtain:
@@ -111,6 +146,64 @@
 		UpgradeTypes: crane-repair
 		UpgradeMinEnabledLevel: 1
 
+^Hospital:
+	GlobalUpgradable:
+		Upgrades: hospital
+		Prerequisites: cahosp
+	SelfHealing:
+		Step: 50
+		Ticks: 83
+		HealIfBelow: 1
+		DamageCooldown: 0
+		UpgradeTypes: hospital
+		UpgradeMinEnabledLevel: 1
+		UpgradeMaxAcceptedLevel: 1
+	WithRankDecoration:
+		Image: pips
+		Sequence: medic
+		Palette: pips
+		ReferencePoint: Top, Right
+		Offset: -1, -1
+		UpgradeTypes: hospital
+		ZOffset: 256
+		UpgradeMinEnabledLevel: 1
+
+^MachineShop:
+	GlobalUpgradable:
+		Upgrades: mach-shop
+		Prerequisites: camach
+	SelfHealing:
+		Step: 60
+		Ticks: 83
+		HealIfBelow: 1
+		DamageCooldown: 0
+		UpgradeTypes: mach-shop
+		UpgradeMinEnabledLevel: 1
+	WithRankDecoration:
+		Image: pips
+		Sequence: mechanic
+		Palette: pips
+		ReferencePoint: Top, Right
+		Offset: -1, -1
+		UpgradeTypes: hospital
+		ZOffset: 256
+		UpgradeMinEnabledLevel: 1
+		
+^TargetPainter:
+	DamageMultiplier@targetpainter:
+		UpgradeTypes: target-painter
+		Modifier: 125, 125
+		UpgradeMinEnabledLevel: 1
+	WithDecoration@targetpainter:
+		Image: target-painter
+		Sequence: idle
+		ReferencePoint: HCenter, VCenter
+		Palette: mouse
+		UpgradeTypes: target-painter
+		ShowToEnemies: true
+		ZOffset: 1024
+		UpgradeMinEnabledLevel: 1
+
 ^BasicBuilding:
 	Inherits@1: ^ExistsInWorld
 	Inherits@2: ^SpriteActor
@@ -140,6 +233,7 @@
 	Guardable:
 		Range: 3c0
 	Demolishable:
+	AutoTargetIgnore:
 	GpsDot:
 		String: Structure
 
@@ -168,28 +262,36 @@
 ^CivBuilding:
 	Inherits: ^BasicBuilding
 	-UpdatesPlayerStatistics:
+	-GivesExperience:
 	Health:
-		HP: 900
+		HP: 2000
 	Armor:
 		Type: Wood
 	RevealsShroud:
 		Range: 4c0
 	Tooltip:
-		Description: Civilian Building
-	RenderSprites:
-		Palette: terraindecoration
+		Description: Building
+	ThrowsShrapnel:
+		Weapons: SmallDebris, LargeDebris
+		Pieces: 5, 15
+		Range: 1c0, 4c0
 
-^CivBillboard:
-	Inherits: ^CivBuilding
-	Building:
-		Footprint: x
-		Dimensions: 1, 1
-	Armor:
-		Type: heavy
+^TechBuilding:
+	Inherits: ^Building
+	-MustBeDestroyed:
+	-GivesExperience:
+	-Sellable:
+	-UpdatesPlayerStatistics:
+	-CombatDebugOverlay:
+	-WithMakeAnimation:
 	Health:
-		HP: 400
-	EditorTilesetFilter:
-		RequireTilesets: TEMPERATE
+		HP: 3000
+	Armor:
+		Type: Concrete
+	RevealsShroud:
+		Range: 6c0
+	Tooltip:
+		Description: Tech Building
 
 ^Crate:
 	HiddenUnderFog:
@@ -246,6 +348,7 @@
 	Inherits@1: ^GainsExperience
 	Inherits@2: ^ExistsInWorld
 	Inherits@3: ^SpriteActor
+	Inherits@4: ^Hospital
 	DrawLineToTarget:
 	Health:
 		Radius: 128
@@ -283,16 +386,18 @@
 		IdleSequences: idle1, idle2
 		AttackSequence: shoot
 	WithDeathAnimation@normal:
+		DeathSequencePalette: infantry
 		DeathTypes:
 			BulletDeath: 1
 			SmallExplosionDeath: 2
 			HeadshotDeath: 3
 			FireDeath: 5
-	WithDeathAnimation@rad:
+	WithDeathAnimation@animation:
 		DeathSequencePalette: effect
 		DeathPaletteIsPlayerPalette: False
 		DeathTypes:
 			RadDeath: 4
+			FreezeDeath: 7
 	WithDeathAnimation@energy:
 		DeathSequencePalette: ra
 		DeathPaletteIsPlayerPalette: False
@@ -311,10 +416,6 @@
 		Voice: Move
 	AttackFrontal:
 		Voice: Attack
-	Passenger:
-		CargoType: Infantry
-		PipType: Green
-		Voice: Move
 	HiddenUnderFog:
 	ActorLostNotification:
 	Crushable:
@@ -323,7 +424,7 @@
 		Voice: Move
 	Guardable:
 	DeathSounds@NORMAL:
-		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath
+		DeathTypes: BulletDeath, SmallExplosionDeath, ExplosionDeath, FreezeDeath
 	DeathSounds@BURNED:
 		Voice: Burned
 		DeathTypes: FireDeath
@@ -336,8 +437,29 @@
 		InitialDelay: 0
 		CloakDelay: 90
 		IsPlayerPalette: true
+	ProximityCaptor:
+		Types: obs-post
 	GpsDot:
 		String: Infantry
+	RenderSprites:
+		PlayerPalette: infantry
+
+^InfPassenger:
+	Passenger:
+		CargoType: Infantry
+		PipType: Yellow
+		Voice: Move
+
+^InfGarrison:
+	Armament@GARRISONED:
+		Name: garrisoned
+		Weapon: garrison-weapon
+		MuzzleSequence: g-muzzle
+	Passenger:
+		CargoType: Garrisonable
+		PipType: Yellow
+		Voice: Move
+		#GrantUpgrades: garrisoned
 
 ^Cyborg:
 	Inherits@1: ^Infantry
@@ -377,22 +499,15 @@
 			Water: 75
 			Swamp: 75
 
-^T2SelfHealing:
-	SelfHealing:
-		Step: 16
-		Ticks: 160
-		HealIfBelow: 0.5
-		DamageCooldown: 0
-		UpgradeTypes: selfheal
-		UpgradeMinEnabledLevel: 0
-		UpgradeMaxEnabledLevel: 1
-
 ^Vehicle:
 	Inherits@1: ^GainsExperience
 	Inherits@2: ^ExistsInWorld
+	Inherits@3: ^EmpDisable
 	Inherits@4: ^IronCurtainable
 	Inherits@5: ^VoxelLighting
 	Inherits@6: ^CraneRepair
+	Inherits@7: ^TargetPainter
+	Inherits@8: ^MachineShop
 	DrawLineToTarget:
 	Mobile:
 		Crushes: crate, infantry
@@ -415,7 +530,7 @@
 	Targetable:
 		TargetTypes: Ground, Vehicle, Repair, C4
 	Targetable@EMP:
-		TargetTypes: EMPable
+		TargetTypes: EMPDef
 	Repairable:
 		RepairBuildings: gadept, nadept
 		Voice: Move
@@ -439,6 +554,8 @@
 	Explodes:
 		Weapon: UnitExplodeSmall
 		EmptyWeapon: UnitExplodeSmall
+	ProximityCaptor:
+		Types: obs-post
 	MustBeDestroyed:
 	WithVoxelBody:
 	RenderSprites:
@@ -465,9 +582,12 @@
 ^Ship:
 	Inherits@1: ^GainsExperience
 	Inherits@2: ^ExistsInWorld
+	Inherits@3: ^EmpDisable
 	Inherits@4: ^IronCurtainable
 	Inherits@5: ^VoxelLighting
 	Inherits@6: ^CraneRepair
+	Inherits@7: ^TargetPainter
+	Inherits@8: ^MachineShop
 	DrawLineToTarget:
 	Mobile:
 		Crushes: crate
@@ -484,7 +604,7 @@
 	Targetable:
 		TargetTypes: Ground, Water, Vehicle, Repair, C4
 	Targetable@EMP:
-		TargetTypes: EMPable
+		TargetTypes: EMPDef
 	RepairableNear:
 	AttackMove:
 		Voice: Move
@@ -508,6 +628,12 @@
 ^Aircraft:
 	Inherits@1: ^GainsExperience
 	Inherits@2: ^ExistsInWorld
+	Inherits@3: ^CraneRepair
+	Inherits@4: ^EmpDisable
+	Inherits@5: ^IronCurtainable
+	Inherits@6: ^TargetPainter
+	Inherits@7: ^VoxelLighting
+	Inherits@8: ^MachineShop
 	DrawLineToTarget:
 	AppearsOnRadar:
 		UseLocation: yes
@@ -524,7 +650,7 @@
 	SelectionDecorations:
 		Palette: pips
 	Voiced:
-		VoiceSet: Heli
+		VoiceSet: GenAllVehicleVoice
 	HiddenUnderFog:
 		Type: CenterPosition
 	AttackMove:
@@ -537,7 +663,10 @@
 		Voice: Move
 	Guardable:
 	MustBeDestroyed:
+	RenderSprites:
 	RenderVoxels:
+		ShadowPalette: no-shadow
+	WithShadow:
 	WithVoxelBody:
 	GpsDot:
 		String: Plane
@@ -551,7 +680,8 @@
 		CruiseAltitude: 3072
 		Voice: Move
 		AirborneUpgrades: airborne
-		CanHover: True
+		CanHover: true
+		LandableTerrainTypes: Clear, Dirt, Sand, Grass, Rough, Ore, Gem
 	GpsDot:
 		String: Helicopter
 
@@ -625,7 +755,7 @@
 		Dimensions: 1, 1
 	AppearsOnRadar:
 	RadarColorFromTerrain:
-		Terrain: Impassable
+		Terrain: Grass
 	Tooltip:
 		Name: Tree
 
@@ -659,11 +789,8 @@
 	-GivesBuildableArea:
 	AutoTarget:
 	RenderRangeCircle:
-	RenderDetectionCircle:
 	RevealsShroud:
 		Range: 6c0
-	DetectCloaked:
-		Range: 5c0
 
 ^TerrainOverlay:
 	AlwaysVisible:

@@ -1,6 +1,9 @@
-## Conscript
+## CustomBuildTimeValue: (Cost / 1000) * 0.7 * BuildTimeMultipier * 60 * 40
+
 e2:
 	Inherits: ^Infantry
+	Inherits@2: ^InfGarrison
+	Inherits@selfhealing: ^InfSelfHeal
 	Buildable:
 		Queue: Infantry
 		Prerequisites: ~nahand
@@ -14,8 +17,6 @@ e2:
 		HP: 240
 	Mobile:
 		Speed: 60
-	Passenger:
-		PipType: Green
 	RevealsShroud:
 		Range: 6c0
 	AttackFrontal:
@@ -36,21 +37,21 @@ e2:
 		Prerequisites: barracks.infiltrated
 	QuantizeFacingsFromSequence:
 		Sequence: stand
+	Passenger:
+		GrantUpgrades: garrisoned, ifv-machinegun
 
-## Soviet Attack Dog
 dog:
 	Inherits: adog
 	Buildable:
 		Queue: Infantry
-		Prerequisites: ~nahand, ~barracks.gdi
+		Prerequisites: ~nahand, ~barracks.nod
 		BuildPaletteOrder: 20
 
-## Engineer
 sengineer:
 	Inherits: engineer
 	Buildable:
 		Queue: Infantry
-		Prerequisites: ~barracks.nod
+		Prerequisites: ~nahand, ~barracks.nod
 		BuildPaletteOrder: 40
 	Voiced:
 		VoiceSet: SovietEngineerVoice
