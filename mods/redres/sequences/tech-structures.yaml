@@ -60,5 +60,6 @@ caobs:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
 	idle: cgobs_a
+		Length: *
 	idle-dish: cgobs_a
-		Length: 1
+		Length: *

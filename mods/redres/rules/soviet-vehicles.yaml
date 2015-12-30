@@ -183,4 +183,4 @@ scorcher:
 	RenderVoxels:
 		Scale: 10
 	Voiced:
-		VoiceSet: IFVVoice
+		VoiceSet: ScorcherVoice

@@ -251,6 +251,17 @@ WarMinerVoice:
 		Attack: vwarata, vwaratb, vwaratc, vwaratd, vwarate
 		Harvest: vwarhaa, vwarhab, vwarhac, vwarhad
 
+ScorcherVoice:
+	DefaultVariant: .wav
+	Voices:
+		Select: scrch_sela, scrch_selb, scrch_selc, scrch_seld, scrch_sele
+		Move: scrch_mova, scrch_movb, scrch_movc, scrch_movd, scrch_move
+		Attack: scrch_atta, scrch_attb, scrch_attc, scrch_attd, scrch_atte, scrch_attf
+		Repair: scrch_repa, scrch_repb, scrch_repc
+		Feedback: scrch_feaa, scrch_feab, scrch_feac, scrch_fead, scrch_feae
+
+## other
+
 Infantry:
 	Voices:
 		Select: 15-I000, 15-I004, 15-I012, 15-I048

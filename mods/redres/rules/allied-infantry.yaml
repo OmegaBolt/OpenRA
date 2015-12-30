@@ -267,15 +267,6 @@ spy:
 		IdleAnimations: idle1,idle2
 		StandAnimations: stand
 		AttackSequence: shoot
-	WithDecoration@disguise:
-		Image: pips
-		Sequence: pip-disguise
-		Palette: pips
-		ReferencePoint: Top, Right
-		Offset: 6, -2
-		ZOffset: 256
-		UpgradeTypes: disguise
-		UpgradeMinEnabledLevel: 1
 	Voiced:
 		VoiceSet: SpyVoice
 

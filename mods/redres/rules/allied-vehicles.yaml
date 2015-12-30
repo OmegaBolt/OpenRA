@@ -401,12 +401,47 @@ arty:
 	Voiced:
 		VoiceSet: PenguinArtilleryVoice
 
+bfrt:
+	Inherits: ^Vehicle
+	Inherits@crusher: ^OmniCrusher
+	Buildable:
+		Queue: Vehicle
+		BuildPaletteOrder: 80
+		Prerequisites: ~gaweap, gatech
+	Valued:
+		Cost: 1750
+	Tooltip:
+		Name: Battle Fortress
+		Description: Open topped tank.
+	Health:
+		HP: 2100
+	Armor:
+		Type: Heavy
+	Mobile:
+		Speed: 40
+		ROT: 4
+	RevealsShroud:
+		Range: 6c0
+	Cargo:
+		Types: Infantry, Garrisonable
+		MaxWeight: 5
+		PipCount: 5
+	AutoTarget:
+		ScanRadius: 6
+	AttackGarrisoned:
+		PortOffsets: 256,128,128, 256,-128,128, -256,-128,128, -256,0,400, -256,128,128, 64,128,128
+		PortYaws: 0, 176, 341, 512, 682, 853
+		PortCones: 255, 255, 255, 255, 255, 255
+		Voice: Attack
+	Voiced:
+		VoiceSet: GenAllVehicleVoice
+
 ctnk:
 	Inherits: ^Vehicle
 	Buildable:
 		Queue: Vehicle
 		BuildPaletteOrder: 100
-		Prerequisites: ~gaweap #, gacsph
+		Prerequisites: ~gaweap, gacsph
 	Valued:
 		Cost: 2400
 	Tooltip:
@@ -428,7 +463,7 @@ ctnk:
 	AttackFrontal:
 		Voice: Attack
 	RenderVoxels:
-		Scale: 10
+		Scale: 9
 	PortableChrono:
 		ChargeDelay: 300
 		HasDistanceLimit: false
@@ -491,7 +526,7 @@ orca:
 	SpawnActorOnDeath:
 		Actor: orca.husk
 	RenderVoxels:
-		Scale: 11
+		Scale: 10
 	Voiced:
 		VoiceSet: LightningVoice
 
@@ -547,7 +582,7 @@ spirit:
 		UpgradeTypes: airborne
 		UpgradeMinEnabledLevel: 1
 	RenderVoxels:
-		Scale: 13.7
+		Scale: 14
 	SpawnActorOnDeath:
 		Actor: spirit.husk
 	Voiced:

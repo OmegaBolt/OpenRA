@@ -8,6 +8,8 @@ caoild:
 	Building:
 		Footprint: xx xx
 		Dimensions: 2, 2
+	Armor@size:
+		Type: B_Small
 	CashTrickler:
 		Period: 167
 		Amount: 20
@@ -22,13 +24,15 @@ camach:
 	Tooltip:
 		Name: Tech Machine Shop
 	ProvidesPrerequisite@default:
-	Health:
-		HP: 4000
 	Selectable:
 		Bounds: 132, 64, 0, -32
 	Building:
 		Footprint: xxx xxx
 		Dimensions: 3, 3
+	Health:
+		HP: 4000
+	Armor@size:
+		Type: B_Med
 	WithIdleOverlay@flag:
 		Sequence: idle-flag
 
@@ -37,6 +41,11 @@ caobs:
 	Tooltip:
 		Name: Observation Post
 	ProvidesPrerequisite@default:
+	Selectable:
+		Bounds: 96, 64, 0, -16
+	Building:
+		Footprint: xx xx
+		Dimensions: 2, 2
 	-GivesBuildableArea:
 	-Capturable:
 	-RepairableBuilding:
@@ -44,11 +53,6 @@ caobs:
 		HP: 10000
 	RevealsShroud:
 		Range: 16c0
-	Selectable:
-		Bounds: 96, 64, 0, -16
-	Building:
-		Footprint: xx xx
-		Dimensions: 2, 2
 	ProximityCapturable:
 		Range: 2
 		CaptorTypes: obs_post

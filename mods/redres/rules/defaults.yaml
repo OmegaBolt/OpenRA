@@ -52,45 +52,39 @@
 
 ^InfSelfHeal:
 	SelfHealing:
-		Step: 16
-		Ticks: 83
+		Step: 15
+		Ticks: 80
 		HealIfBelow: 1
-		DamageCooldown: 0
 
 ^InfSelfHealT2:
 	SelfHealing:
-		Step: 32
-		Ticks: 83
+		Step: 30
+		Ticks: 80
 		HealIfBelow: 1
-		DamageCooldown: 0
 
 ^InfSelfHealHero:
 	SelfHealing:
-		Step: 48
-		Ticks: 83
+		Step: 45
+		Ticks: 80
 		HealIfBelow: 1
-		DamageCooldown: 0
 
 ^VehSelfHeal:
 	SelfHealing:
-		Step: 16
-		Ticks: 83
+		Step: 15
+		Ticks: 80
 		HealIfBelow: 0.5
-		DamageCooldown: 0
 
 ^VehSelfHealT2:
 	SelfHealing:
-		Step: 24
-		Ticks: 83
+		Step: 20
+		Ticks: 80
 		HealIfBelow: 1
-		DamageCooldown: 0
 
 ^VehSelfHealT3:
 	SelfHealing:
-		Step: 32
-		Ticks: 83
+		Step: 30
+		Ticks: 80
 		HealIfBelow: 1
-		DamageCooldown: 0
 
 ^IronCurtainable:
 	UpgradeOverlay@ironcurtain:
@@ -545,6 +539,8 @@
 		Type: Vehicle
 		CaptureThreshold: 1
 		CancelActivity: True
+	Crushable:
+		CrushClasses: vehicle
 	Guard:
 		Voice: Move
 	Guardable:
@@ -564,7 +560,11 @@
 
 ^WallCrusher:
 	Mobile:
-		Crushes: wall, crate, infantry
+		Crushes: crate, infantry, wall
+
+^OmniCrusher:
+	Mobile:
+		Crushes: crate, infantry, wall, vehicle
 
 ^AmphibiousVehicle:
 	Mobile:

@@ -18,7 +18,7 @@ gacnst:
 	Armor@con_yard:
 		Type: Con_Yard
 	Armor@size:
-		Type: B_Big
+		Type: B_Large
 	RevealsShroud:
 		Range: 10c0
 	Valued:
@@ -136,7 +136,7 @@ garefn:
 	Armor:
 		Type: Steel
 	Armor@size:
-		Type: B_Big
+		Type: B_Large
 	RevealsShroud:
 		Range: 6c0
 	TiberianSunRefinery:
@@ -248,7 +248,7 @@ gaweap:
 	Armor:
 		Type: Concrete
 	Armor@size:
-		Type: B_Big
+		Type: B_Large
 	RevealsShroud:
 		Range: 4c0
 	RallyPoint:
@@ -305,7 +305,7 @@ gayard:
 	Armor:
 		Type: Concrete
 	Armor@size:
-		Type: B_Big
+		Type: B_Large
 	RevealsShroud:
 		Range: 5c0
 	Exit@1:
@@ -394,7 +394,7 @@ gaairf:
 	Armor:
 		Type: Steel
 	Armor@size:
-		Type: B_Big
+		Type: B_Large
 	RevealsShroud:
 		Range: 5c0
 	WithIdleOverlay@bib:
@@ -597,7 +597,7 @@ gacsph:
 	Armor:
 		Type: Concrete
 	Armor@size:
-		Type: B_Big
+		Type: B_Large
 	RevealsShroud:
 		Range: 5c0
 	Power:
@@ -764,7 +764,7 @@ nasam:
 		LocalOffset: 512,128,768
 	BodyOrientation:
 		QuantizedFacings: 32
-	WithTurret:
+	WithSpriteTurret:
 		Recoils: false
 	WithRangeCircle:
 		Range: 8c0

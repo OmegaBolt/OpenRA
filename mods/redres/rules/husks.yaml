@@ -29,6 +29,7 @@ orca.husk:
 		MinDamage: Undamaged
 	RenderVoxels:
 		Image: orca
+		Scale: 10
 
 spirit.husk:
 	Inherits: ^CrashingPlane
@@ -45,3 +46,4 @@ spirit.husk:
 		MinDamage: Undamaged
 	RenderVoxels:
 		Image: spirit
+		Scale: 14

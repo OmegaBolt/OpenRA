@@ -1133,9 +1133,9 @@ PenguinArtillery:
 			Drone: 120
 			T1Def: 140
 			T2Def: 120
-			B_Small: 300
-			B_Med: 500
-			B_Large: 600
+			B_Small: 400
+			B_Med: 600
+			B_Large: 800
 		DamageTypes: Prone50Percent, TriggerProne, FreezeDeath
 	Warhead@2Eff: CreateEffect
 		Explosion: cryo_expl01
@@ -1422,9 +1422,9 @@ SpiritBomb:
 			Concrete: 60
 			T1Def: 250
 			T2Def: 200
-			B_Small: 300
-			B_Med: 500
-			B_Large: 600
+			B_Small: 400
+			B_Med: 600
+			B_Large: 800
 		DamageTypes: TriggerProne, SmallExplosionDeath
 	Warhead@2Eff: CreateEffect
 		Explosion: verylarge_clsn
@@ -1506,7 +1506,7 @@ ScorcherFlamer:
 	Report: ra1flameup.wav
 	Projectile: Bullet
 		Blockable: true
-		Speed: 300
+		Speed: 204
 		Image: flamep
 		Palette: effect
 		Shadow: false

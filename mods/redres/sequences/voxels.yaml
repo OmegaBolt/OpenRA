@@ -39,6 +39,9 @@ arty:
 	idle:
 	turret: artytur
 
+bfrt:
+	idle:
+
 ctnk:
 	idle:
 
