@@ -1117,7 +1117,7 @@ PenguinArtillery:
 		ContrailLength: 8
 		ContrailColor: 44A8DD
 	Warhead@1Dam: SpreadDamage
-		Spread: 448
+		Spread: 256
 		Falloff: 100, 100, 75, 50, 25
 		Damage: 280
 		Versus:
@@ -1407,7 +1407,7 @@ SpiritBomb:
 		Inaccuracy: 512
 		RangeLimit: 125
 	Warhead@1Dam: SpreadDamage
-		Spread: 448
+		Spread: 256
 		Falloff: 100, 100, 75, 50, 25
 		Damage: 400
 		Versus:
@@ -1790,7 +1790,7 @@ GrandCannonWeapon:
 		ContrailLength: 8
 		ContrailColor: 565656
 	Warhead@1Dam: SpreadDamage
-		Spread: 448
+		Spread: 256
 		Falloff: 100, 100, 75, 50, 25
 		Damage: 240
 		Versus:

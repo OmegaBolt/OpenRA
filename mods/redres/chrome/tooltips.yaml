@@ -1,7 +1,7 @@
 Background@SIMPLE_TOOLTIP:
 	Logic: SimpleTooltipLogic
 	Background: dialog4
-	Height: 29
+	Height: 32
 	Children:
 		Label@LABEL:
 			X: 7
@@ -62,14 +62,14 @@ Background@WORLD_TOOLTIP:
 			Width: 32
 			Height: 16
 		Label@OWNER:
-			X: 55
+			X: 45
 			Y: 22
 			Height: 23
 			Font: Bold
 		Label@EXTRA:
 			X: 7
-			Y: 52
-			Height: 4
+			Y: 50
+			Height: 5
 			Font: Bold
 
 Background@SPAWN_TOOLTIP:
@@ -129,6 +129,30 @@ Background@CLIENT_TOOLTIP:
 			Y: 31
 			Height: 10
 			Font: TinyBold
+
+Background@INGAME_CLIENT_TOOLTIP:
+	Logic: ClientTooltipLogic
+	Background: dialog4
+	Height: 41
+	Width: 7
+	Children:
+		Label@ADMIN:
+			Y: 4
+			Height: 18
+			Font: Bold
+			Text: Game Admin
+			Align: Center
+		Label@IP:
+			Y: 7
+			Width: 5
+			Height: 10
+			Font: TinyBold
+			Align: Center
+		Label@LOCATION:
+			Y: 19
+			Height: 10
+			Font: TinyBold
+			Align: Center
 
 Background@PRODUCTION_TOOLTIP:
 	Logic: ProductionTooltipLogic
@@ -205,7 +229,6 @@ Background@SUPPORT_POWER_TOOLTIP:
 			TextColor: FFFF00
 			Font: Bold
 		Label@TIME:
-			X: 20
 			Y: 8
 			Font: TinyBold
 			VAlign: Top
@@ -216,7 +239,7 @@ Background@SUPPORT_POWER_TOOLTIP:
 			VAlign: Top
 
 Background@FACTION_DESCRIPTION_TOOLTIP:
-	Logic: CountryTooltipLogic
+	Logic: FactionTooltipLogic
 	Background: dialog4
 	Children:
 		Label@HEADER:
@@ -233,3 +256,4 @@ Background@FACTION_DESCRIPTION_TOOLTIP:
 			Height: 14
 			Font: TinyBold
 			VAlign: Top
+

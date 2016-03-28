@@ -2,6 +2,7 @@ caoild:
 	Defaults:
 		Offset: 0, -30
 		UseTilesetCode: true
+		TilesetOverrides:
 			URBAN: TEMPERATE
 	idle: ctoild
 		ShadowStart: 4
@@ -32,6 +33,7 @@ camach:
 	Defaults:
 		Offset: 0, -40
 		UseTilesetCode: true
+		TilesetOverrides:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
 	idle: cgmach
@@ -47,6 +49,7 @@ camach.husk:
 	Defaults:
 		Offset: 0, -40
 		UseTilesetCode: true
+		TilesetOverrides:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
 	idle: cgmach
@@ -55,8 +58,9 @@ camach.husk:
 
 caobs:
 	Defaults: cgobs
-		Offset: 0, -30
+		Offset: 0, -25
 		UseTilesetCode: true
+		TilesetOverrides:
 			TEMPERATE: GENERIC
 			URBAN: GENERIC
 	idle: cgobs_a

@@ -657,7 +657,7 @@ gawall:
 		BuildPaletteOrder: 10
 		Prerequisites: ~structures.allies
 	Valued:
-		Cost: 100
+		Cost: 250
 	CustomBuildTimeValue:
 		Value: 90
 	Tooltip:
@@ -667,7 +667,7 @@ gawall:
 		Footprint: x
 		Dimensions: 1, 1
 	Health:
-		HP: 750
+		HP: 1500
 	Armor:
 		Type: Concrete
 	Armor@2:

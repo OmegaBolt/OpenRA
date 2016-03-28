@@ -173,6 +173,15 @@ Actors:
 	Actor44: caoild
 		Owner: Neutral
 		Location: 136,-96
+	Actor43: camach
+		Owner: Neutral
+		Location: 98,-31
+	Actor45: caobs
+		Owner: Neutral
+		Location: 73,-4
+	Actor46: caobs
+		Owner: Neutral
+		Location: 125,-62
 
 Smudges:
 

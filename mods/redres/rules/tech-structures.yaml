@@ -25,9 +25,9 @@ camach:
 		Name: Tech Machine Shop
 	ProvidesPrerequisite@default:
 	Selectable:
-		Bounds: 132, 64, 0, -32
+		Bounds: 134, 102, 0, -21
 	Building:
-		Footprint: xxx xxx
+		Footprint: xxx xxx xxx
 		Dimensions: 3, 3
 	Health:
 		HP: 4000
@@ -54,7 +54,7 @@ caobs:
 	RevealsShroud:
 		Range: 16c0
 	ProximityCapturable:
-		Range: 2
-		CaptorTypes: obs_post
+		Range: 2048
+		CaptorTypes: obs-post
 	WithIdleOverlay@dish:
 		Sequence: idle-dish

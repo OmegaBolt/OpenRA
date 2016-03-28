@@ -6,6 +6,7 @@
 	ScriptTriggers:
 	UpgradeManager:
 	Huntable:
+	RenderDebugState:
 
 ^SpriteActor:
 	BodyOrientation:
@@ -100,7 +101,7 @@
 	WithDecoration@ironcurtain:
 		Image: iron_blast
 		Sequence: idle
-		ReferencePoint: HCenter, VCenter
+		ReferencePoint: Center
 		Palette: effect
 		UpgradeTypes: invulnerability
 		ShowToEnemies: true
@@ -121,7 +122,7 @@
 	WithDecoration@EMPDISABLE:
 		Image: emp
 		Sequence: idle
-		ReferencePoint: HCenter, VCenter
+		ReferencePoint: Center
 		Palette: effect
 		UpgradeTypes: empdisable
 		ShowToEnemies: true
@@ -191,7 +192,7 @@
 	WithDecoration@targetpainter:
 		Image: target-painter
 		Sequence: idle
-		ReferencePoint: HCenter, VCenter
+		ReferencePoint: Center
 		Palette: mouse
 		UpgradeTypes: target-painter
 		ShowToEnemies: true
